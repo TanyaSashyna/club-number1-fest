@@ -1,0 +1,26 @@
+.my-account {
+    &__link {
+       // @include icon-before($fa-var-user-circle);
+        @include trs();
+        color: $color-3--3;
+        font-size: 1.3rem;
+        font-weight: $normal;
+        margin-left: 0.7rem;
+        margin-right: 2.8rem;
+        text-transform: uppercase;
+
+        @include breakpoint(medium down) {
+            display: none;
+        }
+
+        &::before {
+            content: '';
+            font-weight: $bold;
+            margin-right: 0.5rem;
+        }
+
+        @include on-event() {
+            color: $color-black;
+        }
+    }
+}

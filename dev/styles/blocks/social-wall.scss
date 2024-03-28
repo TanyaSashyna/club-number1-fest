@@ -1,0 +1,501 @@
+$social-wall-gap: 2;
+$social-wall-color: $color-2--5;
+$social-wall-card: '.social-card';
+
+.social-wall {
+
+    @include breakpoint(medium down) {
+        padding-top: 1.4rem;
+        padding-bottom: 4rem;
+    }
+     @include breakpoint(small down) {
+        padding-bottom: 5.5rem;
+    }
+
+    &__grid {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+        @include breakpoint(medium down) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 4.4rem;
+        }
+        @include breakpoint(small down) {
+            margin: 0;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        @include breakpoint(medium down) {
+            display: flex;
+            flex-direction: column;
+            padding: 0 2rem;
+        }
+        @include breakpoint(small down) {
+            padding: 0 1rem;
+        }
+    }
+
+    .tabs {
+        margin: 0;
+        font-family: $typo-1;
+        &__panel {
+            background: none;
+
+            @include breakpoint(medium down) {
+                order: 3;
+            }
+        }
+
+        &__list {
+            position:absolute;
+            top:33%;
+            right: 0;
+            width: 40%;
+            justify-content: center;
+            border: none;
+            &-item {
+                &:not(:first-child) {
+                    border-left: 1px solid $color-2--5;
+                }
+            }
+            @include breakpoint(medium down) {
+                position: static;
+                order: 2;
+                width: 100%;
+                margin-bottom: 3.3rem;
+            }
+            @include breakpoint(small down) {
+                margin-bottom: 1.1rem;
+            }
+        }
+
+        .title-block {
+            width: 40%;
+            position:absolute;
+            top:14%;
+            right: 0;
+            .title.-primary {
+                &:after {
+                    opacity: 0;
+                }
+            }
+            @include breakpoint(medium down) {
+                position: static;
+                order: 1;
+                width: 100%;
+                margin-bottom: 2.1rem;
+                .title.-primary {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+            @include breakpoint(small down) {
+                margin-bottom: 2.8rem;
+            }
+        }
+
+        &__trigger {
+            @include hide-text-with-icon();
+            @include size(5.6rem,3.2rem);
+            background: $color-white;
+            color: $social-wall-color;
+            padding: 0;
+            margin: 0;
+
+            &::before {
+                z-index: 0;
+            }
+
+            @include icon-after('', $ff: $font-awesome-brands, $fw: 400);
+
+            &::after {
+                color: currentColor;
+                display: block;
+                font-size: 2.2rem;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @each $vendor, $data in $socials {
+                &.-#{$vendor}::after {
+                    content: fa-content(nth($data, 2));
+                }
+            }
+
+            &.-tous {
+                width: 5.7rem;
+                height: 3.2rem;
+            }
+
+            &.-tous::after {
+                content: 'Tous';
+                font-family: $typo-1;
+                font-size: 1.4rem;
+                font-weight: $bold;
+                text-transform: uppercase;
+            }
+
+            &:hover,
+            &:active,
+            &.-current {
+                color: $color-white;
+            }
+        }
+    }
+
+    // Items per row
+    @each $size, $value in (
+        'two': 2,
+        'three': 3,
+        'four': 4,
+        'five': 5,
+    ) {
+        @include breakpoint(medium) {
+            &.-tablet-#{$size} #{$social-wall-card} {
+                width: (100% / $value);
+            }
+        }
+        @include breakpoint(large) {
+            &.-desktop-#{$size} #{$social-wall-card} {
+                width: (100% / $value);
+            }
+        }
+    }
+}
+
+.social-card {
+    position: relative;
+    width: 100%;
+
+    &:nth-child(1) {
+        -ms-grid-row: 1;
+        grid-row-start: 1;
+        -ms-grid-row-span: 2;
+        grid-row-end: 3;
+        -ms-grid-column: 1;
+        grid-column-start: 1;
+        -ms-grid-column-span: 2;
+        grid-column-end: 3;
+    }
+    &:nth-child(2) {
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 1;
+    }
+    &:nth-child(3) {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 1;
+    }
+    &:nth-child(4) {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 4;
+        -ms-grid-column-span: 1;
+    }
+    &:nth-child(5) {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 5;
+        -ms-grid-column-span: 1;
+    }
+
+    @include breakpoint(medium down) {
+        margin: 0 1rem 1.7rem;
+        width: calc(50% - 2rem);
+    }
+
+    @include breakpoint(small down) {
+        margin: 0 0 1rem;
+        width: 100%;
+    }
+
+    &__link {
+        padding-top: 100%;
+
+        * {
+            color: $color-white;
+            font-family: $typo-1;
+            font-size: 1.5rem;
+            font-weight: $light;
+        }
+
+        @include on-event {
+            .social-card__wrapper {
+                opacity: 1;
+            }
+        }
+
+    }
+
+    &__image {
+        position:absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            display: block;
+            font-family: 'object-fit: cover; object-position: center;';
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    &__wrapper {
+        position:absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem;
+        transition: all 0.2s linear;
+        background: rgba(33,40,81,0.8);
+        opacity: 0;
+
+         > p {
+            margin: 0;
+            color: $color-white;
+            font-size: 1.7rem;
+            line-height: 1.2;
+            font-weight: $normal;
+            width: 100%;
+        }
+    }
+
+    &-ico {
+        position:absolute;
+        bottom: 1.8rem;
+        left:1.8rem;
+        width: 4rem;
+        height: 4rem;
+        text-indent:-9999px;
+        overflow:hidden;
+        background: #3b5998;
+        border-radius: 50%;
+        transition: all 0.2s linear;
+        &:before {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem;
+            line-height: 1.2;
+            font-family: $font-awesome-brands;
+            color: $color-white;
+            text-indent: 0;
+            font-style: normal;
+            transition: all 0.2s linear;
+        }
+    }
+
+    &__reposted {
+        font-size: 1.3rem;
+        font-weight: $light;
+        margin-top: 0;
+
+        //@include icon-before($fa-var-retweet);
+
+        &::before {
+            content: '';
+            color: #0c9;
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__readmore {
+        font-size: 1.2rem;
+        margin-top: -0.5em;
+    }
+
+    &__header {
+        font-family: $typo-1;
+        margin-bottom: 2.3rem;
+
+        &-logo {
+            border: 1px solid rgba($color-3--3, 0.5);
+            display: block;
+            float: left;
+            margin-right: 1rem;
+            width: 4rem;
+        }
+
+        &-title {
+            font-size: 1.5rem;
+            font-weight: $bold;
+            margin: 0 0 0.3em;
+            color: $color-white;
+        }
+
+        &-subtitle {
+            font-size: 1.3rem;
+            font-weight: $light;
+            margin: 0;
+            color: $color-white;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        font-family: $typo-1;
+        text-transform: uppercase;
+
+        &-type,
+        &-posted-on {
+            color: $color-3--3;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        &-type {
+            font-weight: $bold;
+        }
+    }
+
+    &.-facebook {
+        .social-card-ico {
+            &:before {
+                content: '\f39e';
+            }
+        }
+    }
+    &.-youtube {
+        .social-card-ico {
+            background: #c4302b;
+            &:before {
+                content: '\f167';
+            }
+        }
+    }
+    &.-instagram {
+        .social-card-ico {
+            background: linear-gradient(45deg,#fcb85f, #da3272, #545cca);
+            &:before {
+                content: '\f16d';
+            }
+        }
+    }
+    &.-linkedin {
+        .social-card-ico {
+            background: #0271AE;
+            &:before {
+                content: '\f0e1';
+            }
+        }
+    }
+
+    &.-twitter {
+        .social-card__image {
+            display: none;
+        }
+        .social-card__wrapper {
+            background: $color-2--4;
+            opacity: 1;
+            > p {
+                color: $color-1--3;
+            }
+        }
+        .social-card__header-title,
+        .social-card__header-subtitle {
+            color: $color-1--3;
+        }
+        .social-card-ico {
+            background: #36b9ff;
+            &:before {
+                content: '\f099';
+                color: $color-white;
+            }
+        }
+    }
+    &.-facebook,
+    &.-instagram,
+    &.-youtube,
+    &.-linkedin {
+        .social-card__link {
+            @include on-event {
+                .social-card-ico {
+                    background: $color-white;
+                    &:before {
+                        color: $color-1--3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.social-wall.-variation-1 {
+    
+}
+
+.social-wall.-variation-2 {
+    .tabs {
+        margin: 0;
+
+        &__list {
+            justify-content: center;
+        }
+    }
+
+    #{$social-wall-card}__link {
+        @include icon-before('', $ff: $font-awesome-brands, $fw: 400);
+
+        &::before {
+            color: $color-white;
+            display: block;
+            font-size: 1.6em;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    #{$social-wall-card}__image {
+        height: 18rem;
+    }
+
+    #{$social-wall-card} {
+        @each $vendor, $data in $socials {
+            &.-#{$vendor} #{$social-wall-card}__link::before {
+                background-color: nth($data, 1);
+                content: fa-content(nth($data, 2));
+            }
+
+            &.-#{$vendor} #{$social-wall-card}__header-title,
+            &.-#{$vendor} #{$social-wall-card}__readmore,
+            &.-#{$vendor} .hashtag,
+            &.-#{$vendor} #{$social-wall-card}__footer {
+                color: nth($data, 1);
+            }
+
+        }
+    }
+}

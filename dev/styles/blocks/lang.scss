@@ -1,0 +1,169 @@
+/**
+ * Use this component for lang chooser
+ *
+ * You can find markup and macro in `components/lang/lang.njk`
+ *
+ * Use macro: `{{ lang() }}` or `{{ lang('-light') }}` or `{{ lang('-dark') }}`
+ *
+ * @section Lang
+ * @page Components
+ *
+ * @example
+ *  <div class="lang">
+ *    <div class="lang__switcher js-dropdown -has-arrow">
+ *      <button type="button" class="lang__current js-dropdown__toggle"><abbr title="Français">FR</abbr></button>
+ *      <ul class="lang__drop js-dropdown__block">
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="en" title="English">EN</abbr></a></li>
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="de" title="Deutsch">DE</abbr></a></li>
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="ru" title="русский">RU</abbr></a></li>
+ *      </ul>
+ *    </div>
+ *  </div>
+ *  <div class="lang -light">
+ *    <div class="lang__switcher js-dropdown -has-arrow">
+ *      <button type="button" class="lang__current js-dropdown__toggle"><abbr title="Français">FR</abbr></button>
+ *      <ul class="lang__drop js-dropdown__block">
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="en" title="English">EN</abbr></a></li>
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="de" title="Deutsch">DE</abbr></a></li>
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="ru" title="русский">RU</abbr></a></li>
+ *      </ul>
+ *    </div>
+ *  </div>
+ *  <div class="lang -dark">
+ *    <div class="lang__switcher js-dropdown -has-arrow">
+ *      <button type="button" class="lang__current js-dropdown__toggle"><abbr title="Français">FR</abbr></button>
+ *      <ul class="lang__drop js-dropdown__block">
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="en" title="English">EN</abbr></a></li>
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="de" title="Deutsch">DE</abbr></a></li>
+ *        <li class="lang__item"><a href="#" class="lang__link"><abbr lang="ru" title="русский">RU</abbr></a></li>
+ *      </ul>
+ *    </div>
+ *  </div>
+ *
+ */
+
+// Lang config
+$lang-bg: rgba($color-black, 0.8) !default;
+$lang-font: $typo-2 !default;
+$lang-link-color: $color-white !default;
+$lang-button-padding: 1.35rem 1.6rem 1.35rem 1rem !default;
+$lang-drop-links-padding: 1.35rem 1.6rem 1.35rem 1rem !default;
+
+.lang {
+    $this: &;
+    color: $lang-link-color;
+    font-family: $lang-font;
+
+    &__switcher {
+        position: relative;
+        width: 100%;
+        z-index: 10;
+
+        &.-has-arrow {
+            #{$this}__current::after {
+                right: 0.7rem;
+            }
+        }
+    }
+
+    &__current {
+        background-color: $lang-bg;
+        border: 0;
+        color: inherit;
+        font-family: inherit;
+        font-size: 1.3rem;
+        font-weight: $light;
+        line-height: 1;
+        padding: $lang-button-padding;
+        position: relative;
+        @include trs($duration: 300ms);
+        //@include icon-after($lang-drop-icon);
+
+        @include on-event {
+            background-color: rgba($lang-bg, 0.65);
+        }
+
+        &:focus {
+            outline-offset: 0;
+        }
+
+        abbr {
+            text-decoration: none;
+        }
+    }
+
+    &__drop {
+        @include absolute();
+        background-color: $lang-bg;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        z-index: 5;
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__link {
+        color: inherit;
+        display: block;
+        font-family: inherit;
+        font-size: 1.3rem;
+        font-weight: $light;
+        padding: $lang-drop-links-padding;
+        text-decoration: none;
+        white-space: nowrap;
+        @include trs;
+
+        @include on-event {
+            background-color: rgba($lang-bg, 0.4);
+        }
+
+        abbr {
+            text-decoration: none;
+        }
+    }
+
+    &.-light {
+        color: $color-black;
+
+        #{$this}__current,
+        #{$this}__link {
+            @include on-event {
+                background-color: lighten($color-black, 90%);
+            }
+        }
+
+        #{$this}__current,
+        #{$this}__drop {
+            background-color: $color-white;
+        }
+    }
+
+    &.-dark {
+        color: $color-white;
+
+        #{$this}__current,
+        #{$this}__link {
+            @include on-event {
+                background-color: darken($color-white, 60%);
+            }
+        }
+
+        #{$this}__current,
+        #{$this}__drop {
+            background-color: $color-black;
+        }
+    }
+}
+
+.lang-wrapper {
+    @include absolute(0, null, null, 0);
+
+    .lang {
+        @include breakpoint(small down) {
+            display: none;
+        }
+    }
+}

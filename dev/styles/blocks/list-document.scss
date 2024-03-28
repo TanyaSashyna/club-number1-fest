@@ -1,0 +1,143 @@
+$ld-color: $color-black;
+$ld-color-size: $color-1--3;
+$ld-font-size: 1.4;
+$ld-download-icon-color: $color-2--5;
+$ld-read-icon-color: $color-2--1;
+
+.list-document {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding-left: 0;
+
+    &__item {
+        @include size(4.5rem);
+        @include trs();
+        float: left;
+        position: relative;
+        border-radius: 50%;
+        margin: 0 0.3rem 0 0;
+
+        a {
+            @include hide-text();
+            @include size(100%);
+            display: block;
+            position: relative;
+        }
+
+        &.-read {
+            background-color: $ld-read-icon-color;
+
+            /*&[data-fa-icon]::before {
+                content: fa-content($fa-var-book-open);
+            }*/
+        }
+
+        &.-download {
+            background-color: $ld-download-icon-color;
+
+            /*&[data-fa-icon]::before {
+                content: fa-content($fa-var-arrow-to-bottom);
+            }*/
+        }
+
+        &[data-fa-icon]::before {
+            @include trs();
+            @include absolute(50%, 50%);
+            color: $ld-color-size;
+            font-size: 1.4rem;
+            margin-right: 0;
+            transform: translate(50%, -50%);
+        }
+
+        @include on-event() {
+            background-color: $color-2--3;
+            &::before {
+                color: $color-white; 
+            }
+        }
+    }
+}
+
+$ld-title-color: $color-black;
+$ld-title-fz: 1.6;
+$ld-title-icon-color: $color-2--2;
+$ld-title-icon-fz: 3.5;
+$ld-size-fz: 1.4;
+
+.documents-list {
+    &__title {
+        color: $ld-title-color;
+        font-family: $typo-1;
+        font-size: #{$ld-title-fz}rem;
+        font-weight: $bold;
+        margin: 0;
+        padding-left: 4rem;
+        position: relative;
+
+        @include icon-before(unquote('\e005'));
+
+        &::before {
+            @include absolute(-0.5rem, null, null, 0);
+            @include transition(all, 300ms, ease, 0ms);
+
+            color: $ld-title-icon-color;
+            font-family: $icon-custom !important;
+            font-size: #{$ld-title-icon-fz}rem;
+            font-weight: $light;
+        }
+
+        @each $class, $icon in (
+            'pdf': \e003,
+            'xls': \e006,
+            'xlsx': \e006,
+            'xlsm': \e006,
+            'doc': \e001,
+            'docx': \e001,
+            'docm': \e001,
+            'dotx': \e001,
+            'dotm': \e001,
+            'ppt': \e004,
+            'png': \e002,
+            'svg': \e002,
+            'jpg': \e002,
+            'zip': \e007
+        ) {
+            &.-#{$class} {
+                &::before {
+                    content: fa-content($icon);
+                }
+            }
+        }
+    }
+
+    &__size {
+        display: block;
+        font-size: #{$ld-size-fz}rem;
+        font-weight: $light;
+        margin-top: 1rem;
+    }
+}
+
+.documents {
+    &-links {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    &-link {
+        display: inline-block;
+        margin-top: 1rem;
+
+        &.-read {
+            margin-right: 0.7rem;
+
+            a {
+                &[data-fa-icon] {
+                    &::before {
+                        color: $color-2--2;
+                    }
+                }
+            }
+        }
+    }
+}

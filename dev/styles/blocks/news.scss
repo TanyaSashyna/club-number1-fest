@@ -1,0 +1,187 @@
+.news {
+    $this: &;
+    padding: 10.5rem 0;
+
+    @include breakpoint(medium down) {
+        padding-bottom: 4rem;
+    }
+
+    .site-content & {
+        .container {
+            padding: 0;
+        }
+    }
+
+    &__wrapper {
+        .links-group.-rect {
+            margin-top: 2.5rem;
+            @include breakpoint(medium down) {
+                margin-top: 0.5rem;
+            }
+            @include breakpoint(small down) {
+                margin-top: 2.3rem;
+            }
+        }
+    }
+
+    &-focus {
+        margin-bottom: 3rem;
+        position: relative;
+
+        @include breakpoint(small down) {
+            margin-bottom: 2rem;
+        }
+
+        &__share {
+            align-items: center;
+            display: flex;
+            margin-left: -1rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 42;
+
+            @include breakpoint(medium down) {
+                margin-left: -1.2rem;
+                margin-top: 1.7rem;
+            }
+
+            @include breakpoint(small down) {
+                margin-top: 2rem;
+            }
+        }
+
+        &__wrap {
+            align-items: center;
+            display: flex;
+
+            @include breakpoint(small down) {
+                align-items: flex-end;
+                flex-direction: column;
+            }
+
+            &.composite-link {
+                display: flex;
+
+                @include on-event() {
+                    #{$this}-focus__content {
+                        background-color: $color-2--4;
+
+                        &::after {
+                            background-color: $color-2--3;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__image {
+            flex-shrink: 0;
+            width: calc(100% - 44rem);
+            z-index: -1;
+
+            @include breakpoint(medium down) {
+                width: calc(100% - 20.8rem);
+            }
+
+            @include breakpoint(small down) {
+                width: 100%;
+            }
+
+            img {
+                display: block;
+                font-family: 'object-fit: cover; object-position: center;';
+                height: auto;
+                max-width: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        &__content {
+            background-color: $color-2--1;
+            color: $color-black;
+            font-family: $typo-1;
+            margin-left: -4rem;
+            padding: 10.5rem 4.5rem 0 5.6rem;
+            transition: background-color 0.3s ease;
+            width: 42.4rem;
+
+            @include breakpoint(medium down) {
+                margin-left: -3.3rem;
+                padding: 4.5rem 2.5rem 0;
+                width: 24.1rem;
+            }
+
+            @include breakpoint(small down) {
+                margin: -6rem 0 0;
+                padding: 3rem 1rem 0 1.5rem;
+                width: calc(100% - 4rem);
+            }
+
+            &::after {
+                content: '';
+                @include size(5rem);
+                @include trs($duration: 300ms);
+                background-color: rgba($color-2--4, 0.3);
+                color: $color-white;
+                font-size: 1.5rem;
+                display: block;
+                line-height: 50px;
+                margin: 4rem -4.5rem 0 auto;
+                text-align: center;
+
+                @include breakpoint(medium down) {
+                    margin-right: -2.5rem;
+                    margin-top: -4rem;
+                }
+
+                @include breakpoint(small down) {
+                    margin-right: -1rem;
+                }
+            }
+        }
+
+        &__title {
+            font-family: $typo-2;
+            font-size: 3.4rem;
+            font-weight: $light;
+            line-height: 42px;
+            margin: 0;
+
+            @include breakpoint(medium down) {
+                font-size: 2.5rem;
+                line-height: 30px;
+            }
+
+            @include breakpoint(small down) {
+                font-size: 2rem;
+                line-height: 26px;
+            }
+        }
+    }
+    &.-content {
+        margin: 0rem 0 6.5rem;
+
+        @include breakpoint(small down) {
+            padding: 0 2.5rem;
+        }
+    }
+}
+
+.news-block {
+    $this: &;
+
+    &.-composite {
+        @include breakpoint(medium down) {
+            padding: 0 4.5rem;
+        }
+
+        @include breakpoint(small down) {
+            padding: 0;
+        }
+
+        #{$this}__content {
+            text-align: center;
+        }
+    }
+}

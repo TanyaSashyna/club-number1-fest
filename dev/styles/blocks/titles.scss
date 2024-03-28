@@ -1,0 +1,283 @@
+/**
+ *
+ * @section Title for page content
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title">Title</h2>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Title for page content with icon
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title" data-fa-icon="&#xE00B;">Title</h2>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Title large
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title -lg">Title</h2>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Title primary
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title -primary">Title</h2>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Title primary with icon
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title -primary" data-fa-icon="&#xE00B;">Title</h2>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Title secondary
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title -secondary">Title</h2>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Title secondary with icon
+ * @page Titles
+ *
+ * @example
+ * <div class="title-block">
+ *      <h2 class="title -secondary" data-fa-icon="&#xE00C;">Title</h2>
+ * </div>
+ *
+ */
+
+$title-color: $color-1--3;
+$title-color-inverted: $color-white;
+
+// Title for page content
+$title-default-font-size: 3;
+$title-default-font-size-mobile: 2.2;
+$title-default-icon-color: $color-1--3;
+
+$title-lg-font-size: 4;
+$title-lg-font-size-mobile: 3;
+
+// Titles for home page
+$title-primary-font-size: 4;
+$title-primary-font-size-tablet: 3.6;
+$title-primary-font-size-mobile: 2.8;
+$title-primary-icon-color: $color-2--2;
+$title-primary-icon-font-size: 4.5;
+
+$title-secondary-font-size: 2;
+$title-secondary-font-size-mobile: 1.9;
+$title-secondary-icon-font-size: 2.8;
+$title-secondary-icon-color: $color-1--2;
+
+.title {
+    // example for title
+    // title(color, font-family, font-weight, text-align)
+    @include title($title-color, $typo-1, $black);
+
+    font-size: #{$title-default-font-size}rem;
+    margin: 0;
+
+    @include breakpoint(small down) {
+        font-size: #{$title-default-font-size-mobile}rem;
+    }
+
+    &.-center {
+        text-align: center;
+    }
+
+    &.-inverted {
+        color: $title-color-inverted;
+    }
+
+    &-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 4.1rem;
+        overflow: hidden;
+        position: relative;
+
+        svg {
+            width: 46px;
+            max-height: 9px;
+            path {
+                fill: $color-3--5;
+            }
+            @include breakpoint(medium down) {
+                width: 41px;
+            }
+        }
+
+        &.-center {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        &.-no-recore {
+            
+        }
+
+        &.-column {
+            @include breakpoint(small down) {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @include breakpoint(medium down) {
+            padding: 0;
+            margin-bottom: 3.2rem;
+        }
+
+        .sidebar & {
+            margin: 0 0 1.6rem;
+            @include breakpoint(small down) {
+               
+            }
+        }
+    }
+
+    &[data-fa-icon]::before {
+        color: $title-default-icon-color;
+        font-family: $icon-custom;
+        font-size: 3.6rem;
+        font-weight: $normal;
+        vertical-align: bottom;
+    }
+
+    &.-primary {
+        color: $color-1--3;
+        font-size: #{$title-primary-font-size}rem;
+        position: relative;
+        padding: 0 2.5rem;
+        margin-bottom: 1.2rem;
+        padding-top: 0.3rem;
+
+        @include breakpoint(medium down) {
+            margin-bottom: 0.9rem;
+            font-size: #{$title-primary-font-size-tablet}rem;
+        }
+
+        @include breakpoint(small down) {
+            font-size: #{$title-primary-font-size-mobile}rem;
+            line-height: 1.15;
+            padding: 0 1.5rem 0.2rem;
+            margin: 0;
+        }
+
+        &[data-fa-icon]::before {
+            color: $title-primary-icon-color;
+            font-size: #{$title-primary-icon-font-size}rem;
+            vertical-align: bottom;
+            margin: 0;
+           
+        }
+
+        &::after,
+        &::before {
+           width: 99rem;
+           height: 0.1rem;
+           background: #b7bec2;
+           position:absolute;
+           top:58%;
+           right: 100%;
+           content: '';
+           @include breakpoint(small down) {
+                top: 42%;
+           }
+        }
+
+        &::after {
+            right: auto;
+            left: 100%;
+        }
+
+        span {
+            bottom: 5.5rem;
+            left: -8.5rem;
+            position: absolute;
+
+            @include breakpoint(medium down) {
+                bottom: 3.5rem;
+            }
+
+            @include breakpoint(small down) {
+                bottom: 2.5rem;
+                left: -5.5rem;
+            }
+        }
+    }
+
+    &.-secondary {
+        font-size: #{$title-secondary-font-size}rem;
+
+        @include breakpoint(medium down) {
+            font-size: #{$title-secondary-font-size-mobile}rem;
+        }
+
+        @include breakpoint(small down) {
+
+        }
+
+        &[data-fa-icon]::before {
+            color: $title-secondary-icon-color;
+            font-size: #{$title-secondary-icon-font-size}rem;
+            vertical-align: middle;
+        }
+    }
+
+    &.-lg {
+        font-size: #{$title-lg-font-size}rem;
+        margin: 0 0 1.5rem;
+
+        @include breakpoint(small down) {
+            font-size: #{$title-lg-font-size-mobile}rem;
+        }
+    }
+
+    .sidebar & {
+        font-size: 2.2rem;
+
+        &[data-fa-icon]::before {
+            font-size: 1.1em;
+            vertical-align: -0.1em;
+        }
+    }
+}

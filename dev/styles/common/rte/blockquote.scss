@@ -1,0 +1,66 @@
+// @name Blockquote
+.blockquote,
+blockquote {
+    $fz-sm: 2;
+    $fz-lg: 2.4;
+    $fz-cite: 1.4;
+    $fz-icon: 4;
+    color: $color-3--3;
+    font-family: $typo-1;
+    font-size: 2.4rem;
+    font-weight: $light;
+    margin: 5.4rem 0 3rem 0;
+    padding: 3.8rem 3rem 0.9rem 3rem;
+    position: relative;
+    text-align: center;
+    clear: both;
+ 
+    @include breakpoint(small down) {
+        margin: 6.8rem 0 1em 0;
+        padding: 2.8rem 3rem 0.9rem 3rem;
+    }
+
+    &::before {
+        content: '';
+        width: 88px;
+        height: 59px;
+        background: #fff;
+        background-image: url(#{$custom-icons-assets}/svg/072-quote.svg);
+        background-size: 86px 45px;
+        background-repeat: no-repeat;
+        @include absolute(-2.2rem, null, null, 5.3rem);
+        color: $color-3--5;
+        font-size: 4rem;
+        font-weight: $normal;
+        z-index: 1;
+
+        @include breakpoint(small down) {
+            left: 2rem;
+        }
+    }
+
+    &::after {
+        @include absolute(0, null, null, 0);
+        right: 0;
+        height: 1px;
+        background-color: $color-3--2; 
+        content: '';
+
+        @include breakpoint(small down) {
+           
+        }
+    }
+
+    p {
+        color: $color-3--3;
+        font-size: 2.4rem;
+        line-break: 1.3;
+        font-weight: $light;
+        margin: 0 0 em(2, $fz-lg) 0;
+
+        @include breakpoint(small down) {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+    }
+}

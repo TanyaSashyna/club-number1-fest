@@ -1,0 +1,215 @@
+// toggle
+$one-click-toggle-bg-color: #3fbcd7;
+$one-click-toggle-color: $color-1--3; 
+$one-click-toggle-font: $typo-1;
+$one-click-toggle-font-size: 1.3rem;
+$one-click-size: 7.3rem;
+
+.one-click-toggle {
+    @include trs();
+    @include size($one-click-size);
+    @include flex(row, wrap, center, center);
+    @include fixed(40%, -0.3rem);
+    width: 10.6rem;
+    height: 10.6rem;
+    background: linear-gradient(to right,  #43bfe8 0%,#3dbbd0 77%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    border: 0;
+    color: $one-click-toggle-color;
+    cursor: pointer;
+    font-family: $one-click-toggle-font;
+    font-size: $one-click-toggle-font-size;
+    font-weight: $bold;
+    line-height: 1;
+    padding: 1rem;
+    padding: 5px;
+    z-index: 49;
+    text-align: center;
+    > div {
+        &::before {
+            font-size: 2.1rem;
+            color: $one-click-toggle-color !important;
+            margin-right: 0 !important;
+        }
+        span {
+            display: block;
+            margin: .5rem 0 0;
+        }
+    }
+    
+
+    @include on-event {
+        background-color: $color-2--3;
+    }
+
+    @include breakpoint(medium down) {
+        display: none;
+    }
+}
+
+// panel
+$one-click-panel-bg-color: $color-3--4;
+$one-click-panel-width: 32rem;
+$one-click-panel-padding: 4rem;
+$one-click-panel-font: $typo-1;
+$one-click-panel-font-color: $color-white;
+
+// title
+$one-click-panel-title-font-size: 2.2rem;
+
+// close
+$one-click-panel-close-bg-color: $color-black;
+$one-click-panel-close-size: 3rem;
+$one-click-panel-close-icon-size: 1.6rem;
+
+// links
+$one-click-panel-link-font-size: 1.8rem;
+$one-click-panel-link-icon-size: 1.4rem;
+$one-click-panel-link-icon-color: darken(adjust-hue($color-2--1, -8), 3.33);
+$one-click-panel-link-hover-bg-color: $color-2--3;
+
+.one-click-panel {
+    @include trs();
+    @include fixed(0, 0);
+    background-color: $one-click-panel-bg-color;
+    color: $one-click-panel-font-color;
+    display: table;
+    font-family: $one-click-panel-font;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(100%);
+    width: $one-click-panel-width;
+    z-index: 49;
+
+    &.-is-open {
+        transform: translateX(0);
+        z-index: 60;
+    }
+
+    &__section {
+        @include size(100%);
+        display: table-cell;
+        vertical-align: middle;
+
+        .news-block {
+            &__item {
+                flex-basis: auto;
+                margin: 10rem 0 0;
+            }
+
+            &__content {
+                padding-left: 2rem;
+                padding-right: 0;
+            }
+
+            &__category,
+            &__title {
+                color: $color-white;
+                font-weight: $bold;
+            }
+
+            &__category {
+                background-color: #02648e;
+                font-size: 1.4rem;
+                margin: -1.5rem 0 1rem -2rem;
+                padding: 0.7rem 2.1rem;
+                text-transform: inherit;
+            }
+
+            &__title {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    &__content {
+        max-height: 100%;
+        overflow-y: auto;
+        padding: $one-click-panel-padding;
+    }
+
+    &__header {
+        @include flex(row);
+        padding-right: 4rem;
+        position: relative;
+    }
+
+    // add specifity for selector
+    & &__title {
+        @include flex(row);
+        font-size: $one-click-panel-title-font-size;
+        font-weight: $bold;
+        line-height: 3.5rem;
+        margin-bottom: 2rem;
+        margin-top: 0;
+        text-transform: uppercase;
+
+        &::before {
+            color: inherit;
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+    }
+
+    // add specifity for selector
+    & &__close {
+        @include absolute(0, 0);
+        @include size($one-click-panel-close-size);
+        @include trs();
+        background: $one-click-panel-close-bg-color;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+
+        &::before {
+            color: inherit;
+            font-size: $one-click-panel-close-icon-size;
+            margin-right: 0;
+        }
+
+        @include on-event {
+            background-color: $color-2--1;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        border-bottom: 1px solid $color-3--3;
+        display: block;
+        margin-top: -0.1rem;
+    }
+
+    // add specifity for selector
+    & &__link {
+        @include trs();
+        @include flex(row);
+        border-top: 1px solid $color-3--3;
+        color: inherit;
+        font-size: $one-click-panel-link-font-size;
+        font-weight: $light;
+        padding: 1rem 1.5rem;
+
+        &::before {
+            color: $one-click-panel-link-icon-color;
+            font-size: $one-click-panel-link-icon-size;
+            line-height: 2rem;
+            margin-right: 0.7rem;
+        }
+
+        @include on-event {
+            background-color: #02648e;
+            border-color: transparent;
+        }
+    }
+}
+
+.one-click-wrapper {
+    @include breakpoint(medium down) {
+        display: none;
+    }
+}

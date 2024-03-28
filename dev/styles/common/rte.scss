@@ -1,0 +1,20 @@
+// Import rte components
+// !important include this with ##include directive
+@import 'rte/headings';
+@import 'rte/frame';
+@import 'rte/titles';
+
+.rte {
+    > *:first-child {
+        margin-top: 0 !important;
+    }
+
+    @import 'rte/links';
+    @import 'rte/paragraph';
+    @import 'rte/chapeau';
+    @import 'rte/encadre';
+    @import 'rte/blockquote';
+    @import 'rte/lists';
+    @import 'rte/table';
+    @import 'rte/infowidg';
+}

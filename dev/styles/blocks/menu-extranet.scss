@@ -1,0 +1,31 @@
+.menu-extranet {
+    align-items: center;
+    background-color: $color-black;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.85rem 1rem;
+
+    a {
+        color: $color-3--2;
+        display: block;
+        font-family: $typo-1;
+        font-size: 1.3rem;
+        font-weight: $light;
+        margin: 0;
+        padding: 0 0.5rem;
+
+        &:nth-child(2) {
+            border-left: 1px solid $color-3--2;
+            border-right: 1px solid $color-3--2;
+        }
+
+        @include on-event() {
+            text-decoration: underline;
+        }
+
+        svg {
+            @include size(2rem);
+            fill: $color-3--2;
+        }
+    }
+}

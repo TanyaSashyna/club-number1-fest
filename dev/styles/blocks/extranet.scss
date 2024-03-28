@@ -1,0 +1,107 @@
+.extranet {
+    &-logout {
+        margin-right: 1rem;
+    }
+
+    &-block {
+        form {
+            margin-bottom: 5rem;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0;
+        }
+
+        .filters {
+            &__wrapper {
+                @include breakpoint(small down) {
+                    align-items: flex-start;
+                }
+            }
+
+            &__field {
+                margin-bottom: 0;
+
+                @include breakpoint(small down) {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            &__buttons {
+                @include breakpoint(small down) {
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+
+    &__title {
+        color: $color-2--3;
+        font-size: 2.5rem;
+        font-weight: $normal;
+        margin: 4rem 0 2.5rem;
+
+        &.-inline {
+            display: inline-block;
+            margin-right: 2rem;
+        }
+    }
+
+    &__link {
+        color: $color-black;
+        font-size: 1.4rem;
+
+        @include on-event() {
+            text-decoration: underline;
+        }
+    }
+}
+
+.dashboard {
+    &-info {
+        &__title {
+            color: $color-black;
+            font-size: 1.4rem;
+            font-weight: $bold;
+        }
+
+        &__col {
+            display: inline-block;
+            margin-right: 1rem;
+            vertical-align: top;
+
+            p:not(.dashboard-info__title) {
+                color: lighten($color-black, 44.71);
+                font-size: 1.4rem;
+                font-weight: $light;
+                margin-bottom: 1rem;
+            }
+
+            &:first-child {
+                width: 15%;
+
+                @include breakpoint(small down) {
+                    width: 30%;
+                }
+            }
+
+            &:nth-child(2) {
+                width: 25%;
+
+                @include breakpoint(small down) {
+                    width: 40%;
+                }
+            }
+        }
+    }
+
+    .btn {
+        text-align: center;
+        width: 100%;
+
+        @include breakpoint(small down) {
+            margin-bottom: 1rem;
+        }
+    }
+}

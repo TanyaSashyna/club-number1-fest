@@ -1,0 +1,186 @@
+/**
+ * Use this component for lang chooser
+ *
+ * You can find markup and macro in `components/profile-menu/profile-menu.njk`
+ *
+ * Use macro: `{{ profileMenu() }}` or `{{ profileMenu(dataArray, iconClass, btnText, className) }}`
+ *
+ * @section Profile
+ * @page Components
+ *
+ * @example
+ * <div class="profile">
+ *   <div class="profile__switcher js-dropdown -has-arrow">
+ *     <button type="button" class="profile__btn-current js-dropdown__toggle">
+ *       <span class="profile__btn-icon"><i class="fas fa-users"></i></span> Vous êtes
+ *     </button>
+ *     <ul class="profile__drop js-dropdown__block">
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 1</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 2</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 3</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 4</a></li>
+ *     </ul>
+ *   </div>
+ * </div>
+ * <div class="profile -light">
+ *   <div class="profile__switcher js-dropdown -has-arrow">
+ *     <button type="button" class="profile__btn-current js-dropdown__toggle">
+ *       <span class="profile__btn-icon"><i class="fas fa-users"></i></span> Vous êtes
+ *     </button>
+ *     <ul class="profile__drop js-dropdown__block">
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 1</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 2</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 3</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 4</a></li>
+ *     </ul>
+ *   </div>
+ * </div>
+ * <div class="profile -dark">
+ *   <div class="profile__switcher js-dropdown -has-arrow">
+ *     <button type="button" class="profile__btn-current js-dropdown__toggle">
+ *       <span class="profile__btn-icon"><i class="fas fa-users"></i></span> Vous êtes
+ *     </button>
+ *     <ul class="profile__drop js-dropdown__block">
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 1</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 2</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 3</a></li>
+ *       <li class="profile__item"><a href="#" class="profile__link">Item 4</a></li>
+ *     </ul>
+ *   </div>
+ * </div>
+ *
+ */
+
+// Profile config
+$profile-color: lighten(desaturate($color-2--1, 0.84), 0.2) !default;
+$profile-font: $typo-1 !default;
+$profile-font-color: #222221 !default;
+$profile-btn-height: 4rem !default;
+$profile-btn-padding: 0.25rem 2.5rem 0.25rem 3.5rem !default;
+$profile-drop-bottom-padding: 1.5rem !default;
+$profile-drop-icon: '\f138' !default;
+$profile-drop-link-padding: 1.2rem 2rem 1.2rem 4rem !default;
+$profile-drop-link-font-size: 1.6rem !default;
+
+.profile {
+    $this: &;
+    color: $profile-font-color;
+    font-family: $profile-font;
+
+    &__switcher {
+        &.-has-arrow {
+            #{$this}__btn-current {
+                &::after {
+                    @include trs();
+                    color: $color-2--1;
+                    content: '';
+                    font-size: 1.2rem;
+                    font-weight: $normal;
+                    right: 1.2rem;
+                }
+
+                @include on-event {
+                    background-color: $color-2--1;
+                    color: $profile-font-color;
+
+                    &::after {
+                        color: $profile-font-color;
+                    }
+                }
+            }
+        }
+
+        &.-is-open {
+            #{$this}__btn-current {
+                background-color: $color-2--1;
+                color: $profile-font-color;
+
+                &::after {
+                    color: $profile-font-color;
+                    content: '';
+                }
+            }
+        }
+    }
+
+    &__btn-current {
+        @include flex(row, null, center, center);
+        @include trs();
+        background-color: transparent;
+        border: 0;
+        color: $color-3--3;
+        font-family: $typo-2;
+        font-size: 1.3rem;
+        font-weight: $normal;
+        min-height: $profile-btn-height;
+        padding: $profile-btn-padding;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    &__btn-text {
+        @include truncate(8rem);
+        align-items: center;
+        display: flex;
+        height: 3.5rem;
+    }
+
+    &__btn-icon {
+        @include absolute(50%, null, null, 1.5rem);
+        transform: translateY(-50%);
+    }
+
+    &__drop {
+        background-color: $color-2--1;
+        margin: 0;
+        min-width: 24rem;
+        padding: 0;
+        position: absolute;
+    }
+
+    &__item {
+        display: block;
+
+        &:last-child {
+            #{$this}__link {
+                padding-bottom: $profile-drop-bottom-padding;
+
+                &::before {
+                    margin-top: -0.25rem;
+                }
+            }
+        }
+    }
+
+    &__link {
+        @include icon-before($profile-drop-icon);
+        @include trs($duration: 250ms);
+        color: inherit;
+        display: block;
+        font-family: inherit;
+        font-size: $profile-drop-link-font-size;
+        font-weight: $normal;
+        line-height: 1;
+        padding: $profile-drop-link-padding;
+        position: relative;
+        white-space: nowrap;
+
+        &::before {
+            @include absolute(50%, null, null, 2rem);
+            @include trs($duration: 250ms);
+            color: $profile-font-color;
+            font-size: 1.2rem;
+            font-weight: $normal;
+            transform: translateY(-50%);
+        }
+
+        @include on-event {
+            background-color: $profile-font-color;
+            color: $color-white;
+
+            &::before {
+                color: $color-white;
+            }
+        }
+    }
+}

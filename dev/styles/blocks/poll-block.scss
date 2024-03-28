@@ -1,0 +1,58 @@
+$poll-category-color: $color-1--2;
+$poll-category-fz: 1.4;
+
+$poll-title-color: $color-black;
+$poll-title-fz: 1.8;
+
+$poll-teaser-color: $color-3--3;
+$poll-teaser-fz: 1.3;
+
+$poll-publication-color: $color-3--3;
+$poll-publication-fz: 1.3;
+
+.poll-block {
+    font-family: $typo-1;
+
+    &__item {
+        margin-top: 3rem;
+    }
+
+    &__category {
+        color: $poll-category-color;
+        font-size: #{$poll-category-fz}rem;
+        font-weight: $bold;
+        margin: 0 0 0.5rem;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        color: $poll-title-color;
+        font-size: #{$poll-title-fz}rem;
+        font-weight: $bold;
+        margin: 0.5rem 0 1rem;
+    }
+
+    &__teaser {
+        color: $poll-teaser-color;
+        font-size: #{$poll-teaser-fz}rem;
+        font-weight: $normal;
+        margin: 0;
+    }
+
+    &__publication {
+        color: $poll-publication-color;
+        font-size: #{$poll-publication-fz}rem;
+        font-style: italic;
+        font-weight: $light;
+    }
+
+    .status {
+        display: inline-block;
+
+        &.-assign {
+            &::before {
+                content: '';
+            }
+        }
+    }
+}

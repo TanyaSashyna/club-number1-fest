@@ -1,0 +1,22 @@
+.error-block {
+    //Some styles for this block
+
+  input {
+    background: #f0f0f0;
+  }
+
+  &__title {
+    font-size: 3rem;
+    margin: 0 0 4rem;
+  }
+
+  .filters__field {
+      @include breakpoint(small down) {
+        flex-direction: column;
+
+        label {
+          margin: 0 0 1.5rem;
+        }
+      }
+  }
+}

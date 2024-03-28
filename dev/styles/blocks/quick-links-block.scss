@@ -1,0 +1,242 @@
+// Just change this var for calculate the item width
+$quicklinks-nb-of-items-by-row-desktop: 6;
+$quicklinks-nb-of-items-by-row-tablet: 3;
+$quicklinks-nb-of-items-by-row-smartphone: 1;
+$quicklinks-font-title: $typo-1;
+$quicklinks-link-color: $color-3--3;
+$quicklinks-link-font-size: 1.3;
+$quicklinks-svg-size: 30;
+$quicklinks-svg-bg-color: $color-white;
+$quicklinks-svg-icon-color: $color-2--1;
+$quicklinks-svg-icon-color-hover: $color-white;
+$quicklinks-svg-bg-color-hover: $color-2--1;
+
+.quicklinks-block {
+    $this: &;
+    @include trs();
+    font-family: $quicklinks-font-title;
+    opacity: 1;
+    overflow: hidden;
+    position: relative;
+    visibility: visible;
+    z-index: 50;
+
+    padding: 10.5rem 0;
+
+    @include breakpoint(medium down) {
+        padding-bottom: 4rem;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mnv-opened & {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__decor {
+        position: relative;
+
+        &::before,
+        &::after {
+            @include absolute(0);
+            @include size(1.9rem, 19.8rem);
+            content: '';
+            display: block;
+            z-index: -1;
+
+            @include breakpoint(medium down) {
+                content: none;
+            }
+        }
+
+        &::before {
+            background: transparent url('#{$image-assets}/quick-decor-left.png') no-repeat center;
+            background-size: contain;
+            left: -1.9rem;
+        }
+
+        &::after {
+            background: transparent url('#{$image-assets}/quick-decor-right.png') no-repeat center;
+            background-size: contain;
+            right: -1.9rem;
+        }
+    }
+
+    &__arrow {
+        display: block;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            @include absolute(-5rem, 50%);
+            @include size(3rem);
+            @include trs();
+            color: $color-white;
+            font-size: 3rem;
+            font-weight: $normal;
+            text-align: center;
+            transform: translateX(50%);
+        }
+
+        @include on-event() {
+            &::before {
+                transform: translate(50%, 0.5rem);
+            }
+        }
+
+        &:focus {
+            outline: 0;
+
+            &::before {
+                outline: 1px dashed $color-focus-outline;
+            }
+        }
+    }
+
+    &__line {
+        display: block;
+        height: 2.5rem;
+        overflow: hidden;
+        text-align: center;
+        transform: translateY(-100%) translateY(0.1rem);
+
+        &::before,
+        &::after {
+            background-color: $color-white;
+            content: '';
+            height: 2.5rem;
+            position: absolute;
+            width: 50%;
+        }
+
+        &::before {
+            right: 50%;
+            transform-origin: 100% 100%;
+            transform: skewX(45deg);
+        }
+
+        &::after {
+            left: 50%;
+            transform-origin: 0 100%;
+            transform: skewX(-45deg);
+        }
+    }
+
+    .title-block {
+        margin-bottom: 3.3rem;
+        svg {
+            path {
+                fill: $color-2--1;
+            }
+        }
+        @include breakpoint(medium down) {
+            margin-bottom: 2.7rem;
+        }
+        @include breakpoint(small down) {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__carousel {
+        width: 100%;
+    }
+
+    .quicklinks-block__item {
+        text-align: center;
+        height: auto;
+        width: 250px;
+        padding: 2rem;
+    }
+
+    &__link {
+        color: $quicklinks-link-color;
+        display: block;
+        font-size: #{$quicklinks-link-font-size}rem;
+        font-weight: $normal;
+        margin: 0 1.4rem;
+        padding-bottom: 1.7rem;
+        text-transform: uppercase;
+        border-bottom: 0.6rem solid transparent;
+
+        span {
+            display: block;
+        }
+
+        @include on-event {
+            color: $color-1--3;
+            border-color: $color-3--5;
+        }
+    }
+
+    &__control {
+        @include absolute(62%);
+        background: none;
+        border: 0;
+        cursor: pointer;
+        overflow: hidden;
+        padding: 0;
+        transform: translateY(-50%);
+
+        &.swiper-button-disabled {
+            opacity: 1;
+
+            &[data-fa-icon] {
+                &::before {
+                    color: $color-2--4;
+                }
+            }
+        }
+
+        @include breakpoint(small down) {
+            top: 53%;
+        }
+
+        &[data-fa-icon]::before {
+            @include trs();
+            color: $color-3--3;
+            font-size: 2rem;
+            font-weight: $normal;
+        }
+
+        @include on-event() {
+            &[data-fa-icon]::before {
+                color: $color-1--3;
+            }
+        }
+
+        &.-prev {
+            left: 7rem;
+
+            @include breakpoint(medium down) {
+                left: 20rem;
+            }
+
+            @include breakpoint(small down) {
+                left: 0;
+            }
+
+        }
+
+        &.-next {
+            right: 7rem;
+
+            @include breakpoint(medium down) {
+                right: 2.6rem;
+            }
+
+            @include breakpoint(small down) {
+                right: 0;
+            }
+        }
+    }
+}

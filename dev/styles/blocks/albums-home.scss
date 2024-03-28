@@ -1,0 +1,183 @@
+.albums {
+    $this: &;
+
+    padding: 0 0 6rem;
+
+    &.-black {
+        background: radial-gradient(circle at 53.75% center, #000 0%, #2a2a2a 100%);
+        padding-top: 5rem;
+    }
+
+    @include breakpoint(medium down) {
+        padding: 2rem 0 0;
+    }
+
+    @include breakpoint(small down) {
+        padding: 2rem 0 1rem;
+    }
+
+    &__wrapper {
+        display: flex;
+
+        @include breakpoint(medium down) {
+            flex-direction: column;
+        }
+
+        &.-has-shadow {
+            @include section-shadow();
+
+            @include breakpoint(medium down) {
+                &::before {
+                    content: none;
+                }
+            }
+        }
+
+        #{$this}-block {
+            width: 50%;
+
+            @include breakpoint(medium down) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.albums-block {
+    $this: &;
+
+    padding: 0;
+
+    &.-composite {
+
+        @include breakpoint(medium down) {
+            justify-content: center;
+        }
+
+        #{$this}__item {
+            margin-top: 0;
+            position: relative;
+
+            @include breakpoint(medium down) {
+                flex-basis: 50%;
+                margin: 0 1rem 1.5rem;
+                max-width: 30.5rem;
+            }
+
+            @include breakpoint(small down) {
+                margin: 0 0 1.5rem;
+            }
+        }
+
+        .composite-link__wrap {
+            &.-has-overlay {
+                &::before {
+                    background-color: rgba($color-black, 0.8);
+                }
+
+                &::after {
+                    content: none;
+                }
+
+                @include breakpoint(medium down) {
+                    @include icon-after(\f06e);
+                }
+            }
+        }
+
+        #{$this}__content {
+            @include absolute(50%, null, null, 50%);
+
+            color: $color-white;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            visibility: hidden;
+            width: 100%;
+            z-index: 2;
+
+            @include breakpoint(medium down) {
+                @include reset-position();
+
+                opacity: 1;
+                transform: translate(0);
+                visibility: visible;
+            }
+
+            @include breakpoint(small down) {
+                padding: 1.5rem 0.5rem 0;
+            }
+        }
+
+        #{$this}__category {
+            flex-grow: 0;
+            flex-shrink: 0;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding: 0.7rem 2rem;
+            position: static;
+            transform: translate(0);
+
+            @include breakpoint(medium down) {
+                margin-bottom: 0;
+                position: absolute;
+                transform: translate(-50%, -100%);
+            }
+
+            @include breakpoint(small down) {
+                font-size: 1.1rem;
+                padding: 0.3rem 0.5rem;
+                transform: translate(-50%, -70%);
+            }
+        }
+
+        #{$this}__title {
+            @include breakpoint(small down) {
+                font-size: 1.3rem;
+            }
+        }
+
+        #{$this}__media {
+            @include breakpoint(small down) {
+                font-size: 1.2rem;
+            }
+        }
+
+        #{$this}__picture {
+            &::after {
+                content: none;
+            }
+
+            img {
+                position: static;
+            }
+        }
+
+        .composite-link {
+            height: 100%;
+
+            &__wrap {
+                height: 100%;
+            }
+        }
+    }
+
+    &.-focus {
+        #{$this}__item {
+            flex-basis: 100%;
+
+            @include breakpoint(medium down) {
+                max-width: 61rem;
+            }
+        }
+    }
+
+    .composite-link {
+        @include on-event() {
+            #{$this}__content {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

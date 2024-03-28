@@ -1,0 +1,501 @@
+/**
+ * @section Link round to list view
+ * @page Links
+ *
+ * @example
+ * <div class="links-group">
+ *      <a href="#" class="link -round -primary" data-fa-icon="&#xf09e;">Flux rss des publications</a>
+ *      <a href="#" class="link -round -secondary" data-fa-icon="&#xf067;">Toutes les publications</a>
+ * </div>
+ *
+ * <div class="links-group -right">
+ *      <a href="#" class="link -round -secondary" data-fa-icon="&#xf067;">Toutes les publications</a>
+ * </div>
+ *
+ * <div class="links-group -center">
+ *      <a href="#" class="link -round -primary" data-fa-icon="&#xf09e;">Flux rss des publications</a>
+ * </div>
+ *
+ */
+
+/**
+ * @section Link rectangle to list view
+ * @page Links
+ *
+ * @example
+ *
+ * <div class="links-group -rect">
+ *      <a href="#" class="link -rect -primary -line -no-text-mobile" data-fa-icon="&#xf09e;">s’abonner</a>
+ *      <a href="#" class="link -rect -secondary -no-text-mobile" data-fa-icon="&#xF055;">Toutes les publications</a>
+ * </div>
+ *
+ * <div class="links-group -rect">
+ *      <a href="#" class="link -rect -secondary -no-text-mobile" data-fa-icon="&#xF055;">Toutes les publications</a>
+
+ * </div>
+ *
+ * <div class="links-group -rect">
+ *      <a href="#" class="link -rect -primary -line -no-text-mobile" data-fa-icon="&#xf09e;">s’abonner</a>
+ *      <a href="#" class="link -rect -secondary -line -no-text-mobile" data-fa-icon="&#xF055;">Toutes les publications</a>
+ *      <a href="#" class="link -round -secondary -line -no-text-mobile" data-fa-icon="&#xf067;">Toutes les publications</a>
+ * </div>
+ *
+ */
+
+$links-round-size: 3.2;
+$links-round-rss-bg: #eee;
+$links-round-plus-bg: $color-2--2;
+
+$links-rect-font-size: 1.5;
+$links-rect-color: $color-black;
+$links-rect-inverted-color: $color-white;
+$links-rect-icon-size: 1.5;
+$links-rect-primary-color: $color-1--3;
+$links-rect-secondary-color: $color-1--2;
+
+$btn-color: $color-1--3;
+
+.links-group {
+    $this: &;
+    @include flex(null, wrap, center, center);
+    padding: 1rem 0;
+
+    &.-right {
+        justify-content: flex-end;
+    }
+
+    &.-left {
+        justify-content: flex-start;
+    }
+
+    &.-border {
+        border: 1px solid $color-3--2;
+        padding: 0;
+
+        @include breakpoint(small down) {
+            border: 0;
+        }
+
+        .link.-rect {
+            padding: 1.6rem 2rem;
+
+            @include breakpoint(small down) {
+                padding: 0;
+            }
+        }
+    }
+
+    &.-rect {
+        align-items: center;
+        justify-content: center;
+        margin-top: 2.5rem;
+        padding: 0;
+        width: 100%;
+
+        @include breakpoint(small down) {
+            flex-direction: column;
+        }
+
+        .sidebar & {
+            flex-direction: column;
+            margin-top: 1rem;
+            text-align: center;
+
+            .btn {
+                display: inherit;
+                font-size: 1.3rem;
+                padding: 0.5rem 2rem;
+
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &.-noborder {
+        border: 0;
+        justify-content: flex-end;
+    }
+
+    &.-fill {
+        text-align: center;
+
+        .btn {
+            margin: 0;
+            width: 100%;
+        }
+    }
+
+    .btn {
+        margin: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .sidebar & {
+        .btn {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+
+            @include breakpoint(medium down) {
+                margin: 0.5rem;
+            }
+
+            @include breakpoint(small down) {
+                width: 100%;
+            }
+        }
+    }
+
+    .title-block & {
+        position:absolute;
+        top:0;
+        right: 0;
+        height: 100%;
+        background: $color-white;
+        padding: 0.5rem 0 0;
+        align-items: flex-start;
+        padding-left: 1.5rem;
+        @include breakpoint(medium down) {
+            padding: 0;
+            right: -1rem;
+        }
+    }
+}
+
+.link {
+    &.-title-ico {
+        width: 4rem;
+        height: 4rem;
+        display: block;
+        font-size: 2.8rem;
+        color: $color-3--5;
+        text-indent:-9999px;
+        overflow:hidden;
+        position: relative;
+        margin-left: 1rem;
+
+        &:before {
+            text-indent: 0;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: $color-3--5;
+        }
+        @include breakpoint(medium down) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &.-round {
+        @include hide-text();
+        @include transition(all, 400ms, ease, 0ms);
+        @include size(#{$links-round-size}rem);
+
+        border-radius: 50%;
+        box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.2), inset 0 -5px 3px 0 rgba(0, 0, 0, 0.1);
+        display: block;
+        margin: 0 0.25rem;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            @include absolute(50%, auto, auto, 50%);
+            @include transition(all, 400ms, ease, 0ms);
+
+            text-indent: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        &.-primary {
+            background-color: $links-round-rss-bg;
+
+            &::before {
+                color: $links-round-plus-bg;
+                font-size: 1.5rem;
+                font-weight: $bold;
+            }
+
+            @include on-event() {
+                background-color: $links-round-plus-bg;
+
+                &::before {
+                    color: $links-round-rss-bg;
+                }
+            }
+        }
+
+        &.-secondary {
+            background-color: $links-round-plus-bg;
+
+            &::before {
+                color: $color-white;
+                font-size: 1rem;
+                font-weight: $normal;
+            }
+
+            @include on-event() {
+                background-color: $links-round-rss-bg;
+
+                &::before {
+                    color: $links-round-plus-bg;
+                }
+            }
+        }
+
+        &.-line {
+            border-right: 0;
+            margin-left: 1.5rem;
+
+            @include breakpoint(small down) {
+                border: 0;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    &.-rect {
+        color: $color-1--3;
+        display: block;
+        font-size: #{$links-rect-font-size}rem;
+        font-weight: $light;
+        padding: 0.7rem 2rem;
+        text-decoration: none;
+
+        @include breakpoint(small down) {
+            padding-left: 0;
+        }
+
+        &.-inverted {
+            color: $links-rect-inverted-color;
+        }
+
+        &::before {
+            @include transition(all, 400ms, ease, 0ms);
+
+            font-size: #{$links-rect-icon-size}rem;
+            font-weight: $normal;
+            margin-right: 0.5rem;
+        }
+
+        &.-primary {
+            &::before {
+                color: $links-rect-primary-color;
+            }
+
+            @include on-event() {
+                &::before {
+                    color: $links-rect-secondary-color;
+                }
+            }
+        }
+
+        &.-secondary {
+            &::before {
+                color: $links-rect-secondary-color;
+            }
+
+            @include on-event() {
+                &::before {
+                    color: $links-rect-primary-color;
+                }
+            }
+        }
+
+        &.-no-text-mobile {
+            @include breakpoint(small down) {
+                @include size(3rem);
+                @include hide-text();
+
+                background-color: $color-1--3;
+                border: 0;
+                border-radius: 50%;
+                margin-left: 0.5rem;
+                position: relative;
+            }
+
+            &::before {
+                @include breakpoint(small down) {
+                    @include absolute(50%, null, null, 50%);
+                    color: $color-white !important;
+                    text-indent: 0;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            @include on-event() {
+                @include breakpoint(small down) {
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+
+    &.-line {
+        border-right: 1px solid $color-3--2;
+    }
+}
+
+.composite-link {
+    $this: &;
+
+    display: block;
+
+    &__wrap {
+        position: relative;
+
+        &.-has-overlay {
+            &::before {
+                @include absolute();
+                @include size(0);
+
+                background-color: rgba($color-black, 0.3);
+                content: '';
+                opacity: 0;
+                transition: all 0.5s ease;
+                z-index: 2;
+            }
+
+            @include icon-after(\f06e);
+
+            &::after {
+                @include absolute(50%, null, null, 50%);
+
+                color: $color-white;
+                font-size: 3rem;
+                opacity: 0;
+                transform: translate(-50%, -50%);
+                transition: all 0.3s ease;
+                z-index: 2;
+            }
+        }
+    }
+
+    &__image {
+        overflow: hidden;
+        position: relative;
+    }
+
+    @keyframes flash {
+        0% {
+            opacity: 0.4;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @include on-event() {
+        #{$this}__wrap {
+            &.-has-overlay {
+                &::before {
+                    @include size(100%);
+
+                    opacity: 1;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        #{$this}__image {
+            animation: flash 1.5s;
+            opacity: 1;
+        }
+
+        #{$this}__title {
+            text-decoration: underline;
+        }
+    }
+}
+
+//  @name External link
+a.link-external[href^='http'],
+a.link-external[href^='https'],
+a.link-external[href^='//'] {
+    &:not([href*='#{$domain}']):not([data-fancybox]):not(.no-external) {
+        //@include icon-after($fa-var-external-link);
+
+        &::after {
+            content: '';
+            font-size: 0.8em;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.link-context {
+    &__context {
+        position: relative;
+
+        .list-document {
+            position: relative;
+            z-index: 41;
+        }
+    }
+
+    &__link {
+        &::before {
+            bottom: 0;
+            content: '';
+            display: block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 40;
+        }
+    }
+}
+
+.link-like {
+    @include hide-text-with-icon();
+    //@include icon-before($fa-var-heart);
+    @include size(2rem);
+    display: block;
+
+    &::before {
+        content: '';
+        @include absolute(50%, 50%);
+        @include trs();
+        color: $color-2--1;
+        font-size: 1.6rem;
+        text-indent: 0;
+        transform: translate(50%, -50%);
+    }
+
+    &.-dark {
+        &::before {
+            color: $color-2--2;
+        }
+
+        @include on-event() {
+            &::before {
+                color: $color-2--1;
+            }
+        }
+    }
+
+    &.-inverted {
+        &::before {
+            color: $color-white;
+        }
+
+        @include on-event() {
+            &::before {
+                color: $color-black;
+            }
+        }
+    }
+
+    @include on-event() {
+        &::before {
+            color: $color-2--3;
+        }
+    }
+}

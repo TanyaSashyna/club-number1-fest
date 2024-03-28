@@ -1,0 +1,36 @@
+$content-p-fz: 1.7;
+
+// @name Title h2
+.rte h2:not([class^='gallery']):not([class^='media-element']),
+.rte .h2:not([class^='media-element']),
+.h2 {
+    @include rte-h2();
+}
+
+// @name Title h3
+.rte h3:not([class^='media-element']),
+.rte .h3:not([class^='media-element']),
+.h3 {
+    @include rte-h3();
+}
+
+// @name Title h4
+.rte h4:not([class^='media-element']),
+.rte .h4:not([class^='media-element']),
+.h4 {
+    @include rte-h4();
+}
+
+// @name Title h5
+.rte h5:not([class^='media-element']),
+.rte .h5:not([class^='media-element']),
+.h5 {
+    @include rte-h5();
+}
+
+// @name Title h6
+.rte h6,
+.rte .h6,
+.h6 {
+    @include rte-h6();
+}

@@ -1,0 +1,70 @@
+$btn-bg: #ca000a;
+$btn-border-color: #ca000a;
+$btn-color: #fff;
+$btn-hover-bg: transparent;
+$btn-hover-color: #000;
+
+.cookie-manager {
+    p {
+        font-size: 1.4rem;
+    }
+
+    &__submit {
+        background: $btn-bg;
+        border: 1px solid $btn-border-color;
+        color: $btn-color;
+        cursor: pointer;
+        font-weight: $normal;
+        padding: 1rem 1.5rem;
+        text-transform: uppercase;
+
+        &[data-fa-icon] {
+            &::before {
+                color: $btn-color;
+                font-weight: $bold;
+                margin-right: 0.5rem;
+            }
+        }
+
+        @include on-event() {
+            background: $btn-hover-bg;
+            border-color: $btn-bg;
+            color: $btn-hover-color;
+
+            &[data-fa-icon] {
+                &::before {
+                    color: $btn-hover-color;
+                }
+            }
+        }
+    }
+}
+
+.cookies-recorded,
+.rte .cookies-recorded {
+    animation: appearCookie;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    margin: 1rem 0;
+    text-align: center;
+
+    span {
+        padding-left: 2rem;
+        @include icon-before(\f00c);
+
+        &::before {
+            color: $btn-bg;
+            font-weight: $bold;
+            margin-right: 0.5rem;
+        }
+    }
+}
+@keyframes appearCookie {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,348 @@
+/**
+ * Input radio and checkbox
+ *
+ * A checkbox input
+ *
+ * @section
+ * @page Forms
+ *
+ * @state .column-2 - Indicates the column positioning
+ * @state .radio-checkbox -inline - Indicates radio or checkbox positioning side by side. Works only on one line.
+ *
+ * @example
+ * <fieldset class="radio">
+ *     <legend>Radio :</legend>
+ *     <div>
+ *         <input type="radio" name="radio1" id="radio1_0" value="Item 1" disabled>
+ *         <label for="radio1_0">Disabled - Coluptatem</label>
+ *     </div>
+ *     <div>
+ *         <input type="radio" name="radio1" id="radio1_1" value="Earum eum ipsam non nostrum, repellendus voluptatem. Ab ducimus facere facilis officia optio quas repellat sunt vero">
+ *         <label for="radio1_1">Earum eum <a href="#">ipsam non nostrum</a>, repellendus voluptatem. Ab ducimus facere facilis officia optio quas repellat sunt vero</label>
+ *     </div>
+ *     <div>
+ *         <input type="radio" name="radio1" id="radio1_2" value="Asperiores beatae deleniti" checked>
+ *         <label for="radio1_2">checked - Asperiores beatae deleniti</label>
+ *     </div>
+ *     <div>
+ *         <input type="radio" name="radio1" id="radio1_3" value="Doloremque enim exercitationem">
+ *         <label for="radio1_3">Doloremque enim exercitationem</label>
+ *     </div>
+ * </fieldset>
+ * <fieldset class="radio -inline">
+ *     <legend>Radio-inline :</legend>
+ *     <div>
+ *         <input type="radio" name="radio2" id="radio2_0" value="Item 1">
+ *         <label for="radio2_0">Coluptatem</label>
+ *     </div>
+ *     <div>
+ *         <input type="radio" name="radio2" id="radio2_2" value="Asperiores beatae deleniti" checked>
+ *         <label for="radio2_2">checked - Asperiores beatae deleniti</label>
+ *     </div>
+ *     <div>
+ *         <input type="radio" name="radio2" id="radio2_3" value="Doloremque enim exercitationem">
+ *         <label for="radio2_3">Doloremque enim exercitationem</label>
+ *     </div>
+ * </fieldset>
+ * <fieldset class="checkbox">
+ *     <legend>Checkbox :</legend>
+ *     <div>
+ *         <input type="checkbox" name="checkbox1_0" id="checkbox1_0" value="Nostrum optio" disabled>
+ *         <label for="checkbox1_0">Disabled - Nostrum optio</label>
+ *     </div>
+ *     <div>
+ *         <input type="checkbox" name="checkbox1_1" id="checkbox1_1" value="Repellat rerum sed veritatis vitae? Alias corporis cum distinctio" disabled checked>
+ *         <label for="checkbox1_1">Disabled and checked - Repellat rerum sed veritatis vitae? Alias corporis cum distinctio</label>
+ *     </div>
+ *     <div>
+ *         <input type="checkbox" name="checkbox1_2" id="checkbox1_2" value="facilis fugit harum" checked>
+ *         <label for="checkbox1_2">Checked - Facilis fugit harum</label>
+ *     </div>
+ *     <div>
+ *         <input type="checkbox" name="checkbox1_3" id="checkbox1_3" value="Cum facilis fugit harum nemo neque">
+ *         <label for="checkbox1_3">Cum facilis fugit harum nemo neque</label>
+ *     </div>
+ * </fieldset>
+ * <fieldset class="checkbox -inline">
+ *     <legend>Checkbox-inline :</legend>
+ *     <div>
+ *         <input type="checkbox" name="checkbox2_0" id="checkbox2_0" value="Nostrum optio">
+ *         <label for="checkbox2_0">Nostrum optio</label>
+ *     </div>
+ *     <div>
+ *         <input type="checkbox" name="checkbox2_2" id="checkbox2_2" value="facilis fugit harum" checked>
+ *         <label for="checkbox2_2">Checked - Facilis fugit harum</label>
+ *     </div>
+ *     <div>
+ *         <input type="checkbox" name="checkbox2_3" id="checkbox2_3" value="Cum facilis fugit harum nemo neque">
+ *         <label for="checkbox2_3">Cum facilis fugit harum nemo neque</label>
+ *     </div>
+ * </fieldset>
+ */
+
+$radio-checkbox-outer-color: $color-3--2 !default;
+$radio-checkbox-inner-color: $color-1--2 !default;
+$radio-checkbox-bg-color: $color-white !default;
+$radio-checkbox-label-color: $color-black !default;
+$radio-checkbox-label-fz: 1.4 !default;
+$radio-checkbox-legend-fz: 1.4 !default;
+
+%radio-checkbox {
+    @include clear();
+    clear: both;
+    margin: 1.5em 0 2.5em;
+
+    @include breakpoint(medium down) {
+        margin: 2em 0 1.5em;
+    }
+
+    &:first-child {
+        margin-top: 1.5em;
+    }
+
+    &-inline {
+        div {
+            display: inline-block;
+            margin-bottom: 1.3em;
+            margin-right: 1.2em;
+            margin-top: 0;
+            vertical-align: top;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        legend {
+            margin-bottom: em(1.6, $radio-checkbox-legend-fz);
+        }
+    }
+
+    &.column-2 {
+        div {
+            display: inline-block;
+            vertical-align: top;
+            width: 47.4%;
+            @include breakpoint(medium down) {
+                display: block;
+                vertical-align: inherit;
+                width: 100%;
+            }
+
+            &:nth-child(even) {
+                margin-right: 1%;
+
+                @include breakpoint(medium down) {
+                    margin-right: 0;
+                }
+            }
+
+            &:nth-child(odd) {
+                margin-left: 1%;
+
+                @include breakpoint(medium down) {
+                    margin-left: 0;
+                }
+            }
+
+        }
+
+        legend ~ div {
+            margin-top: 0;
+        }
+    }
+
+    div {
+        margin: 1.1em 0;
+
+        &:nth-of-type(1) {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    legend {
+        font-size: #{$radio-checkbox-legend-fz}rem;
+        font-weight: $bold;
+        margin: em(0.5, $radio-checkbox-legend-fz) 0 em(0.5, $radio-checkbox-legend-fz);
+        text-transform: uppercase;
+        @include breakpoint(medium down) {
+            margin-top: 0;
+        }
+
+        .required {
+            font-size: 1em;
+        }
+    }
+
+    label {
+        cursor: pointer;
+        display: inline-block;
+        font-size: #{$radio-checkbox-legend-fz}rem;
+        font-weight: $light;
+        line-height: em(1.8, $radio-checkbox-label-fz);
+        margin: 0;
+        padding: 0 0 0 em(2, $radio-checkbox-label-fz);
+        position: relative;
+        text-transform: none;
+
+        &::before {
+            background-color: $radio-checkbox-bg-color;
+            border: 1px solid $radio-checkbox-outer-color;
+            box-sizing: border-box;
+            content: '';
+            height: 17px;
+            left: 0;
+            position: absolute;
+            speak: none;
+            top: 0;
+            width: 17px;
+        }
+
+        &::after {
+            @extend %icons-font-aliasing;
+            color: transparent;
+            font-weight: $bold;
+            line-height: 1;
+            position: absolute;
+            transform: scale(0.75);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+}
+
+%input-type-radio-checkbox {
+    background: transparent;
+    border: 0;
+    left: -9999px;
+    padding: inherit;
+    position: absolute;
+    width: auto;
+
+    &:disabled + label {
+        color: lighten($radio-checkbox-label-color, 77%);
+        cursor: default;
+    }
+
+    &:disabled + label::before {
+        background-color: darken($radio-checkbox-bg-color, 2%);
+        border-color: lighten($radio-checkbox-outer-color, 15%);
+        cursor: default;
+    }
+
+    &:focus + label {
+        outline: 1px dashed $radio-checkbox-inner-color;
+        outline-offset: 2px;
+    }
+
+    &:checked + label,
+    &:checked:disabled + label {
+        &::after {
+            color: $color-1--3;
+            transform: scale(1);
+        }
+    }
+}
+
+// Checkbox
+.checkbox {
+    @extend %radio-checkbox;
+
+    &.-inline {
+        @extend %radio-checkbox-inline;
+    }
+
+    label {
+        &::after {
+            /*content: fa-content($fa-var-check);*/
+            content: '';
+            font-size: 9px;
+            left: 4px;
+            top: 4px;
+        }
+    }
+
+    input[type=checkbox] {
+        @extend %input-type-radio-checkbox;
+
+        &:indeterminate + label {
+            &::after {
+                color: $radio-checkbox-inner-color;
+                /*content: fa-content($fa-var-square-full);*/
+                content: '';
+                transform: scale(1);
+            }
+        }
+    }
+
+    // @name field followed by checkbox
+    &.form-field-follow-checkbox {
+        margin-top: 0.75em;
+    }
+}
+
+// Radio
+.radio {
+    @extend %radio-checkbox;
+
+    &.-inline {
+        @extend %radio-checkbox-inline;
+    }
+
+    label {
+        &::before {
+            border-radius: 50%;
+        }
+
+        &::after {
+            /*content: fa-content($fa-var-circle);*/
+            content: '';
+            font-size: 7px;
+            left: 5px;
+            top: 5px;
+        }
+    }
+
+    input[type=radio] {
+        @extend %input-type-radio-checkbox;
+    }
+}
+
+$checkbox-dropdown-max-height: 150rem;
+
+.checkbox-dropdown {
+    $this: &;
+    position: relative;
+
+    &__block {
+        @include trs($duration: 450ms);
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    &__toggle {
+        @include trs();
+        @include absolute(1.6rem, 0.5rem);
+        /*@include icon-before($fa-var-plus);*/
+        background: none;
+        border: 0;
+        color: $color-1--2;
+        cursor: pointer;
+        display: block;
+        font-size: 1.6rem;
+        padding: 0;
+    }
+
+    &.-is-open {
+        > #{$this}__toggle {
+            /*@include icon-before($fa-var-minus);*/
+        }
+
+        > #{$this}__block {
+            max-height: $checkbox-dropdown-max-height;
+        }
+    }
+}

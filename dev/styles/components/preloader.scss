@@ -1,0 +1,61 @@
+$animation-color: $color-1--2;
+
+.preloader {
+    @include fixed(0, 0, 0, 0);
+    @include size(100%, 100%);
+    background-color: $color-white;
+    z-index: 999;
+    @include flex(row, nowrap, center, center);
+    @include trs($delay: 200ms);
+
+    &__animation {
+        border: 0.5rem solid $animation-color;
+        border-radius: 50%;
+        display: inline-block;
+        height: 5rem;
+        margin-right: 1.5rem;
+        position: relative;
+        vertical-align: middle;
+        width: 5rem;
+
+        &::after {
+            animation: rotation 1s linear infinite;
+            border: 0.5rem solid transparent;
+            border-radius: 50%;
+            border-top-color: lighten($animation-color, 30%);
+            bottom: -0.5rem;
+            content: '';
+            left: -0.5rem;
+            position: absolute;
+            right: -0.5rem;
+            top: -0.5rem;
+        }
+    }
+
+    &__text {
+        display: inline-block;
+        font-size: 1.8rem;
+        vertical-align: middle;
+
+        strong {
+            font-size: 2.4rem;
+        }
+    }
+
+    &.-is-hidden {
+        opacity: 0;
+        transform: scale(0);
+        visibility: hidden;
+        z-index: -10;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

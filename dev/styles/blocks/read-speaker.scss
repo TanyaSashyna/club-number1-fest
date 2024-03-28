@@ -1,0 +1,29 @@
+.read-speaker {
+    color: $color-3--3;
+    flex-shrink: 0;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+
+    @include on-event() {
+        text-decoration: underline;
+    }
+}
+
+.site-main {
+    .readspeaker__container {
+        background: $color-3--1;
+        padding: 2rem 0 0;
+    }
+
+    .rsbtn {
+        padding-bottom: 0;
+
+        .rsbtn_tooltoggle {
+            height: 12px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    }
+}

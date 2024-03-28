@@ -1,0 +1,46 @@
+/* stylelint-disable */
+#tarteaucitronRoot {
+
+    div#tarteaucitronInfo {
+        font-size: 1.6rem !important;
+    }
+
+    #tarteaucitronPersonalize {
+        background: $color-white;
+        border: solid 1px rgba($color-3--2, 0.5);
+        color: $color-black;
+
+        @include on-event() {
+            background: transparent;
+            color: $color-white;
+        }
+    }
+
+    #tarteaucitronAlertBig {
+
+        #tarteaucitronCloseAlert {
+            background: transparent;
+            color: $color-white;
+        }
+    }
+
+    #tarteaucitron #tarteaucitronServices {
+
+        .tarteaucitronDetails {
+            background: $color-black;
+            display: block !important;
+            max-width: inherit;
+            padding: 0 20px 10px;
+            position: static;
+        }
+
+        .tarteaucitronTitle {
+            background: $color-black;
+
+            button {
+                margin-top: 0;
+            }
+        }
+    }
+}
+/* stylelint-enable */

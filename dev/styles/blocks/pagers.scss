@@ -1,0 +1,579 @@
+/**
+ * Use this component for pagers
+ *
+ * You can find markup and macro in `components/pagers/pagers.njk`
+ *
+ * Use macro: `{{ pagerContainer(number = true, return = false, single = false) }}` or `{{ pagerAlphabet() }}` or `{{ pagerInfinite() }}`
+ *
+ * @section Pager
+ * @page Pagers
+ *
+ * @example
+ * <nav class="pager">
+ *      <ul class="pager__listitems">
+ *          <li class="pager__item -prev"><span>Retour</span></li>
+ *          <li class="pager__item"><span>1</span></li>
+ *          <li class="pager__item"><a href="#">2</a></li>
+ *          <li class="pager__item"><a href="#">3</a></li>
+ *          <li class="pager__item"><a href="#">4</a></li>
+ *          <li class="pager__item"><a href="#">5</a></li>
+ *          <li class="pager__item -next"><a href="#">Suivant</a></li>
+ *      </ul>
+ * </nav>
+ *
+ * <nav class="pager">
+ *      <ul class="pager__listitems">
+ *          <li class="pager__item -prev"><a href="#">Retour</a></li>
+ *          <li class="pager__item"><a href="#">1</a></li>
+ *          <li class="pager__item"><a href="#">2</a></li>
+ *          <li class="pager__item"><span>3</span></li>
+ *          <li class="pager__item"><a href="#">4</a></li>
+ *          <li class="pager__item"><a href="#">5</a></li>
+ *          <li class="pager__item -next"><span>Suivant</span></li>
+ *      </ul>
+ * </nav>
+ */
+
+/**
+ *
+ * @section Pager alphabet
+ * @page Pagers
+ *
+ * @example
+ * <div class="pager-alphabet">
+ *      <nav>
+ *          <p class="pager-alphabet__title">Trier le glossaire :</p>
+ *          <ul class="pager-alphabet__listitems">
+ *              <li class="pager-alphabet__item"><a href="#">A</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">B</a></li>
+ *              <li class="pager-alphabet__item -is-current"><a href="#" aria-current="true">C</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">D</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">E</a></li>
+ *              <li class="pager-alphabet__item"><span>F</span></li>
+ *              <li class="pager-alphabet__item"><a href="#">G</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">H</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">I</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">J</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">K</a></li>
+ *              <li class="pager-alphabet__item"><span>L</span></li>
+ *              <li class="pager-alphabet__item"><a href="#">M</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">N</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">O</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">P</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">Q</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">R</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">S</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">T</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">U</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">V</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">W</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">X</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">Y</a></li>
+ *              <li class="pager-alphabet__item"><a href="#">Z</a></li>
+ *              <li class="pager-alphabet__item -number"><a href="#">0-9</a></li>
+ *              <li class="pager-alphabet__item -tous"><a href="#">Tous</a></li>
+ *          </ul>
+ *      </nav>
+ * </div>
+ *
+ */
+
+/**
+ *
+ * @section Pager infinite
+ * @page Pagers
+ *
+ * @example
+ * <nav class="pager-infinite">
+ *      <button type="button" class="pager-infinite__button">Afficher plus de résultats</button>
+ * </nav>
+*/
+
+/**
+ *
+ * @section Pager with return
+ * @page Pagers
+ *
+ * @example
+ * <nav class="pager">
+ *      <ul class="pager__listitems">
+ *          <li class="pager__item -prev"><span>Retour</span></li>
+ *          <li class="pager__item -return"><a href="#">Retour à la liste</a></li>
+ *          <li class="pager__item -next"><a href="#">Suivant</a></li>
+ *      </ul>
+ * </nav>
+ *
+ * <nav class="pager">
+ *      <ul class="pager__listitems">
+ *          <li class="pager__item -prev"><a href="#">Retour</a></li>
+ *          <li class="pager__item -return"><a href="#">Retour à la liste</a></li>
+ *          <li class="pager__item -next"><span>Suivant</span></li>
+ *      </ul>
+ * </nav>
+ *
+*/
+
+/**
+ *
+ * @section Pager single
+ * @page Pagers
+ *
+ * @example
+ * <nav class="pager -single">
+ *      <ul class="pager__listitems">
+ *          <li class="pager__item -prev">
+ *              <span>Actualités précédente</span>
+ *              <span class="pager__description">Lorem ipsum dolor sit amet consectur elis passam filis poder</span>
+ *          </li>
+ *          <li class="pager__item -return"><a href="#">Retour à la liste</a></li>
+ *          <li class="pager__item -next">
+ *              <span class="pager__description">Conseccur elis passam filis poder proin gravita lorem ipsum dolor sit poder machina amet</span>
+ *              <a href="#" class="pager__link -right">Actualité Suivante</a>
+ *          </li>
+ *      </ul>
+ * </nav>
+ *
+ * <nav class="pager -single">
+ *      <ul class="pager__listitems">
+ *          <li class="pager__item -prev">
+ *              <a href="#" class="pager__link -left">Actualités précédente</a>
+ *              <span class="pager__description">Lorem ipsum dolor sit amet consectur elis passam filis poder</span>
+ *          </li>
+ *          <li class="pager__item -return"><a href="#">Retour à la liste</a></li>
+ *          <li class="pager__item -next">
+ *              <span class="pager__description">Conseccur elis passam filis poder proin gravita lorem ipsum dolor sit poder machina amet</span>
+ *              <span>Actualité Suivante</span>
+ *          </li>
+ *      </ul>
+ * </nav>
+ *
+*/
+
+$alphabet-size: 1.5;
+$alphabet-color: $color-black;
+$alphabet-current-color: $color-2--1;
+$alphabet-inactive-color: $color-3--2;
+$alphabet-hover-color: $color-white;
+$alphabet-hover-bg: $color-2--1;
+
+.pager-alphabet {
+    font-size: #{$alphabet-size}rem;
+    margin-bottom: 5rem;
+
+    @include breakpoint(medium down) {
+        margin-bottom: 3rem;
+    }
+
+    &__title {
+        color: $color-black;
+        font-family: $typo-1;
+        font-size: 1.4rem;
+        font-weight: $bold;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    &__listitems {
+        @extend %clear-fix;
+
+        list-style: none;
+        margin: 0.5rem -0.5rem 0;
+        padding-left: 0;
+    }
+
+    &__item {
+        float: left;
+        margin: 0.5rem;
+        text-align: center;
+
+        a,
+        span {
+            background-color: transparent;
+            border: 1px solid rgba(197, 197, 197, 0.5);
+            color: $alphabet-color;
+            display: block;
+            font-family: $typo-2;
+            font-size: 1.4rem;
+            font-weight: $light;
+            height: 4rem;
+            line-height: 4rem;
+            width: 4rem;
+        }
+
+        a {
+            text-decoration: none;
+
+            @include transition(all, 300ms, ease, 0ms);
+            @include on-event() {
+                background-color: $alphabet-hover-bg;
+                color: $alphabet-hover-color;
+            }
+        }
+
+        span {
+            color: $alphabet-inactive-color;
+        }
+
+        &.-is-current {
+            a {
+                background-color: transparent;
+                color: $alphabet-current-color;
+                font-weight: $bold;
+            }
+        }
+
+        &.-tous {
+            a {
+                text-transform: uppercase;
+                width: 9rem;
+            }
+        }
+
+        &.-number {
+            a {
+                width: 9rem;
+            }
+        }
+    }
+}
+
+$pager-size: 1.4;
+$pager-color: $color-1--3;
+$pager-color-on-black: $color-white;
+$pager-current-color: $color-2--2;
+$pager-inactive-color: $color-3--2;
+$pager-hover-color: $color-white;
+$pager-hover-bg: $color-1--3;
+$pager-icon-prev: \f0d9;
+$pager-icon-next: \f0da;
+$pager-icon-return: \f03a;
+$pager-icon-color: $color-1--3;
+
+.pager {
+    $this: &;
+
+    width: 100%;
+
+    &__listitems {
+        @extend %clear-fix;
+
+        display: block;
+        font-family: $typo-1;
+        font-size: 0;
+        font-weight: $normal;
+        list-style: none;
+        margin: 3rem 0 5rem;
+        padding-left: 0;
+        text-align: center;
+
+        &.-is-hidden {
+            display: none;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+        font-size: 1.4rem;
+        margin-right: -.1rem;
+        min-width: 40px;
+
+        &:before {
+            display: none !important;
+        }
+
+        a,
+        span:not(#{$this}__description) {
+            background-color: transparent;
+            border: 1px solid $color-1--3;
+            color: $color-1--3;
+            display: block;
+            margin: 0;
+            padding: 1.1rem 1.51rem;
+        }
+
+        .-reverse-color & {
+            a {
+                color: $pager-color-on-black;
+            }
+        }
+
+        a {
+            text-decoration: none;
+
+            @include transition(all, 300ms, ease, 0ms);
+            @include on-event() {
+                background-color: $pager-hover-bg;
+                color: $pager-hover-color;
+            }
+        }
+
+        span:not(#{$this}__description) {
+            color: $color-1--3;
+            font-weight: $bold;
+        }
+
+        &.-prev,
+        &.-next {
+            a,
+            span:not(#{$this}__description) {
+
+                @include breakpoint(medium down) {
+                    padding: 1.1rem 1.9rem;
+                    position: relative;
+                    text-indent: -9999px;
+                    white-space: nowrap;
+                }
+
+                &::before,
+                &::after {
+                    color: $pager-icon-color;
+                    font-family: $font-awesome;
+                    font-size: 1.6rem;
+                    font-weight: $normal;
+
+                    @include breakpoint(medium down) {
+                        display: block;
+                        left: 50%;
+                        line-height: 0;
+                        position: absolute;
+                        text-indent: 0;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
+            span:not(#{$this}__description) {
+                color: $pager-inactive-color;
+                font-weight: $light;
+
+                &::before,
+                &::after {
+                    color: $pager-inactive-color;
+                }
+            }
+        }
+
+        &.-prev {
+            float: left;
+
+            a,
+            span:not(#{$this}__description) {
+                @include icon-before($pager-icon-prev);
+
+                &::before {
+                    content:'\f061';
+                    @include transition(all, 300ms, ease, 0ms);
+                    margin-right: 0.5rem;
+                    transform: rotate(180deg);
+
+                    @include breakpoint(medium down) {
+                        margin: 0;
+                        left: 35%;
+                    }
+                }
+            }
+
+            a {
+                @include on-event() {
+                    &::before {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+
+        &.-next {
+            float: right;
+
+            a,
+            span:not(#{$this}__description) {
+                @include icon-after($pager-icon-next);
+
+                &::after {
+                    content:'\f061';
+                    @include transition(all, 300ms, ease, 0ms);
+                    margin-left: 0.5rem;
+
+                    @include breakpoint(medium down) {
+                        margin: 0;
+                    }
+                }
+            }
+
+            a {
+                @include on-event() {
+                    &::after {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+
+        &.-return {
+            a {
+                @include icon-before($pager-icon-return);
+                border-color: transparent;
+
+                &::before {
+                    color: $pager-icon-color;
+                    font-size: 1.4rem;
+                    margin-right: 0.5rem;
+                }
+
+                @include on-event() {
+                    background-color: transparent;
+                    color: $color-3--4;
+
+                    &::before {
+                        color: $color-3--4;
+                    }
+                }
+            }
+        }
+    }
+
+    &__description {
+        color: $color-3--3;
+        font-family: $typo-1;
+        font-size: 1.4rem;
+        font-style: italic;
+        font-weight: $light;
+        text-transform: none;
+    }
+
+    &.-single {
+        margin-bottom: 13rem;
+
+        #{$this}__listitems {
+            margin-bottom: 7rem;
+            position: relative;
+        }
+
+        #{$this}__item {
+            &.-prev,
+            &.-next {
+                align-items: flex-start;
+                display: flex;
+                position: relative;
+                width: 49.7%;
+
+                a,
+                span:not(#{$this}__description) {
+                    flex-shrink: 0;
+                }
+            }
+
+            &.-prev {
+                justify-content: flex-start;
+
+                #{$this}__description {
+                    margin: auto 0 auto 1.5rem;
+                    text-align: left;
+                }
+            }
+
+            &.-next {
+                justify-content: flex-end;
+
+                #{$this}__description {
+                    margin: auto 1.5rem auto 0;
+                    text-align: right;
+                }
+            }
+
+            &.-return {
+                left: 50%;
+                position: absolute;
+                top: 140%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    &__link {
+        &.-left {
+            &::after {
+                bottom: 0;
+                content: '';
+                display: block;
+                left: 0;
+                position: absolute;
+                right: 0;
+                speak: none;
+                top: 0;
+                z-index: 10;
+            }
+        }
+
+        &.-right {
+            &::before {
+                bottom: 0;
+                content: '';
+                display: block;
+                left: 0;
+                position: absolute;
+                right: 0;
+                speak: none;
+                top: 0;
+                z-index: 10;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) translateY(-50%);
+    }
+
+    100% {
+        transform: rotate(-360deg) translateY(-50%);
+    }
+}
+
+$pager-infinite-color: #010101;
+$pager-infinite-hover-color: $color-2--2;
+$pager-infinite-icon-color: $color-2--2;
+
+.pager-infinite {
+    margin: 2rem 0;
+    text-align: center;
+
+    &.-is-hidden {
+        display: none;
+    }
+
+    &__button {
+        @include transition(all, 300ms, ease, 0ms);
+
+        background-color: transparent;
+        border: 0;
+        color: $pager-infinite-color;
+        cursor: pointer;
+        font-family: $typo-2;
+        font-size: 1.4rem;
+        font-weight: $light;
+        padding: 1.2rem 0.5rem;
+        text-transform: uppercase;
+
+        @include icon-before(\f2f9);
+
+        &::before {
+            color: $pager-infinite-icon-color;
+            font-size: 1.4rem;
+            margin-right: 0.5rem;
+        }
+
+        @include on-event() {
+            color: $pager-infinite-hover-color;
+        }
+    }
+
+    &__loading {
+        &::before {
+            animation: spin 1s infinite linear;
+            transform-origin: top;
+        }
+    }
+}

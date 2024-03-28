@@ -1,0 +1,137 @@
+/**
+ * @section Message
+ * @page Messages
+ *
+ * @example
+ * <div class="message">
+ *      <h2>Message consectur elis</h2>
+ *      <ul>
+ *          <li>Consectur elis poder proin gravita lorem ipsum.</li>
+ *          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+ *      </ul>
+ *      <p>Lem ipsum dolor sit amet, consectetur adipisicing elit</p>
+ * </div>
+ *
+ */
+
+/**
+ * @section Error message
+ * @page Messages
+ *
+ * @example
+ * <div class="message -error">
+ *      <h2>Message d’erreur</h2>
+ *      <ul>
+ *          <li>Consectur elis poder proin gravita lorem ipsum.</li>
+ *          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+ *      </ul>
+ *      <p>Lem ipsum dolor sit amet, consectetur adipisicing elit</p>
+ * </div>
+ */
+
+/**
+ * @section Success message
+ * @page Messages
+ *
+ * @example
+ * <div class="message -success">
+ *      <h2>Message succès lorem ipsum</h2>
+ *      <ul>
+ *          <li>Consectur elis poder proin gravita lorem ipsum.</li>
+ *          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+ *      </ul>
+ *      <p>Lem ipsum dolor sit amet, consectetur adipisicing elit</p>
+ * </div>
+ */
+
+$message-font-size: 1.4;
+
+$message-default-color: #02648e;
+$message-default-bg: #f6f6f6;
+
+$message-error-color: #ca000a;
+$message-error-bg: #fcdcde;
+
+$message-success-color: #278417;
+$message-success-bg: #edfceb;
+
+.message {
+    background-color: $message-default-bg;
+    font-size: #{$message-font-size}rem;
+    font-weight: $light;
+    padding: 4rem 2rem 3.5rem 7rem;
+
+    @include breakpoint(medium down) {
+        padding: 3rem;
+    }
+
+    @include breakpoint(small down) {
+        padding: 3rem 1rem 3rem 1.5rem;
+    }
+
+    h2 {
+        color: $message-default-color;
+        font-size: em(2.2, $message-font-size);
+        margin: 0 0 1.1em;
+        padding-left: 1.25em;
+        position: relative;
+
+        /*@include icon-before($fa-var-info-circle);*/
+
+        &::before {
+            content: '';
+            color: currentColor;
+            @include absolute(0, null, null, 0);
+        }
+    }
+
+    ul {
+        font-size: 1em;
+        list-style-type: none;
+        margin-left: 1rem;
+        padding: 0;
+
+        li {
+            padding-left: 1em;
+            position: relative;
+            /*@include icon-before($fa-var-chevron-right);*/
+
+            &::before {
+                content: '';
+                @include absolute(0, null, null, 0);
+                font-size: 0.75em;
+                line-height: em(1.1, 0.75);
+            }
+        }
+    }
+
+    &.-error {
+        background-color: $message-error-bg;
+
+        h2 {
+            color: $message-error-color;
+
+            &::before {
+                content: '';
+                /*content: fa-content($fa-var-exclamation-circle);*/
+            }
+        }
+    }
+
+    &.-success {
+        background-color: $message-success-bg;
+
+        h2 {
+            color: $message-success-color;
+
+            &::before {
+                content: '';
+                /*content: fa-content($fa-var-check-square);*/
+            }
+        }
+    }
+
+    &.-center {
+        text-align: center;
+    }
+}

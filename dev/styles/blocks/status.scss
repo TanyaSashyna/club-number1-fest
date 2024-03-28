@@ -1,0 +1,85 @@
+$status-font-size: 1.2;
+$status-new-color: $color-white;
+$status-new-bg: $color-1--2;
+$status-new-icon: \f013;
+$status-progress-color: $color-white;
+$status-progress-bg: $color-2--2;
+$status-progress-icon: \f110;
+$status-assign-color: $color-3--3;
+$status-assign-bg: $color-3--1;
+$status-assign-icon: \f00c;
+
+.status {
+    font-family: $typo-2;
+    font-size: #{$status-font-size}rem;
+    font-weight: $light;
+    line-height: 1.6rem;
+    margin: 0 0 1.5rem;
+    padding: 1rem;
+    text-transform: uppercase;
+
+    &::before {
+        margin-right: 0.5rem;
+    }
+
+    &.-new {
+        background-color: $status-new-bg;
+        color: $status-new-color;
+
+        @include icon-before($status-new-icon);
+    }
+
+    &.-in-progress {
+        background-color: $status-progress-bg;
+        color: $status-progress-color;
+
+        @include icon-before($status-progress-icon);
+    }
+
+    &.-assign {
+        background-color: $status-assign-bg;
+        color: $status-assign-color;
+
+        @include icon-before($status-assign-icon);
+    }
+}
+
+$deadline-color: $color-black;
+$deadline-size: 1.6;
+$deadline-size-mobile: 1.4;
+$deadline-icon: \f017;
+$deadline-icon-size: 1.8;
+$deadline-icon-color: $color-1--2;
+
+.deadline {
+    border-bottom: 1px solid #c3c3c3;
+    border-top: 1px solid #c3c3c3;
+    color: $deadline-color;
+    font-family: $typo-1;
+    font-size: #{$deadline-size}rem;
+    font-weight: $bold;
+    margin: 1.5rem 0;
+    padding: 1.4rem 0 1.1rem 2.6rem;
+    position: relative;
+    text-transform: uppercase;
+
+    @include breakpoint(small down) {
+        font-size: #{$deadline-size-mobile}rem;
+    }
+
+    @include icon-before($deadline-icon);
+
+    &::before {
+        color: $deadline-icon-color;
+        font-size: #{$deadline-icon-size}rem;
+        left: 0;
+        position: absolute;
+        top: 1.1rem;
+    }
+
+    &__time {
+        font-family: $typo-2;
+        font-weight: $light;
+        text-transform: none;
+    }
+}

@@ -1,0 +1,58 @@
+.frame {
+    $this: &;
+    margin: 8rem 0;
+    @include breakpoint(small down) {
+        margin: 4rem 0;
+    }
+
+    #{$this}__title {
+        color: $color-3--3;
+        font-family: $typo-1;
+        font-size: 1.8rem;
+        font-style: italic;
+        font-weight: $bold;
+        margin: 1.75em 0;
+    }
+
+    &__wrapper {
+        //padding: (9/16*100%) 0 0;
+        position: relative;
+        width: 100%;
+    }
+
+    &__ratio {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+
+    &__link {
+        color: $color-black;
+        display: block;
+        font-size: 1.8rem;
+        margin-top: 1.5rem;
+
+        @include icon-before($fa-var-download);
+
+        &::before {
+            color: $color-1--2;
+            font-size: 1.4rem;
+            margin-right: 0;
+        }
+
+        @include breakpoint(small down) {
+            font-size: 1.6rem;
+        }
+    }
+
+    iframe,
+    object,
+    embed {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}

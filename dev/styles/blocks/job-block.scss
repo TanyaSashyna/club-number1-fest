@@ -1,0 +1,79 @@
+$job-category-fz: 1.4;
+$job-category-color: $color-1--2;
+$job-title-fz: 2;
+$job-title-color: $color-black;
+$job-teaser-fz: 1.8;
+$job-teaser-color: $color-black;
+$job-publication-fz: 1.3;
+$job-publication-color: lighten($color-black, 44.71); //#727272
+$job-publication-lg--fz: 1.4;
+$job-publication-lg--color: $color-1--2;
+
+.job-block {
+    &__item {
+        font-family: $typo-1;
+        margin-top: 5rem;
+
+        @include breakpoint(small down) {
+            margin-top: 3.5rem;
+        }
+    }
+
+    &__category {
+        color: $job-category-color;
+        font-family: $typo-2;
+        font-size: #{$job-category-fz}rem;
+        font-weight: $bold;
+        margin: 0 0 0.2rem;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        color: $job-title-color;
+        font-size: #{$job-title-fz}rem;
+        font-weight: $bold;
+        line-height: 1;
+        margin: 0.2rem 0 1rem;
+
+        @include breakpoint(small down) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__publication {
+        color: $job-publication-color;
+        font-size: #{$job-publication-fz}rem;
+        font-style: italic;
+        font-weight: $light;
+        margin: 0;
+
+        &.-large {
+            color: $job-publication-lg--color;
+            font-size: #{$job-publication-lg--fz}rem;
+            font-style: normal;
+            font-weight: $normal;
+            line-height: 2rem;
+            margin: 1rem 0 1.3rem;
+            text-transform: uppercase;
+
+            @include breakpoint(small down) {
+                font-size: 1.2rem;
+            }
+
+            time {
+                font-weight: $bold;
+            }
+        }
+    }
+
+    &__teaser {
+        color: $job-teaser-color;
+        font-size: #{$job-teaser-fz}rem;
+        font-weight: $light;
+        margin: 1.3rem 0 1rem;
+
+        @include breakpoint(small down) {
+            font-size: 1.6rem;
+        }
+    }
+}

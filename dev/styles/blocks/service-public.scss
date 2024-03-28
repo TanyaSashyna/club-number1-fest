@@ -1,0 +1,187 @@
+// Generic
+.entiteImageFloatLeft {
+    float: left;
+    margin: 0.5rem 1rem 1rem 0;
+}
+
+.entiteImageFloatRight {
+    float: right;
+    margin: 0.5rem 0 1rem 1rem;
+}
+
+// Breadcrumb
+.breadcrumb.spFilDAriane {
+    display: block;
+    margin-bottom: 4rem;
+    vertical-align: inherit;
+    width: auto;
+
+    p {
+        font-size: 1.4rem;
+
+        a {
+            text-decoration: none;
+
+            @include on-event() {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.spCenter {
+    h1 {
+        //@extend %rte-heading;
+        color: $color-2--1;
+        font-size: 1.2rem;
+        font-weight: $bold;
+        //margin: em(6, $rte-h2-fz) 0 em(2.5, $rte-h2-fz);
+    }
+}
+
+// Block title
+.rte .spBlockTitle {
+    color: $color-black;
+    font-size: 1.4rem;
+    font-weight: $bold;
+}
+
+// Paragraphs
+.spIntroduction p,
+.spDescription {
+    $teaser-font-size: 1.8;
+
+    color: $color-3--3;
+    font-size: #{$teaser-font-size}rem;
+    margin: 1.1rem 0;
+}
+
+$attention-icon: \f071;
+$noter-icon: \f044;
+$savoir-icon: \f0c6;
+
+// Specific paragraph blocs
+.spAttention,
+.spANoter,
+.spASavoir {
+    background: $color-3--1;
+    margin: 2rem 0;
+    overflow: hidden;
+    padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+    position: relative;
+
+    *[aria-hidden='true'] {
+        display: none;
+    }
+
+    @include icon-before($savoir-icon);
+
+    &::before {
+        @include absolute(1.5rem, null, null, 1.5rem);
+        font-size: 1.6rem;
+    }
+
+    p:first-of-type {
+        margin-top: 0;
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.spAttention {
+    background: lighten($color-red, 45%);
+
+    &::before {
+        content: unquote('\"#{ $attention-icon }\"');
+    }
+}
+
+.spANoter {
+    background: lighten($color-2--2, 55%);
+
+    &::before {
+        content: unquote('\"#{ $noter-icon }\"');
+    }
+}
+
+.spASavoir {
+    background: lighten($color-green, 65%);
+}
+
+.spLienExterne,
+.spLienInterne {
+    color: $color-1--2;
+    text-decoration: underline;
+
+    @include on-event {
+        text-decoration: none;
+    }
+}
+
+// Home menu
+.rte .co-home-menu {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    margin: 2rem 0 !important;
+    text-align: center;
+
+    > * {
+        flex: 1 1 33.33334%;
+    }
+
+    > li {
+        border: 0.1rem solid $color-3--2;
+        font-size: 1rem;
+        margin: 0 -1px -1px 0 !important;
+        padding: 1.5rem;
+
+        &::before {
+            content: none !important;
+            display: none;
+        }
+
+        h3 {
+            color: $color-1--2;
+            font-size: 1.8rem;
+            font-weight: $light;
+            margin: 0 0 1rem;
+            text-transform: uppercase;
+
+            a {
+                color: $color-1--2;
+                text-decoration: none;
+                @include on-event() {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .co-home-sousmenu {
+        > li {
+            display: inline;
+            padding: 0;
+
+            &::before {
+                content: '';
+                display: none;
+            }
+
+            a {
+                color: $color-black;
+                text-decoration: none;
+
+                @include on-event() {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.co-home-img {
+    display: none;
+}

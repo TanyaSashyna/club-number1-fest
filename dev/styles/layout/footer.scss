@@ -1,0 +1,169 @@
+$bg-color-footer: $color-1--3;
+$bg-color-footer-right: $color-1--3;
+
+// @name Footer
+.footer {
+    background: $bg-color-footer;
+    position: relative;
+
+    a,
+    button,
+    input {
+        @include on-event() {
+            outline-color: $color-white;
+        }
+    }
+
+    button,
+    input {
+        @include on-event() {
+            outline-offset: -2px;
+        }
+    }
+
+    .container {
+        max-width: 147.4rem;
+        @include breakpoint(medium down) {
+            max-width: 100%;
+            padding: 0;
+        }
+    }
+
+    //name decor shadow
+    //description adds a shadow to the block on one side
+    .decor-shadow {
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            box-shadow: 10px 0 40px 0 rgba(0, 0, 0, 1);
+            content: '';
+            display: block;
+            height: 100%;
+            left: -2rem;
+            position: absolute;
+            top: 0;
+            width: 1rem;
+
+            @include breakpoint(medium down) {
+                box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 1);
+                height: 1rem;
+                left: 0;
+                top: -1rem;
+                width: 100%;
+            }
+        }
+    }
+
+    /*&::after {
+        background-color: $bg-color-footer-right;
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40%;
+        z-index: 0;
+
+        @include breakpoint(medium down) {
+            content: none;
+        }
+
+        @include breakpoint(small down) {
+            bottom: 0;
+            content: '';
+            height: 50%;
+            top: inherit;
+            width: 100%;
+        }
+    }*/
+
+    &__wrapper {
+        @include flex();
+
+        position: relative;
+        z-index: 2;
+
+        @include breakpoint(medium down) {
+            flex-wrap: wrap;
+        }
+
+        @include breakpoint(small down) {
+            flex-direction: column;
+        }
+    }
+
+    //name Stratis signature
+    &-btn {
+        background: $color-3--5;
+        border-radius: 5px 5px 0 0;
+        position:absolute;
+        bottom: 0;
+        left:70px;
+        padding: 1.1rem 3rem 0.9rem 5.9rem;
+        font-size: 1.6rem;
+        line-height: 1.2;
+        font-weight: $bold;
+        color: $color-1--3;
+        min-width: 26.3rem;
+        z-index: 22;
+        &:before {
+            background: url(../images/ico-bow.svg) no-repeat;
+            width: 28px;
+            height: 14px;
+            position:absolute;
+            top:54%;
+            left:1.6rem;
+            transform: translate(0, -50%);
+            pointer-events: none;
+            content: '';
+        }
+        @include breakpoint(medium down) {
+            left: 3rem;
+        }
+        @include breakpoint(small down) {
+            bottom: 2.1rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    &__stratis {
+        background-color: transparent;
+        bottom: 0;
+        color: $color-white;
+        font-size: 1.2rem;
+        font-weight: $light;
+        left: 0;
+        line-height: 2.1rem;
+        margin: 0;
+        position: absolute;
+        text-align: right;
+        text-transform: uppercase;
+        width: 100%;
+        z-index: 5;
+
+        a {
+            @include transition(all, 400ms, ease, 0ms);
+
+            background: #c70000;
+            color: $color-white;
+            display: inline-block;
+            font-weight: $bold;
+            margin-left: 1.1rem;
+            text-decoration: none;
+            padding: 0 1rem;
+
+            &:hover,
+            &:focus {
+                background: $color-white;
+                color: #c70000;
+            }
+
+            &::after {
+                display: none !important;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,27 @@
+.selected-assistant {
+
+    &-item {
+        background: $color-3--6;
+        padding: 2.9rem 2rem;
+    }
+
+    &__subtitle {
+        color: $color-black;
+        font-size: 1.4rem;
+        font-weight: $bold; 
+        margin: 0 0 2rem;
+    }
+
+    &__title {
+        color: $color-1--3;
+        font-size: 1.8rem;
+        font-weight: $bold;
+        margin: 0 0 0.5rem 0;
+    }
+
+    &__teaser {
+        color: $color-1--3;
+        font-size: 1.4rem;
+        margin: 0;
+    }
+}

@@ -1,0 +1,29 @@
+.glossary-item {
+    border-bottom: 1px solid rgba($color-3--2, 0.3);
+    font-family: $typo-1;
+    margin: 3rem 0;
+    padding-bottom: 3rem;
+
+    &__category {
+        color: $color-2--2;
+        font-family: $typo-2;
+        font-size: 1.4rem;
+        font-weight: $bold;
+        margin: 0 0 0.5rem;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        color: $color-black;
+        font-size: 2rem;
+        font-weight: $bold;
+        margin: 0 0 2rem;
+    }
+
+    &__teaser {
+        color: $color-black;
+        font-size: 1.8rem;
+        font-weight: $light;
+        margin: 0;
+    }
+}

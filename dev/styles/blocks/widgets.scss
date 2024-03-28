@@ -1,0 +1,85 @@
+.widget {
+    font-weight: $light;
+    margin-bottom: 4.5rem;
+
+    &:only-child {
+        margin-bottom: 0;
+    }
+}
+
+$read-more-widget-bg: $color-2--4;
+$read-more-widget-fz: 1.4;
+// Read-more widget
+.read-more {
+    &__wrap {
+        background-color: $read-more-widget-bg;
+        font-size: #{$read-more-widget-fz}rem;
+        padding: 2.7rem 2.5rem;
+        font-weight: normal;
+
+        p {
+            margin: 0 0 1.2rem;
+        }
+
+        > * { 
+            a {
+                color: $color-black;
+                text-decoration: none;
+                @include on-event {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        @include breakpoint(medium only) {
+            align-items: flex-start;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            > * {
+                flex: 1 1 32%;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .list {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .list {
+        display: block;
+        margin-bottom: 3.3rem;
+
+        li {
+            font-family: $typo-1;
+            font-weight: $normal;
+            font-size: 1.4rem;
+            &::before {
+                color: $color-3--5;
+            }
+        }
+    }
+
+    &__picture {
+        display: block;
+        margin: 0 auto;
+        max-width: 20rem;
+
+        @include breakpoint(medium only) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+    .sidebar & {
+        margin-bottom: 7.5rem;
+    }
+}

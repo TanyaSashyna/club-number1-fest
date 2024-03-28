@@ -1,0 +1,204 @@
+$hero-height: 93.4rem;
+$hero-height-full: 100vh;
+$active-color: $color-2--1;
+
+.hero {
+    $this: &;
+    height: auto;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+
+    @include breakpoint(medium down) {
+        padding-top: 9.5rem;
+    }
+
+    @include breakpoint(small down) {
+        padding-top: 7.6rem;
+    }
+
+    &-form {
+        @include absolute(null, null, 17.5rem, 50%);
+        transform: translateX(-50%);
+        width: 82rem;
+        z-index: 2;
+
+        @include breakpoint(medium down) {
+            display: none;
+        }
+
+        &__title {
+            color: $color-white;
+            font-family: $typo-2;
+            font-size: 10rem;
+            font-weight: $black;
+            line-height: 61px;
+            margin: 0;
+            padding-left: 4rem;
+            text-align: center;
+
+            &::before {
+                content: '#';
+            }
+        }
+
+        form {
+            @include flex();
+            align-items: center;
+            border: 10px solid rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            height: 9rem;
+            margin: 0;
+        }
+
+        &__input {
+            height: 100%;
+            width: 100%;
+
+            input {
+                background: rgba($color-white, 0.95);
+                box-sizing: border-box;
+                color: $color-3--4;
+                display: block;
+                font-size: 2rem;
+                font-style: normal;
+                font-weight: $light;
+                height: 100%;
+                padding: 2.25rem 1.5rem 2.25rem 2.5rem;
+
+                &::placeholder {
+                    color: $color-3--4;
+                    font-size: 2rem;
+                    font-style: normal;
+                    font-weight: $light;
+                }
+            }
+        }
+
+        &__btn {
+            @include size(7.2rem, 100%);
+            @include trs();
+            background: rgba($color-white, 0.95);
+            border: transparent;
+            color: $color-1--3;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 2rem;
+            font-weight: $normal;
+            position: relative;
+
+            i {
+                font-weight: $normal;
+            }
+
+            @include on-event() {
+                background-color: $color-1--3;
+                color: $color-white;
+            }
+
+            &::before {
+                @include absolute(null, null, 0, 0);
+                @include size(0.8rem, 100%);
+                background: transparent url('#{$image-assets}/search-shadow.png') no-repeat center bottom;
+                content: '';
+                opacity: 0.7;
+            }
+        }
+    }
+
+    &-quick {
+        @include flex(null, wrap, center, center, null);
+        margin-top: 1rem;
+        z-index: 2;
+
+        &__link {
+            @include trs();
+            background-color: $color-black;
+            color: $color-white;
+            display: inline-block;
+            font-size: 1.6rem;
+            font-weight: $light;
+            margin: 0 0.5rem 1rem;
+            overflow: hidden;
+            padding: 1.2rem 2rem;
+            position: relative;
+
+            &::before {
+                @include trs();
+                color: $color-1--2;
+                content: '#';
+                margin-right: 0.3rem;
+            }
+
+            @include on-event() {
+                background-color: $color-1--3;
+
+                &::before {
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}
+
+.hero-slider {
+    &.-static-height {
+        height: $hero-height;
+
+        @include breakpoint(medium down) {
+            height: auto;
+        }
+    }
+}
+
+:root {
+  --base: $color-1--3;
+  --bg-blend: screen;
+  --blur: 0px;
+  --fg-blend: multiply;
+  --foreground: $color-1--3;
+  --opacity: 1;
+  --spacing: 0%;
+}
+
+.hero-item {
+    $this: &;
+    display: block;
+    height: 100%;
+    position: relative;
+
+    @include breakpoint(medium down) {
+        height: auto;
+    }
+
+
+    &__image {
+        display: block;
+        height: 100%;
+        display: flex;
+        flex: 1 1 100%;
+        height: 100%;
+        overflow: hidden;
+        padding: var(--spacing);
+        position: relative;
+
+        @include breakpoint(medium down) {
+            height: auto;
+        }
+
+        img {
+            @include size(100%);
+            display: block;
+            flex: 1 0 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            position: relative;
+            width: 100%;
+
+            @include breakpoint(medium down) {
+                height: auto;
+            }
+        }
+    }
+}

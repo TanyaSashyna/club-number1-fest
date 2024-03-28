@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:100,200,300,400,500,600,700,800,900");
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+.livingcss .livingcss__nav-link {
+    background-color: #c90c0f;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 1.2rem 2rem;
+}
+.livingcss .livingcss .livingcss__nav-link--active, .livingcss .livingcss__nav-link:hover, .livingcss .livingcss__nav-link:focus {
+    background-color: #000;
+}
+.livingcss .livingcss__header .livingcss__nav-link {
+    background-color: #c90c0f;
+    color: #fff;
+}
+.livingcss .livingcss .livingcss__header .livingcss__nav-link--active, .livingcss .livingcss__header .livingcss__nav-link:hover, .livingcss .livingcss__header .livingcss__nav-link:focus {
+    background-color: #000;
+}
+.livingcss .livingcss__nav {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 22rem;
+        -ms-flex: 0 0 22rem;
+            flex: 0 0 22rem;
+}
+.livingcss .livingcss__nav .livingcss__nav-link {
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+.livingcss .livingcss .livingcss__nav .livingcss__nav-link--active, .livingcss .livingcss__nav .livingcss__nav-link:hover, .livingcss .livingcss__nav .livingcss__nav-link:focus {
+    background-color: #000;
+}
+.livingcss .livingcss__nav--fixed .livingcss__nav-container {
+    width: 22rem;
+}
+.livingcss .livingcss__header-title {
+    font-size: 3rem;
+    line-height: 1;
+}
+.livingcss .livingcss__header-title-container {
+    background-color: #c90c0f;
+}
+.livingcss .livingcss__footer {
+    background-color: #99090b;
+}
+.livingcss__section-description p {
+    font-size: 1.5rem;
+}
+.livingcss__section-description code {
+    background-color: #f1c8d9;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+.livingcss__section-description li {
+    margin-bottom: 10px;
+}
+.livingcss__wrapper {
+    font-size: 1.5rem;
+}
+.container:not(.heading__wrapper):not(.container).livingcss-example {
+    background-color: #f1c8d9;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+}
+.flex-row.livingcss-example {
+    margin-bottom: 10px;
+}
+.livingcss-example .example-box {
+    background-color: #f1c8d9;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+.livingcss-example .example-box--large {
+    height: 120px;
+}
+.livingcss-example .livingcss-example .lang {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    min-height: 20rem;
+    position: static;
+    vertical-align: middle;
+}
+.livingcss-example .livingcss-example .lang__drop {
+    padding: 0;
+}
+.livingcss-example .livingcss-example .profile {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    min-height: 25rem;
+    position: static;
+    vertical-align: middle;
+}
+.livingcss-example .profile__drop {
+    padding: 0;
+}
+.livingcss-example .form__field-attached.livingcss-example {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+}
+
+/*# sourceMappingURL=guidelines.css.map */

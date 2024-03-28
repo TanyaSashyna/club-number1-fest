@@ -1,0 +1,156 @@
+$submit-size: 4;
+$report-incident-bg: $color-2--3;
+$report-incident-col: $color-white;
+
+.report-incident {
+    background-color: $report-incident-bg;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    @extend %bg-pattern-white;
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    &.container,
+    .container {
+        @include breakpoint(large) {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    }
+
+    &.-has-shadow {
+        margin-bottom: 4rem;
+        @include section-shadow();
+
+        &::before,
+        &::after {
+            height: 2.5rem;
+        }
+
+        &::before {
+            transform: rotate(-1deg) skewX(-60deg);
+        }
+
+        &::after {
+            transform: rotate(1deg) skewX(60deg);
+            visibility: visible; // fix clear-fix issue
+        }
+    }
+
+    &__wrap {
+        @include breakpoint(medium) {
+            display: flex;
+        }
+    }
+
+    &__title {
+        color: $report-incident-col;
+        font-size: 1.8rem;
+        flex-shrink: 0;
+        font-weight: $light;
+        line-height: 3rem;
+        position: relative;
+        text-transform: uppercase;
+        @include icon-before(\E037);
+        @include breakpoint(medium only) {
+            line-height: 1.2;
+            padding-left: 4rem;
+        }
+
+        &::before {
+            color: $color-2--1;
+            font-family: $icon-custom;
+            font-size: 3rem;
+            font-weight: $normal;
+            margin-right: 1rem;
+            vertical-align: -0.25em;
+
+            @include breakpoint(medium only) {
+                left: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        strong {
+            @include breakpoint(medium only) {
+                display: block;
+            }
+        }
+    }
+
+    &__form {
+        border: solid rgba($report-incident-col, 0.3);
+        border-width: 1px 0 0;
+        flex-grow: 1;
+        margin: 0;
+        padding: 2rem 0 1rem;
+
+        @include breakpoint(small down) {
+            text-align: center;
+        }
+
+        @include breakpoint(medium) {
+            align-items: center;
+            border-width: 0 0 0 1px;
+            display: flex;
+            margin-left: 4rem;
+            padding-left: 3rem;
+        }
+
+        label {
+            color: $report-incident-col;
+            cursor: pointer;
+            display: block;
+            font-family: $typo-2;
+            font-size: 1.4rem;
+            font-weight: $bold;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .form__field-wrapper {
+            margin: 0;
+
+            @include breakpoint(medium) {
+                align-items: center;
+                display: flex;
+            }
+        }
+
+        select {
+            background-color: $report-incident-bg;
+            background-image: inline-svg('<svg fill="#{$report-incident-col}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="8" height="8"><path d="M41,96.5h238c21.4,0,32.1,25.9,17,41l-119,119c-9.4,9.4-24.6,9.4-33.9,0L24,137.5C8.9,122.4,19.6,96.5,41,96.5z"/></svg>');
+            color: $report-incident-col;
+            font-family: $typo-2;
+            font-style: $normal;
+            font-weight: $light;
+            width: 100%;
+
+            @include breakpoint(small down) {
+                margin: 1rem 0;
+            }
+
+            @include breakpoint(medium) {
+                margin: 0 2rem;
+            }
+        }
+
+        button {
+            //@include icon-before($fa-var-check);
+            @include transition(all);
+
+            color: $report-incident-col;
+            white-space: nowrap;
+
+            &::before {
+                content: '';
+                @include transition(color);
+                color: $color-2--2;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}

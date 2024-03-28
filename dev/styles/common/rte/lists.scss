@@ -1,0 +1,127 @@
+$content-list-fz: 1.7;
+$content-list-fz-mobile: 1.6;
+// @lists
+%inserted-uls {
+    > ul {
+        margin: em(1.3, $content-list-fz) 0 em(1.5, $content-list-fz) em(2.5, $content-list-fz);
+
+        > li {
+            margin-bottom: em(0.6, $content-list-fz);
+
+            &::before {
+                color: inherit;
+                content: '•';
+                font-family: inherit;
+            }
+        }
+    }
+}
+
+%inserted-ols {
+    > ol {
+        margin: em(1.3, $content-list-fz) 0 em(1.5, $content-list-fz) em(2.5, $content-list-fz);
+
+        > li { 
+            margin-bottom: em(0.6, $content-list-fz);
+        }
+    }
+}
+
+%mutual-uls-ols {
+    color: $color-black;
+    font-size: #{$content-list-fz}rem;
+    font-weight: $normal;
+    padding: 0;
+
+    > li {
+        line-height: 1.4;
+        margin-bottom: em(1, $content-list-fz);
+        @extend %inserted-uls;
+        @extend %inserted-ols;
+    }
+
+    p {
+        font-size: #{$content-list-fz}rem;
+        margin-bottom: em(0.25, $content-list-fz);
+    }
+
+    @include breakpoint(small down) {
+        font-size: #{$content-list-fz-mobile}rem;
+        p {
+            font-size: #{$content-list-fz-mobile}rem;
+        }
+    }
+}
+
+// @name Unordered list
+ul,
+.show-hide__content ul {
+    @extend %mutual-uls-ols;
+    list-style: none;
+    margin: 2rem 0 1.5rem 3.5rem;
+
+    > li {
+        @include icon-before($fa-var-angle-right);
+        position: relative;
+
+        &::before {
+            color: $color-3--5;
+            left: -0.75em;
+            position: absolute;
+        }
+    }
+
+    @include breakpoint(small down) {
+        margin: 2rem 0 1.5rem 2rem;
+        ul + p { 
+            margin-left: -1.2rem;
+        }
+    }
+}
+
+// @name Ordered list
+ol,
+.show-hide__content ol {
+    @extend %mutual-uls-ols;
+    margin: 2rem 0 1.5rem 3.5rem;
+    @include breakpoint(small down) {
+        margin: 2rem 0 1.5rem 2rem;
+        ul + p { 
+            margin-left: -1.2rem;
+        }
+    }
+}
+
+// @name Reset list
+// @description for reset list ul or ol in content
+%reset-list {
+    list-style-position: outside;
+    margin-left: 45px;
+    padding: 0;
+
+    ul,
+    ol {
+        list-style-position: outside;
+    }
+
+    ul {
+        list-style-type: circle;
+    }
+
+    ol {
+        list-style-type: lower-latin;
+    }
+
+    li {
+        padding: 0;
+
+        &::before {
+            content: none !important;
+        }
+    }
+}
+
+ul.reset-list {
+    list-style-type: disc;
+    @extend %reset-list;
+}

@@ -1,0 +1,123 @@
+body {
+	min-width: 320px;
+	font: 12px/1.2 arial, helvetica, sans-serif;
+	color: #000;
+}
+
+button,
+[type=reset],
+[type=submit],
+[type=image],
+a {
+	-webkit-transition: background-color .2s, color .2s;
+	transition: background-color .2s, color .2s;
+}
+
+img {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+em {
+	font-style: italic;
+}
+
+i {
+    font-family: 'FontAwesome';
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+%list-reset {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+%clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+// import google font
+@if variable-exists(import-google-font-1) {
+    @import url($import-google-font-1);
+}
+
+@if variable-exists(import-google-font-2) {
+    @import url($import-google-font-2);
+}
+
+@if variable-exists(import-google-font-3) {
+    @import url($import-google-font-3);
+}
+
+// @name Html
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    color: inherit;
+}
+
+// @name Body
+body {
+    font-family: $typo-1;
+    font-weight: $normal;
+    overflow-x: hidden;
+
+    &.-overflow-hidden {
+        overflow: hidden;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+}
+
+input,
+textarea,
+select,
+button {
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+// hide SVG symbol
+.svg-symbol {
+    display: none;
+}
+
+// Temp
+.test-wrapper {
+    min-height: 12rem;
+    padding: 0 0 1rem;
+    position: relative;
+}
+
+#tarteaucitronRoot {
+    display: none;
+}

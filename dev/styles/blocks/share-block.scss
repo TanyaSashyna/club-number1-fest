@@ -1,0 +1,150 @@
+$share-btn-width: 3.5;
+$share-btn-bg: transparent;
+$share-btn-bg-open: $color-1--2;
+$share-btn-icon-color: $color-white;
+$share-btn-icon-color-open: $color-white;
+$share-ul-bg: $color-1--3;
+$share-link-color: $color-white;
+
+$share-transparent-width: 4.5;
+$share-transparent-btn-bg: transparent;
+$share-transparent-btn-icon-color: $color-white;
+
+.share-block {
+    $this: &;
+
+    &__button {
+        @include hide-text-with-icon();
+        @include transition(all, 300ms, ease, 0ms);
+        @include size(#{$share-btn-width}rem);
+
+        background-color: $share-btn-bg;
+        border: 0;
+        border-radius: 50%;
+        position: relative;
+
+        &[data-fa-icon]::before {
+            @include transition(all, 300ms, ease, 0ms);
+
+            color: $share-btn-icon-color;
+            font-size: 1.6rem;
+            left: 50%;
+            margin-right: 0;
+            position: absolute;
+            top: 50%;
+            opacity: 0.5;
+            transform: translate(-50%, -50%);
+
+            .-is-open & {
+                color: $share-btn-icon-color-open;
+                opacity: 1;
+            }
+        }
+
+        @include on-event() {
+            &[data-fa-icon]::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__listitems {
+        background-color: $share-ul-bg;
+        left: 50%;
+        overflow: hidden;
+        padding: 2rem;
+        position: absolute;
+        top: #{$share-btn-width}rem;
+        transform: translate(-50%, -0.1rem);
+        width: auto;
+        text-align: left;
+
+        &.-in-top {
+            //right: 50%;
+            top: -#{$share-btn-width}rem;
+            transform: translate(-50%, -100%);
+        }
+
+        .-is-open & {
+            transform: translate(-50%, -0.1rem);
+
+            &.-in-top {
+                top: -#{$share-btn-width}rem;
+                transform: translate(-50%, -100%);
+            }
+
+            #{$this}__item {
+                opacity: 1;
+                transform: translateX(0);
+
+                @for $index from 1 through 10 {
+                    &:nth-child(#{$index}) {
+                        transition: all 0.2s ease (100ms * $index - 100);
+                    }
+                }
+            }
+        }
+    }
+
+    &__item {
+        color: $share-link-color;
+        opacity: 0;
+        transform: translateX(100%);
+        white-space: nowrap;
+
+        a {
+            color: $share-link-color;
+            font-size: 1.6rem;
+
+            @include on-event() {
+                text-decoration: underline;
+            }
+        }
+
+        &[data-fa-icon] {
+            &::before {
+                color: $share-link-color;
+                font-family: $font-awesome-brands;
+                font-size: 1.2rem;
+                margin-right: 0.3rem;
+                min-width: 1.6rem;
+            }
+        }
+
+        &.-email {
+            &[data-fa-icon] {
+                &::before {
+                    font-family: $font-awesome;
+                }
+            }
+        }
+    }
+
+    &.-dark {
+        #{$this}__button {
+            &[data-fa-icon]::before {
+                color: $color-1--3;
+            }
+
+            @include on-event() {
+                &[data-fa-icon]::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.-inverted {
+        #{$this}__button {
+            &[data-fa-icon]::before {
+                color: $color-white;
+            }
+
+            @include on-event() {
+                &[data-fa-icon]::before {
+                    color: $color-black;
+                }
+            }
+        }
+    }
+}

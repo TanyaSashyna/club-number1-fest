@@ -1,0 +1,234 @@
+// @name TYPO3 default content style
+@each $pos in (left, right, center) {
+    .ce-align-#{$pos} {
+        text-align: $pos;
+    }
+}
+
+.ce-table {
+    td,
+    th {
+        vertical-align: top;
+    }
+}
+
+.ce-textpic,
+.ce-nowrap .ce-bodytext {
+    overflow: inherit;
+    @extend %clear-fix;
+}
+/**
+ * TODO: Responsive style refactoring needed
+ */
+.ce-left .ce-gallery,
+.ce-column {
+    float: none;
+    @include breakpoint(medium) {
+        float: left;
+    }
+}
+
+.ce-center {
+    .ce-outer,
+    .ce-inner {
+        float: right;
+        position: relative;
+    }
+
+    .ce-outer {
+        right: 50%;
+    }
+
+    .ce-inner {
+        right: -50%;
+    }
+}
+
+.ce-gallery {
+    overflow: inherit;
+    @extend %clear-fix;
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    //@include breakpoint(medium) {
+    //    max-width: 50%;
+    //}
+
+    figure {
+        display: table;
+        margin: 0;
+    }
+
+    figcaption {
+        caption-side: bottom;
+        color: $color-3--3;
+        display: table-caption;
+        font-family: $typo-1;
+        font-size: 1.3rem;
+        font-weight: $light;
+        padding-top: 1.6rem;
+    }
+
+    .copyright {
+        display: block;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+
+    img {
+        display: block;
+    }
+
+    iframe {
+        border-width: 0;
+    }
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    .ce-right & {
+        float: none;
+        @include breakpoint(medium) {
+            float: right;
+        }
+    }
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    .ce-intext.ce-right & {
+        margin-bottom: 20px;
+        margin-left: 0;
+        @include breakpoint(medium) {
+            margin-left: 30px;
+        }
+    }
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    .ce-intext.ce-left & {
+        margin-bottom: 30px;
+        margin-right: 0;
+        @include breakpoint(medium) {
+            margin-right: 30px;
+        }
+    }
+
+    .ce-above & {
+        margin-bottom: 20px;
+    }
+
+    .ce-below & {
+        margin-top: 10px;
+    }
+    @include breakpoint(small down) {
+        figure {
+            width: 100%;
+        }
+        .ce-intext.ce-left & {
+            margin-bottom: 3rem;  
+        }
+    }
+
+}
+
+.ce-border {
+    img,
+    iframe {
+        border: 2px solid $color-black;
+        padding: 0;
+    }
+}
+
+.ce-column {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.ce-row {
+    @extend %clear-fix;
+    margin-bottom: 10px;
+    overflow: inherit;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.ce-above .ce-bodytext {
+    clear: both;
+}
+
+.ce-intext.ce-left {
+    ol,
+    ul {
+        overflow: auto;
+        padding-left: 40px;
+    }
+}
+
+.ce-uploads {
+    margin: 0;
+    padding: 0;
+
+    li,
+    div {
+        overflow: inherit;
+        @extend %clear-fix;
+    }
+
+    li {
+        list-style: none outside none;
+        margin: 1em 0;
+    }
+
+    img {
+        float: left;
+        padding-right: 1em;
+        vertical-align: top;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+.ce-nowrap .ce-bodytext {
+    overflow: hidden !important;
+
+    h2 {
+        margin-top: 0 !important;
+    }
+}
+
+// @name TYPO3 text&media content blocks margin
+.rte {
+    .ce-textpic {
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+        @include breakpoint(small) {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+#tarteaucitronDisclaimerAlert {
+    display: block;
+    margin: 0 0 1rem !important;
+    text-align: center !important;
+}
+
+#tarteaucitronRoot #tarteaucitronAlertBig {
+    box-sizing: border-box;
+    padding: 2rem 3rem;
+}
+
+.tarteaucitronInfoBox {
+    text-align: center !important;
+}

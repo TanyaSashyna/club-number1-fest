@@ -1,0 +1,158 @@
+// Import configuration
+@import './helpers/config';
+
+// Import helpers
+@import './helpers/functions';
+@import './helpers/flexbox-mixin';
+@import './helpers/breakpoint-mixin';
+@import './helpers/flexbox-grid-mixin';
+@import './helpers/inline-svg-mixin';
+@import './helpers/core-mixins';
+@import './helpers/helpers';
+
+// Import Libs
+/* stylelint-disable */
+@import '../../../node_modules/node-normalize-scss/normalize';
+@import './vendor/datepicker';
+@import url('../../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css');
+@import url('../../../node_modules/swiper/dist/css/swiper.css');
+@import url('../../../node_modules/tarteaucitronjs/css/tarteaucitron.css');
+
+// Import custom Icons
+@import './icons';
+
+// Import fontAwesome font
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/brands';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/light';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/regular';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/solid';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/fontawesome';
+/* stylelint-enable */
+
+// Import core base
+@import 'base/base';
+@import 'base/typography';
+@import 'base/typo3';
+@import 'base/rte';
+
+// Import layouts
+@import 'layouts/wrappers';
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/sidebar';
+@import 'layouts/filters';
+@import 'layouts/forms';
+@import 'layouts/columns';
+
+// Import base components
+@import 'components/preloader';
+@import 'components/button';
+@import 'components/checkbox-radio';
+@import 'components/dropdown';
+@import 'components/input';
+@import 'components/select';
+@import 'components/label';
+@import 'components/icon';
+@import 'components/spinner';
+@import 'components/image';
+@import 'components/video';
+@import 'components/list';
+@import 'components/message';
+@import 'components/progressbar';
+@import 'components/table';
+@import 'components/text';
+@import 'components/click-roll';
+@import 'components/accesstooltip';
+@import 'components/tabs-cordion';
+@import 'components/carousel';
+@import 'components/galleries';
+@import 'components/print-banner';
+@import 'components/comments';
+@import 'components/autocomplete';
+@import 'components/tarteraucitron';
+@import '../components/menu-skip/menu-skip';
+@import '../components/header-bar/header-bar';
+@import '../components/media-element/media-element';
+@import '../components/logo/logo';
+@import '../components/search/header-search-btn';
+@import '../components/main-nav/mnv-aside/mnv-aside';
+@import '../components/search/search';
+
+// Import custom components
+@import '../components/hero/sld-1/hero';
+@import '../components/news-block/news';
+@import '../components/titles/titles';
+@import '../components/links/links';
+@import '../components/discover/discover';
+@import '../components/move-folder/move-folder';
+@import '../components/see-again/see-again';
+@import '../components/pagers/pagers';
+@import '../components/headings/headings';
+@import '../components/date/date';
+@import '../components/infos/infos';
+@import '../components/lang/lang';
+@import '../components/flash-info/flash-info';
+@import '../components/cookies-block/cookies-block';
+@import '../components/cookies-block/cookies-page';
+@import '../components/go-to-top/go-to-top';
+@import '../components/menu-cross/menu-cross';
+@import '../components/newsletter/newsletter';
+@import '../components/newsletter/newsletter-bar';
+@import '../components/site-infos/site-infos';
+@import '../components/profile-menu/profile-menu';
+@import '../components/subpages-menu/subpages-menu';
+@import '../components/sitemap/sitemap';
+@import '../components/publications/publications-block';
+@import '../components/publications/publications-single';
+@import '../components/list-document/list-document';
+@import '../components/telecharger/telecharger';
+@import '../components/news-block/news-block';
+@import '../components/news-block/news-spoiler';
+@import '../components/share-block/share-block';
+@import '../components/albums-block/albums-block';
+@import '../components/albums-block/albums-home';
+@import '../components/contact/contact';
+@import '../components/filters/filters';
+@import '../components/form/form';
+@import '../components/social-networks/social-networks';
+@import '../components/tools/tools';
+@import '../components/breadcrumbs/breadcrumbs';
+@import '../components/page-image/page-image';
+@import '../components/events-block/events-block';
+@import '../components/events-block/events-home';
+@import '../components/directory-block/directory-block';
+@import '../components/vote/vote';
+@import '../components/same-category/same-category';
+@import '../components/stratis-menu/stratis-menu';
+@import '../components/my-account/my-account';
+@import '../components/quick-links-demarches/quick-links-demarches';
+@import '../components/projects/projects';
+@import '../components/next-council/next-council';
+@import '../components/on-the-web/on-the-web-block';
+@import '../components/quick-links/quick-links-block';
+@import '../components/menu-floating/menu-floating';
+@import '../components/job-block/job-block';
+@import '../components/job-block/job-single';
+@import '../components/interests-block/interests';
+@import '../components/social-wall/social-wall';
+@import '../components/service-public/service-public';
+@import '../components/one-click/one-click';
+@import '../components/error-block/error-block';
+@import '../components/glossary-block/glossary-block';
+@import '../components/glossary-block/glossary-item';
+@import '../components/status/status';
+@import '../components/read-speaker/read-speaker';
+@import '../components/poll-block/poll-block';
+@import '../components/poll-block/poll-single';
+@import '../components/multiselect/multiselect';
+@import '../components/extranet-block/extranet';
+@import '../components/organigramme/organigramme';
+@import '../components/book-online/book-online';
+@import '../components/content-list/content-list';
+@import '../components/selected-assistant/selected-assistant';
+@import '../components/widgets/widgets';
+@import '../components/fact/fact';
+@import '../components/interactive-map/interactive-map';
+@import '../components/community/community';
+@import '../components/development/development';
+@import '../components/filters-checkboxes/filters-checkboxes';

@@ -1,0 +1,25 @@
+.content-list {
+    .rte {
+        margin-left: -2rem;
+
+        ul{
+            li{
+                a {
+                    text-decoration: none;
+
+                    @include on-event() {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    @include breakpoint(small down) {
+        ul {
+            li {
+                line-height: 1.2;
+                margin-bottom: 0.7rem;
+            }
+        }
+    }
+}

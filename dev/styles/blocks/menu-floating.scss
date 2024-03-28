@@ -1,0 +1,176 @@
+.menu-floating {
+    $this: &;
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    &__item {
+        transition: transform 0.4s ease;
+        will-change: transform;
+    }
+
+    &__link {
+        align-items: center;
+        color: $color-white;
+        display: inline-flex;
+        font-family: $typo-1;
+        font-size: 1.4rem;
+        font-weight: $light;
+        overflow: hidden;
+        padding-right: 1rem;
+        position: relative;
+        z-index: 7;
+
+        &::after {
+            @include size(1rem, 100%);
+            @include absolute(0, null, null, 4rem);
+            @include trs();
+
+            box-shadow: 0.75rem 0 1rem 0 rgba($color-black, 0.7);
+            content: '';
+            display: block;
+            transform: rotate(5deg);
+        }
+
+    }
+
+    &__icon {
+        @include size(6rem);
+
+        align-items: center;
+        background-color: inherit;
+        display: flex;
+        justify-content: center;
+        margin-right: 1rem;
+        position: relative;
+        z-index: 5;
+
+        svg {
+            @include size(2.5rem);
+
+            fill: $color-white;
+            line-height: 6rem;
+        }
+    }
+}
+
+.container-wrapper {
+    .menu-floating {
+        @include fixed(30%, 0, auto, auto);
+        transform: translateX(100%) translateX(-6rem);
+        z-index: 100;
+
+        @include breakpoint(medium down) {
+            display: none;
+        }
+
+        &__btn {
+            display: none;
+        }
+
+        &__item {
+            margin-bottom: 0.1rem;
+        }
+
+        &__link {
+            background-color: $color-2--2;
+            transform: translateX(0);
+            @include trs();
+
+            @include on-event() {
+                background-color: $color-1--2;
+                transform: translateX(-100%) translateX(6rem);
+            }
+        }
+    }
+}
+
+.mnv-menu {
+    .menu-floating {
+        &.-is-open {
+            .menu-floating__btn {
+                background-color: $color-2--2;
+
+                i {
+                    transform: rotateX(180deg);
+                }
+            }
+
+            .menu-floating__list {
+                max-height: 100rem;
+                opacity: 1;
+                transition: visibility 200ms ease-in-out, max-height 200ms ease-in-out, opacity 350ms ease-in-out;
+                visibility: visible;
+            }
+        }
+
+        &__btn {
+            background-color: $color-2--1;
+            border: 0;
+            color: $color-white;
+            cursor: pointer;
+            display: block;
+            font-family: $typo-2;
+            font-size: 2rem;
+            font-weight: $bold;
+            padding: 1.5rem 3rem 1.5rem 1rem;
+            position: relative;
+            text-align: left;
+            text-transform: uppercase;
+            width: 100%;
+
+           // @include icon-before($fa-var-hand-point-up);
+
+            &::before {
+                content: '';
+                margin-right: 0.25em;
+                vertical-align: baseline;
+            }
+
+            i {
+                @include absolute(50%, 1rem, null, null);
+                @include size(3rem);
+                background-color: $color-black;
+                display: block;
+                font-weight: $bold;
+                font-size: 0.9em;
+                margin-top: -1.5rem;
+                text-align: center;
+                transform: rotateX(0);
+                transition: transform 200ms ease-in-out;
+
+                &::before {
+                    @include absolute(50%, null, null, 50%);
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+
+            @include on-event() {
+                background-color: $color-2--2;
+            }
+        }
+
+        &__list {
+            max-height: 0;
+            opacity: 0;
+            transition: visibility 200ms ease-in-out, max-height 350ms ease-in-out, opacity 200ms ease-in-out;
+            visibility: hidden;
+        }
+
+        &__item {
+            border-bottom: 1px solid darken(desaturate($color-1--2, 13.76), 2.55);
+        }
+
+        &__link {
+            background-color: $color-1--2;
+
+            @include on-event() {
+                background-color: $color-2--2;
+            }
+        }
+    }
+}

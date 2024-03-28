@@ -1,0 +1,29 @@
+.publications-single {
+    &__listitems {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0 -2rem;
+        padding-left: 0;
+
+        @include breakpoint(small down) {
+            margin: 0;
+        }
+    }
+
+    &__item {
+        flex-basis: calc(33.3333% - 4rem);
+        flex-grow: 0;
+        flex-shrink: 1;
+        margin: 0 2rem 2.5rem;
+
+        @include breakpoint(medium down) {
+            flex-basis: calc(50% - 4rem);
+        }
+
+        @include breakpoint(small down) {
+            flex-basis: 100%;
+            margin: 0 0 2.5rem;
+        }
+    }
+}

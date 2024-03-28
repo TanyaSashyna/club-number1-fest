@@ -1,0 +1,31 @@
+.menu-skip {
+    width: 100%;
+
+    &__label {
+        @extend %visually-hidden;
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: contrast-switch($color-1--3);
+        font-size: 1.4rem;
+        left: 0;
+        position: absolute;
+        top: -20rem;
+        transition: all 0.3s ease;
+
+        &:focus {
+            background: $color-1--3;
+            display: block;
+            padding: 1.5rem;
+            top: 0;
+            width: 100%;
+            z-index: 101;
+        }
+    }
+}

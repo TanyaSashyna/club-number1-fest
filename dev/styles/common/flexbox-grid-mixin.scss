@@ -1,0 +1,491 @@
+/**
+ * Grid system.
+ *
+ * @section Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row">
+ *  <div class="col-xs-6"><div class="example-box">half-width column.</div></div>
+ *  <div class="col-xs-6"><div class="example-box">half-width column</div></div>
+ * </div>
+ * <div class="flex-row">
+ *  <div class="col-xs-4"><div class="example-box">one-third-width column.</div></div>
+ *  <div class="col-xs-4"><div class="example-box">one-third-width column.</div></div>
+ *  <div class="col-xs-4"><div class="example-box">one-third-width column.</div></div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system responsive.
+ * Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.
+ *
+ * @section Grid responsive
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row">
+ *  <div class="col-xs-12 col-sm-2 col-md-8 col-lg-3"><div class="example-box">Responsive column.</div></div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system Auto Width.
+ * Add any number of auto sizing columns to a row.
+ *
+ * @section Grid Auto Width
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row">
+ *  <div class="col-xs"><div class="example-box">1</div></div>
+ * </div>
+ * <div class="flex-row">
+ *  <div class="col-xs"><div class="example-box">1</div></div>
+ *  <div class="col-xs"><div class="example-box">2</div></div>
+ * </div>
+ * <div class="flex-row">
+ *  <div class="col-xs"><div class="example-box">1</div></div>
+ *  <div class="col-xs"><div class="example-box">2</div></div>
+ *  <div class="col-xs"><div class="example-box">3</div></div>
+ * </div>
+ * <div class="flex-row">
+ *  <div class="col-xs"><div class="example-box">1</div></div>
+ *  <div class="col-xs"><div class="example-box">2</div></div>
+ *  <div class="col-xs"><div class="example-box">3</div></div>
+ *  <div class="col-xs"><div class="example-box">4</div></div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system Alignment.
+ * Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
+ *
+ * @section Grid alignment horizontal
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row start-xs">
+ *  <div class="col-xs-6">
+ *   <div class="example-box">
+ *     start
+ *   </div>
+ *  </div>
+ * </div>
+ * <div class="flex-row center-xs">
+ *  <div class="col-xs-6">
+ *   <div class="example-box">
+ *     center
+ *   </div>
+ *  </div>
+ * </div>
+ * <div class="flex-row end-xs">
+ *  <div class="col-xs-6">
+ *   <div class="example-box">
+ *     end
+ *   </div>
+ *  </div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system Alignment.
+ * Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
+ *
+ * @section Grid alignment vertical
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row top-xs">
+ *  <div class="col-xs-6"><div class="example-box example-box--large"></div></div>
+ *  <div class="col-xs-6">
+ *   <div class="example-box">
+ *     top
+ *   </div>
+ *  </div>
+ * </div>
+ * <div class="flex-row middle-xs">
+ *  <div class="col-xs-6"><div class="example-box example-box--large"></div></div>
+ *  <div class="col-xs-6">
+ *   <div class="example-box">
+ *     middle
+ *   </div>
+ *  </div>
+ * </div>
+ * <div class="flex-row bottom-xs">
+ *  <div class="col-xs-6"><div class="example-box example-box--large"></div></div>
+ *  <div class="col-xs-6">
+ *   <div class="example-box">
+ *     bottom
+ *   </div>
+ *  </div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system Distribution.
+ * Add classes to distribute the contents of a row or column.
+ *
+ * @section Grid distribution
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row around-xs">
+ *  <div class="col-xs-2"><div class="example-box">1</div></div>
+ *  <div class="col-xs-2"><div class="example-box">2</div></div>
+ *  <div class="col-xs-2"><div class="example-box">3</div></div>
+ * </div>
+ *
+ * <div class="flex-row between-xs">
+ *  <div class="col-xs-2"><div class="example-box">1</div></div>
+ *  <div class="col-xs-2"><div class="example-box">2</div></div>
+ *  <div class="col-xs-2"><div class="example-box">3</div></div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system Reordering.
+ * Add classes to reorder columns.
+ *
+ * @section Grid reordering
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row">
+ *  <div class="col-xs-4"><div class="example-box">1</div></div>
+ *  <div class="col-xs-4"><div class="example-box">2</div></div>
+ *  <div class="col-xs-4 first-xs"><div class="example-box">3</div></div>
+ * </div>
+ *
+ * <div class="flex-row">
+ *  <div class="col-xs-4 last-xs"><div class="example-box">1</div></div>
+ *  <div class="col-xs-4"><div class="example-box">2</div></div>
+ *  <div class="col-xs-4"><div class="example-box">3</div></div>
+ * </div>
+ *
+ */
+
+/**
+ * Grid system Reverse.
+ * Add classes to reorder columns.
+ *
+ * @section Grid reverse
+ * @sectionof Grid
+ * @page Layout
+ *
+ * @example
+ * <div class="flex-row reverse">
+ *  <div class="col-xs-2"><div class="example-box">1</div></div>
+ *  <div class="col-xs-2"><div class="example-box">2</div></div>
+ *  <div class="col-xs-2"><div class="example-box">3</div></div>
+ *  <div class="col-xs-2"><div class="example-box">4</div></div>
+ *  <div class="col-xs-2"><div class="example-box">5</div></div>
+ *  <div class="col-xs-2"><div class="example-box">6</div></div>
+ * </div>
+ *
+ */
+
+// Flex Grid
+//
+// Options
+//
+
+// Base
+$container-maw: 1280px !default; // Max width of site container
+$container-miw: 320px !default; // Min width of site container
+$flex-gutter: 2rem !default; // Columns gutter width
+$flex-columns: 12 !default; // Quantity of columns
+$flex-turn-on: true !default; // Turn on / off grid. If turned off, there will be generated only containers.
+
+// Namespaces
+$flex-nmsp-cont-fixed: 'flex-container' !default; // Name of fixed site container
+$flex-nmsp-cont-fluid: 'flex-container-fluid' !default; // Name of fluid site container
+$flex-nmsp-row: 'flex-row' !default; // Name of flex-row container
+$flex-nmsp-column: 'column' !default; // Name of flex-column container
+$flex-nmsp-col: 'col' !default; // Name of colls
+$flex-nmsp-col-prfx: '-' !default; // divider between col and mq prefix
+$flex-nmsp-sz-prfx: '-' !default; // divider between mq prefix and size
+
+// Additional options
+$flex-use-attr-selector: true !default; // If true, you don't need write 'col col-xs-12' class, just 'col-xs-12'//[class*='col-' / .col]
+$flex-use-column: true !default; // grid in column (.column)
+$flex-use-reverse: true !default; // reverse grid (.row-/.column-reverse)
+$flex-use-no-gutter: true !default; // grid without gutters (.row.no-gutter)
+$flex-use-no-margin: true !default; // grid without negative margins (.row.no-margin)
+$flex-use-fixed-container-width: false !default; // Use fixed container width
+
+// Pushes and pulls
+$flex-use-pushes: false !default; // pushes for cols (margin-left: ...%)
+$flex-use-pulls: false !default; // pulls for cols (margin-left: -...%)
+$flex-use-offsets: false !default; // offsets for cols (margin-right: ...%)
+
+// Help classes
+$flex-use-row-help: true !default; // help classes for .row/.col container
+$flex-use-col-help: true !default; // help classes for .col- items
+$flex-use-col-hide: true !default; // hide classes for .col- items
+
+// System computed
+$flex-gutter-split: $flex-gutter / 2;
+$flex-gutter-compensation: $flex-gutter-split * -1;
+$flex-attr: if($flex-use-attr-selector, '[class*="#{$flex-nmsp-col+$flex-nmsp-col-prfx}"]', '.#{$flex-nmsp-col}');
+
+//
+// The code
+//
+
+// Site containers
+%#{$flex-nmsp-cont-fluid} { // container-fluid
+    min-width: $container-miw;
+    padding-left: $flex-gutter-split;
+    padding-right: $flex-gutter-split;
+}
+
+.#{$flex-nmsp-cont-fluid} {
+    @extend %#{$flex-nmsp-cont-fluid};
+}
+
+.#{$flex-nmsp-cont-fixed} { // container
+    @extend %#{$flex-nmsp-cont-fluid};
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $container-maw;
+}
+
+@if ($flex-turn_on) { // Turn on grid
+
+    // Flex container
+    %grid-row {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 1 auto;
+        flex-wrap: wrap;
+        margin-left: $flex-gutter-compensation;
+        margin-right: $flex-gutter-compensation;
+        @if ($flex-use-no-margin) {
+            &.no-margin {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        @if ($flex-use-no-gutter) {
+            &.no-gutter {
+                margin-left: 0;
+                margin-right: 0;
+
+                > #{$flex-attr} { // [class*='col-' / .col]
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .#{$flex-nmsp-row} { // row
+        @extend %grid-row;
+        flex-direction: row;
+        @if ($flex-use-reverse) {
+            &.reverse {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+    @if ($flex-use-column) { // column
+        .#{$flex-nmsp-column} {
+            @extend %grid-row;
+            flex-direction: column;
+            @if ($flex-use-reverse) {
+                &.reverse {
+                    flex-direction: column-reverse;
+                }
+            }
+        }
+    }
+
+    // base column styles
+    #{$flex-attr} { // [class*='col-' / .col]
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        padding-left: $flex-gutter-split;
+        padding-right: $flex-gutter-split;
+    }
+
+}
+
+// Turn on
+
+// make grid
+@mixin grid($size, $width: 0) {
+
+    // Auto width
+    .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size} { // .col-*prefix*
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    // Container fixed width
+    @if ($flex-use-fixed-container-width and $width != 0) {
+        .container {
+            width: ($width - $flex-gutter);
+        }
+    }
+
+    // create columns
+    @for $i from 1 through $flex-columns { // .col-*prefix*-*size*
+        .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size+$flex-nmsp-sz-prfx}#{$i} {
+            flex-basis: percentage($i / $flex-columns);
+            max-width: percentage($i / $flex-columns);
+        }
+    }
+
+    // pushes
+    @if ($flex-use-pushes) { // .col-*prefix*-*push*-*size*
+        @for $i from 0 to $flex-columns {
+            .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size+$flex-nmsp-sz-prfx}push-#{$i} {
+                @if $i == 0 {
+                    margin-left: 0;
+                } @else {
+                    margin-left: percentage($i / $flex-columns);
+                }
+            }
+        }
+    }
+
+    // pulls
+    @if ($flex-use-pulls) { // .col-*prefix*-*pull*-*size*
+        @for $i from 0 to $flex-columns {
+            .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size+$flex-nmsp-sz-prfx}pull-#{$i} {
+                @if $i == 0 {
+                    margin-left: 0;
+                } @else {
+                    margin-left: -(percentage($i / $flex-columns));
+                }
+            }
+        }
+    }
+
+    // offsets
+    @if ($flex-use-offsets) { // .col-*prefix*-*push*-*size*
+        @for $i from 0 to $flex-columns {
+            .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size+$flex-nmsp-sz-prfx}offset-#{$i} {
+                @if $i == 0 {
+                    margin-left: 0;
+                } @else {
+                    margin-left: percentage($i / $flex-columns);
+                }
+            }
+        }
+    }
+
+    // helper classes for flex container
+    @if ($flex-use-row-help) {
+        .start-#{$size} {
+            justify-content: flex-start;
+            text-align: start;
+        }
+
+        .center-#{$size} {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .end-#{$size} {
+            justify-content: flex-end;
+            text-align: end;
+        }
+
+        .top-#{$size} {
+            align-items: flex-start;
+        }
+
+        .middle-#{$size} {
+            align-items: center;
+        }
+
+        .bottom-#{$size} {
+            align-items: flex-end;
+        }
+
+        .around-#{$size} {
+            justify-content: space-around;
+        }
+
+        .between-#{$size} {
+            justify-content: space-between;
+        }
+    }
+
+    // helper classes for flex items
+    @if ($flex-use-col-help) {
+        .first-#{$size} {
+            order: -1;
+        }
+
+        .last-#{$size} {
+            order: 1;
+        }
+        // My custom helper classes for flex items
+        .self-top-#{$size} {
+            align-self: flex-start;
+        }
+
+        .self-center-#{$size} {
+            align-self: center;
+        }
+
+        .self-bottom-#{$size} {
+            align-self: flex-end;
+        }
+
+        .self-baseline-#{$size} {
+            align-self: baseline;
+        }
+    }
+
+    // hiding classes for both
+    @if ($flex-use-col-hide) {
+        .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size}-hide {
+            display: none;
+        }
+
+        .#{$flex-nmsp-col+$flex-nmsp-col-prfx+$size}-show {
+            display: block;
+        }
+    }
+
+}
+
+// End flex grid mixin
+
+@if ($flex-turn-on) { // Turn on grid
+
+    @include grid(xs);
+
+    // Include this mixin inside needed mediaquery to make it responsive
+    @include breakpoint(small) {
+        @include grid(sm);
+    }
+
+    @include breakpoint(medium) {
+        @include grid(md);
+    }
+
+    @include breakpoint(large) {
+        @include grid(lg);
+    }
+
+}
+
+// Turn on

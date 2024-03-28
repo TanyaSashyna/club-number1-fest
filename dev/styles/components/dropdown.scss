@@ -1,0 +1,70 @@
+/*
+    TODO: Add documentation for dropdown
+*/
+
+/**
+ * Dropdown component, documentation will be later.
+ *
+ * @section Dropdown
+ * @page Components
+ *
+ */
+$dropdown-icon: '\f0d7' !default;
+$dropdown-shadow: 0 0.5rem 0.7rem 0 rgba($color-black, 0.4) !default;
+
+.js-dropdown {
+    $this: &;
+
+    position: relative;
+
+    &__toggle {
+        cursor: pointer;
+    }
+
+    &__block {
+        left: 0;
+        list-style: none;
+        min-width: 100%;
+        opacity: 0;
+        padding: 1rem;
+        top: 100%;
+        transform: translateY(-1rem);
+        transition: visibility 200ms ease-in-out, transform 350ms ease-in-out, opacity 200ms ease-in-out;
+        visibility: hidden;
+        width: auto;
+        z-index: 5;
+    }
+
+    &.-has-arrow {
+        #{$this}__toggle {
+            @include icon-after($dropdown-icon);
+
+            &::after {
+                @include absolute(50%, 0.6rem);
+                color: inherit;
+                font-size: 1rem;
+                font-weight: $bold;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.-is-open {
+    $this: '.js-dropdown';
+    z-index: 10;
+
+    > #{$this}__toggle {
+        &::after {
+            margin-top: 1px;
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+
+    > #{$this}__block {
+        opacity: 1;
+        transform: translateY(-1px);
+        transition: visibility 200ms ease-in-out, transform 200ms ease-in-out, opacity 350ms ease-in-out;
+        visibility: visible;
+    }
+}

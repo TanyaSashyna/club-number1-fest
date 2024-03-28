@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+// Import configuration
+@import 'helpers/config';
+
+// Import fontAwesome font
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/brands';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/light';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/regular';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/solid';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/fontawesome';
+
+// Import custom Icons
+@import './icons';
+
+// Import helpers
+@import 'helpers/functions';
+@import 'helpers/flexbox-mixin';
+@import 'helpers/breakpoint-mixin';
+@import 'helpers/inline-svg-mixin';
+@import 'helpers/core-mixins';
+@import 'helpers/helpers';
+
+// Import separated components
+@import 'base/rte/headings';
+@import 'base/rte/frame';
+
+
+// import google font
+@if variable-exists(import-google-font-1) {
+    @import url($import-google-font-1);
+}
+
+$content-p-fz: 1.7;
+// @name HTML
+html {
+    font-size: 62.5%;
+}
+// @name Body
+.htmlarea-content-body,
+.cke_editable {
+    font-family: $typo-1;
+    font-size: 62.5%;
+    font-weight: $normal;
+    padding: 1em;
+
+    > *:first-child {
+        margin-top: 0;
+    }
+}
+
+// @name Title h2
+h2 {
+    @include rte-h2();
+}
+
+// @name Title h3
+h3 {
+    @include rte-h3();
+}
+
+// @name Title h4
+h4 {
+    @include rte-h4();
+}
+
+// @name Title h5
+h5 {
+    @include rte-h5();
+}
+
+// @name Title h6
+h6 {
+    @include rte-h6();
+}
+
+// @name quotation
+//q {
+//    &::before,
+//    &::after {
+//        content: '\0022';
+//    }
+//}
+
+@import 'base/rte/links';
+@import 'base/rte/paragraph';
+@import 'base/rte/chapeau';
+@import 'base/rte/encadre';
+@import 'base/rte/blockquote';
+@import 'base/rte/lists';
+@import 'base/rte/table';
+
+img {
+    height: auto;
+}

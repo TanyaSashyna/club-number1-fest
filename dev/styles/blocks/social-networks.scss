@@ -1,0 +1,107 @@
+$social-size: 3.6;
+$social-color: $color-white;
+$social-color-hover: $color-black;
+$social-font-size: 1.4;
+
+.social-networks {
+    $this: &;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0.5rem;
+    display: flex;
+
+    @include breakpoint(medium down) {
+        justify-content: center;
+    }
+
+
+    &__item {
+        display: inline-block;
+        &:not(:first-child) {
+            border-left: 1px solid #fff;
+        }
+    }
+
+    &__link {
+        @include size(#{$social-size}rem);
+        @include trs();
+        height: 3.2rem;
+
+        display: block;
+        position: relative;
+
+        &[data-fa-icon]::before {
+            @include absolute(50%, null, null, 50%);
+            @include trs();
+
+            color: $social-color;
+            font-family: $font-awesome-brands;
+            font-size: 1.6rem;
+            transform: translate(-50%, -50%);
+        }
+
+        @include on-event() {
+            background-color: $social-color;
+
+            &[data-fa-icon]::before {
+                color: $social-color-hover;
+            }
+        }
+    }
+
+    &.-header {
+        margin: 0 1.2rem 0 0;
+
+        @include breakpoint(medium down) {
+            display: none;
+        }
+        .social-networks__item {
+            &:not(:first-child) {
+                border-left: 1px solid #fff;
+            }
+        }
+
+        #{$this}__link {
+            @include size(3.7rem, 3.2rem);
+            background: transparent;
+
+            &[data-fa-icon]::before {
+                color: $color-white;
+                font-size: 1.6rem;
+                font-weight: $normal;
+            }
+
+            @include on-event() {
+                &[data-fa-icon]::before {
+                    color: $color-2--1;
+                }
+            }
+        }
+    }
+
+    &.-is-fixed {
+        @include fixed(calc(40% + 4.8rem), 0);
+        z-index: 55;
+
+        @include breakpoint(medium down) {
+            display: none;
+        }
+
+        #{$this}__item {
+            display: block;
+            margin: 0.1rem 0;
+        }
+
+        #{$this}__link {
+            background-color: $color-2--1;
+
+            &[data-fa-icon]::before {
+                color: $color-white;
+            }
+
+            @include on-event() {
+                background-color: $color-2--2;
+            }
+        }
+    }
+}

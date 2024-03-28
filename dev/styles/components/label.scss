@@ -1,0 +1,118 @@
+/**
+ * Label
+ *
+ */
+
+$label-font-size: 1.6;
+$label-text-color: $color-black;
+$label-help-text-color: $color-3--3;
+$label-help-alert-text-color: $color-1--2;
+$label-required-text-color: #ca000a;
+
+label {
+    @include breakpoint(medium down) {
+        margin-top: 0;
+    }
+}
+
+// @name legend
+.legend,
+.rte .legend,
+legend {
+    color: $label-text-color;
+    display: block;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: $bold;
+    margin-bottom: 2.5rem;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+    width: 100%;
+}
+
+.label,
+.rte .label,
+label {
+    color: $label-text-color;
+    cursor: pointer;
+    display: block;
+    font-size: #{$label-font-size}rem;
+    font-weight: $bold;
+    margin: 0 0 em(0.5, $label-font-size);
+
+    .required {
+        font-size: 1em;
+    }
+
+    .text-help {
+        font-size: em(1.2, $label-font-size);
+    }
+
+    // field nested
+    input,
+    select,
+    textarea {
+        //font-size: #{$label-font-size}rem;
+        margin-top: em(0.5, $label-font-size);
+        //padding: em(0.85, $label-font-size) em(1, $label-font-size);
+    }
+
+    a {
+        color: $label-text-color;
+        text-decoration: underline;
+        @include on-event() {
+            text-decoration: none;
+        }
+    }
+}
+
+// @name text label
+// @description style label when label is used in wrapper
+.text-label {
+    display: block;
+    margin: 0 0 em(0.5, $label-font-size);
+}
+
+.nolabel {
+    > label,
+    > legend {
+        @extend %visually-hidden;
+    }
+}
+
+// @name Required field
+em.required {
+    color: $label-required-text-color;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: $light;
+    text-transform: none;
+}
+
+// @name Help text
+// @state .text-help--inline - Indicates the inline positioning
+.text-help {
+    color: $label-help-text-color;
+    display: block;
+    font-size: 1.2em;
+    font-weight: $light;
+    margin: 0.5em 0;
+    text-transform: none;
+
+    &.-inline {
+        display: inline;
+    }
+
+    &.-alert {
+        color: $label-help-alert-text-color;
+
+        a {
+            color: $label-help-alert-text-color;
+        }
+    }
+
+    a {
+        color: $label-help-text-color;
+    }
+}

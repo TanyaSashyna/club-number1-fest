@@ -1,0 +1,35 @@
+$logo-outline: $color-white !default;
+
+.logo {
+    $this: &;
+    display: inline-block;
+
+    &__image {
+        display: block;
+        position: relative;
+
+        img {
+            position: relative;
+            width: 17.3rem;
+            z-index: 1;
+
+            @include breakpoint(small down) {
+                width: 8.2rem;
+            }
+
+            .-map & {
+                @include breakpoint(large) {
+                    width: 26.6rem;
+                }
+            }
+        }
+    }
+
+    @include on-event {
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline-color: $logo-outline;
+    }
+}

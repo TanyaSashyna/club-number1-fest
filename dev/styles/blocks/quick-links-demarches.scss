@@ -1,0 +1,189 @@
+
+$quick-links-duration: 0.3s;
+
+.quick-links-demarches {
+    $this: &;
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    @include breakpoint(large) {
+        display: flex;
+        flex-direction: column;
+
+    }
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    &.-section-1-3 #{$this}__list {
+        li {
+            @include breakpoint(large) {
+                width: #{(100%/3)};
+            }
+        }
+    }
+
+    // Framed borders
+    &.-frame #{$this}__list {
+        li {
+            @include breakpoint(medium) {
+                border-width: 1px;
+                margin: 0 0 -1px -1px;
+                width: calc(#{(100%/6)} + 1px);
+            }
+
+            &:nth-child(6n) {
+                @include breakpoint(medium) {
+                    margin-right: -1px;
+                    width: calc(#{(100%/6)} + 2px);
+                }
+            }
+        }
+    }
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    &.-frame.-section-1-3  #{$this}__list {
+        li {
+            @include breakpoint(large) {
+                width: calc((#{(100%/3)} + 1px));
+            }
+            /**
+             * TODO: Responsive style refactoring needed
+             */
+            &:nth-child(3n) {
+                @include breakpoint(large) {
+                    margin-right: -1px;
+                    width: calc(#{(100%/3)} + 2px);
+                }
+            }
+        }
+    }
+
+    &__list {
+        @include flex(null, wrap, center, null, null);
+        list-style: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+
+        li {
+            border: solid lighten($color-black, 90);
+            border-width: 1px 0 0;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+
+            // All types on tablets and more
+            @include breakpoint(medium) {
+                width: #{(100%/6)};
+            }
+        }
+
+        a {
+            color: $color-3--3;
+            display: block;
+            font-family: $typo-2;
+            font-size: 1.4em;
+            height: 100%;
+            padding: 2.75em 0.5em;
+            position: relative;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+            @include transition(color, $quick-links-duration);
+
+            @include breakpoint(small down) {
+                align-items: center;
+                display: flex;
+                padding: 1em;
+            }
+
+            &:active,
+            &:focus {
+                outline: 1px dashed $color-focus-outline;
+                outline-offset: -1px;
+            }
+
+            &[class^='-slide-in'] {
+                color: $color-white;
+
+                svg {
+                    fill: $color-white;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &::after {
+                animation-duration: $quick-links-duration;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease;
+                //animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                background: linear-gradient(to bottom, $color-1--2 0%, darken($color-1--2, 6.27) 100%);
+                bottom: 0;
+                content: '';
+                display: block;
+                left: 0;
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translate3d(0, 0, 0);
+                z-index: 0;
+                @include transition(opacity, $quick-links-duration/2);
+            }
+
+        }
+
+        svg {
+            display: block;
+            fill: $color-2--2;
+            font-family: $icon-custom;
+            font-weight: $normal;
+            height: 3rem;
+            margin: 0 auto em(1.4, 3);
+            position: relative;
+            text-align: inherit;
+            width: 3rem;
+            z-index: 1;
+            @include transition(fill, $quick-links-duration);
+
+            @include breakpoint(small down) {
+                margin: 0 em(1.4, 3) 0 0;
+            }
+        }
+
+        span {
+            display: block;
+            pointer-events: none;
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+@each $direct, $axes in (
+    top: (0, -100%),
+    right: (100%, 0),
+    bottom: (0, 100%),
+    left: (-100%, 0)
+) {
+    @keyframes direction-aware-in-#{$direct} {
+        from {transform: translate3d(nth($axes, 1), nth($axes, 2), 0);}
+        to {transform: translate3d(0, 0, 0);}
+    }
+    @keyframes direction-aware-out-#{$direct} {
+        from {transform: translate(0, 0);}
+        to {transform: translate(nth($axes, 1), nth($axes, 2));}
+    }
+
+    .-slide-in-#{$direct}::after {
+        animation-name: direction-aware-in-#{$direct};
+    }
+
+    .-slide-out-#{$direct}::after {
+        animation-name: direction-aware-out-#{$direct};
+    }
+}

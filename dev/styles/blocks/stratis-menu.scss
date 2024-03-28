@@ -1,0 +1,205 @@
+.stratis-menu-trigger {
+    @include fixed(0, null, null, 0);
+    @include trs();
+    background: $color-white;
+    border: 0;
+    box-shadow: 0 0.2rem 1rem 0 rgba($color-black, 0.4);
+    color: $color-black;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: $light;
+    overflow: hidden;
+    padding: 1rem;
+    z-index: 999;
+
+    //display: none;
+
+    span {
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        position: relative;
+        z-index: 10;
+        @include trs();
+    }
+
+    &::after {
+        @include absolute(0, null, null, -100%);
+        @include trs();
+        background-color: $color-1--2;
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+
+    @include on-event {
+        box-shadow: none;
+        color: $color-white;
+
+        &::after {
+            left: 0;
+        }
+    }
+}
+
+.stratis-menu {
+    $this: &;
+    @include fixed(0, auto, auto, 0);
+    @include trs();
+    background-color: $color-1--2;
+    box-shadow: 0 0.3rem 1rem rgba($color-black, 0.4);
+    margin: 0;
+    padding: 0;
+    transform: translateY(-130%);
+    width: 100%;
+    z-index: 998;
+
+    &.-is-visible {
+        transform: translateY(0);
+    }
+
+    &__list {
+        @include flex(row, wrap);
+        list-style: none;
+        margin: 0 -0.5rem;
+        padding: 0;
+    }
+
+    &__item {
+        padding: 0 0.5rem;
+        @include flex(row, wrap);
+        position: relative;
+        z-index: 1;
+
+        &.-is-active {
+            z-index: 5;
+
+            > #{$this}__submenu {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+                z-index: 1;
+            }
+        }
+    }
+
+    &__link, &__toggle-report {
+        @include trs();
+        color: $color-white;
+        flex-grow: 1;
+        font-size: 1.4rem;
+        padding: 1rem 0.5rem;
+        position: relative;
+        text-decoration: none;
+        z-index: 5;
+
+        @include on-event {
+            background-color: $color-1--3;
+        }
+    }
+
+    &__toggle , &__toggle-report {
+        @include flex(row, wrap, center, center);
+        @include trs();
+        background: none;
+        border: 0;
+        color: $color-white;
+        cursor: pointer;
+        font-size: 1.4rem;
+        padding: 1rem 0.5rem;
+        position: relative;
+        text-align: center;
+        z-index: 5;
+
+        i {
+            display: block;
+        }
+
+        @include on-event {
+            background-color: $color-1--3;
+        }
+    }
+
+    &__toggle-report.-no-errors {
+        background-color: $color-green;
+
+        @include on-event {
+            background-color: darken($color-green, 10%);
+        }
+    }
+
+    &__submenu {
+        @include absolute(100%, null, null, 0);
+        @include trs();
+        background-color: $color-1--3;
+        list-style: none;
+        margin: 0;
+        min-width: 20rem;
+        opacity: 0;
+        padding: 0;
+        transform: translateY(-1rem);
+        visibility: hidden;
+        width: 100%;
+        z-index: -1;
+
+        > #{$this}__item {
+            padding: 0.3rem;
+        }
+
+        #{$this}__link {
+            @include on-event {
+                background-color: lighten($color-1--3, 10%);
+            }
+        }
+    }
+
+    .a11y-report {
+        @include fixed(auto, auto, auto, 0);
+        @include trs();
+        background-color: $color-white;
+        border-bottom: 2px solid $color-1--2;
+        box-shadow: 0 0.3rem 1rem rgba($color-black, 0.4);
+        height: 0;
+        overflow-y: scroll;
+        padding: 0 2rem;
+        visibility: hidden;
+        width: 100%;
+
+        &.-is-visible {
+            height: 30rem;
+            visibility: visible;
+        }
+
+        &__counters {
+            font-size: 2rem;
+            text-transform: uppercase;
+
+            &.-heading {
+                font-weight: 400;
+            }
+
+            &.-errors {
+                color: $color-red;
+            }
+        }
+
+        &__item {
+            font-size: 1.7rem;
+            margin: 2rem 0 0;
+
+            p {
+                margin: 0.2rem 0;
+            }
+
+            &.-description {
+                margin: 1rem 0 0;
+            }
+
+            &.-heading {
+                font-size: 2rem;
+            }
+        }
+    }
+}

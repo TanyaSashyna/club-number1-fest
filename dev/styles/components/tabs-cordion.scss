@@ -1,0 +1,93 @@
+.tabs {
+    font-family: $typo-2;
+    margin-top: -7rem;
+    position: relative;
+
+    @include breakpoint(medium down) {
+        margin-top: -0.5rem;
+    }
+
+    &.-has-shadow {
+        @include section-shadow();
+    }
+
+    &__list {
+        align-items: flex-end;
+        border-bottom: 2px solid $color-1--2;
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__trigger {
+        background: transparent;
+        border: 0;
+        color: #858789;
+        cursor: pointer;
+        display: block;
+        font-weight: bold;
+        margin-left: 1rem;
+        padding: 1.5em;
+        position: relative;
+        text-transform: uppercase;
+        @include transition();
+
+        @include breakpoint(small down) {
+            padding: 1rem 0.5rem;
+        }
+
+        &:hover,
+        &:active,
+        &.-current {
+            color: $color-white;
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &::before {
+            background: $color-2--2;
+            content: '';
+            display: block;
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+            @include transition();
+            @include absolute(0, 0, 0, 0);
+        }
+    }
+
+    &__panel {
+        background-color: $color-3--4;
+        display: none;
+
+        &::before,
+        &::after {
+            height: 2.5rem;
+            width: 50%;
+        }
+
+        &::before {
+            transform: rotate(-1deg) skewX(-60deg);
+        }
+
+        &::after {
+            transform: rotate(1deg) skewX(60deg);
+        }
+
+        &.-current {
+            display: block;
+        }
+    }
+
+    &__inner {
+        padding: 5rem 3rem 3rem;
+
+        @include breakpoint(small down) {
+            padding: 3rem 1.5rem 1.5rem;
+        }
+    }
+}

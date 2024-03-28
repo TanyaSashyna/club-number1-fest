@@ -1,0 +1,61 @@
+//Style for the number of articles displayed in lists
+.number-articles {
+    border-bottom: 1px solid $color-3--3;
+    color: $color-3--3;
+    font-family: $typo-2;
+    font-size: 1.6rem;
+    font-weight: $light;
+    margin: 0;
+    padding-bottom: 3rem;
+
+    @include breakpoint(small down) {
+        padding-bottom: 1.5rem;
+    }
+
+    .-dark & {
+        color: $color-white;
+    }
+}
+$list-color: $color-black;
+$list-font-size: 1.6;
+$list-icon-color: $color-2--2;
+
+.list {
+    list-style: none;
+    padding-left: 0;
+
+    @include breakpoint(small down) {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    li {
+        color: $list-color;
+        font-family: $typo-2;
+        font-size: #{$list-font-size}rem;
+        font-weight: $light;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        position: relative;
+
+        /*@include icon-before($fa-var-angle-right);*/
+
+        &::before {
+            content: '';
+            color: $list-icon-color;
+            font-size: 1.3rem;
+            left: 0;
+            position: absolute;
+            top: 0.2rem;
+        }
+
+        a {
+            color: $list-color;
+
+            @include on-event() {
+                text-decoration: underline;
+            }
+        }
+    }
+}

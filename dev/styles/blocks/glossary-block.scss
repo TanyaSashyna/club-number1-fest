@@ -1,0 +1,11 @@
+.glossary-block {
+    &__title {
+        background-color: $color-2--2;
+        color: $color-white;
+        font-family: $typo-1;
+        font-size: 2rem;
+        font-weight: $bold;
+        margin: 0 0 2rem;
+        padding: 0.85rem 1rem;
+    }
+}

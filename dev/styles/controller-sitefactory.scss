@@ -1,0 +1,244 @@
+// Import configuration
+##include('helpers/_config.scss');
+
+// Import helpers
+##include('helpers/_functions.scss');
+##include('helpers/_flexbox-mixin.scss');
+##include('helpers/_breakpoint-mixin.scss');
+##include('helpers/_flexbox-grid-mixin.scss');
+##include('helpers/_inline-svg-mixin.scss');
+##include('helpers/_core-mixins.scss');
+##include('helpers/_helpers.scss');
+
+// Import Libs
+##include('../../../node_modules/node-normalize-scss/_normalize.scss');
+##include('./vendor/_datepicker.scss');
+##include('../../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css');
+##include('../../../node_modules/swiper/dist/css/swiper.css');
+
+// Import custom Icons
+##include('./icons.scss');
+
+// Import fontAwesome font
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_variables.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_animated.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_bordered-pulled.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_core.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_fixed-width.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_icons.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_larger.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_list.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_mixins.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_rotated-flipped.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_screen-reader.scss');
+##include('../../../node_modules/@fortawesome/fontawesome-pro/scss/_stacked.scss');
+
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: normal;
+    src: url('#{$fa-font-path}/fa-brands-400.eot');
+    src: url('#{$fa-font-path}/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-brands-400.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-brands-400.woff') format('woff'),
+    url('#{$fa-font-path}/fa-brands-400.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-brands-400.svg#fontawesome') format('svg');
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands';
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('#{$fa-font-path}/fa-light-300.eot');
+    src: url('#{$fa-font-path}/fa-light-300.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-light-300.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-light-300.woff') format('woff'),
+    url('#{$fa-font-path}/fa-light-300.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-light-300.svg#fontawesome') format('svg');
+}
+
+.fal {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$fa-font-path}/fa-regular-400.eot');
+    src: url('#{$fa-font-path}/fa-regular-400.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-regular-400.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-regular-400.woff') format('woff'),
+    url('#{$fa-font-path}/fa-regular-400.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-regular-400.svg#fontawesome') format('svg');
+}
+
+.far {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url('#{$fa-font-path}/fa-solid-900.eot');
+    src: url('#{$fa-font-path}/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-solid-900.woff') format('woff'),
+    url('#{$fa-font-path}/fa-solid-900.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-solid-900.svg#fontawesome') format('svg');
+}
+
+.fa,
+.fas {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900;
+}
+
+// Import core base
+##include('base/_base.scss');
+##include('base/_typography.scss');
+##include('base/_typo3.scss');
+
+// Import rte components
+// !important include this with ##include directive
+##include('base/rte/_headings.scss');
+##include('base/rte/_frame.scss');
+##include('base/rte/_titles.scss');
+.rte {
+    > *:first-child {
+        margin-top: 0 !important;
+    }
+##include('base/rte/_links.scss');
+##include('base/rte/_paragraph.scss');
+##include('base/rte/_chapeau.scss');
+##include('base/rte/_encadre.scss');
+##include('base/rte/_blockquote.scss');
+##include('base/rte/_lists.scss');
+##include('base/rte/_table.scss');
+}
+
+// Import layouts
+##include('layouts/_wrappers.scss');
+##include('layouts/_header.scss');
+##include('layouts/_footer.scss');
+##include('layouts/_sidebar.scss');
+##include('layouts/_filters.scss');
+##include('layouts/_forms.scss');
+
+// Import base components
+##include('components/_preloader.scss');
+##include('components/_button.scss');
+##include('components/_checkbox-radio.scss');
+##include('components/_dropdown.scss');
+##include('components/_input.scss');
+##include('components/_select.scss');
+##include('components/_label.scss');
+##include('components/_icon.scss');
+##include('components/_spinner.scss');
+##include('components/_image.scss');
+##include('components/_video.scss');
+##include('components/_list.scss');
+##include('components/_message.scss');
+##include('components/_progressbar.scss');
+##include('components/_table.scss');
+##include('components/_text.scss');
+##include('components/_click-roll.scss');
+##include('components/_accesstooltip.scss');
+##include('components/_tabs-cordion.scss');
+##include('components/_carousel.scss');
+##include('components/_galleries.scss');
+##include('components/_print-banner.scss');
+##include('components/_comments.scss');
+##include('../components/header-bar/_header-bar.scss');
+##include('../components/media-element/_media-element.scss');
+##include('../components/logo/_logo.scss');
+##include('../components/search/_header-search-btn.scss');
+##include('../components/main-nav/mnv-aside/_mnv-aside.scss');
+##include('../components/search/_search.scss');
+##include('../components/one-click/_one-click.scss');
+
+// Import custom components
+##include('../components/hero/sld-1/_hero.scss');
+##include('../components/news-block/_news.scss');
+##include('../components/titles/_titles.scss');
+##include('../components/links/_links.scss');
+##include('../components/pagers/_pagers.scss');
+##include('../components/headings/_headings.scss');
+##include('../components/date/_date.scss');
+##include('../components/infos/_infos.scss');
+##include('../components/lang/_lang.scss');
+##include('../components/flash-info/_flash-info.scss');
+##include('../components/cookies-block/_cookies-block.scss');
+##include('../components/cookies-block/_cookies-page.scss');
+##include('../components/go-to-top/_go-to-top.scss');
+##include('../components/menu-cross/_menu-cross.scss');
+##include('../components/newsletter/_newsletter.scss');
+##include('../components/newsletter/_newsletter-bar.scss');
+##include('../components/site-infos/_site-infos.scss');
+##include('../components/profile-menu/_profile-menu.scss');
+##include('../components/subpages-menu/_subpages-menu.scss');
+##include('../components/sitemap/_sitemap.scss');
+##include('../components/more-info/_more-info.scss');
+##include('../components/publications/_publications-block.scss');
+//include('../components/publications/_publications-list.scss');
+##include('../components/publications/_publications-single.scss');
+##include('../components/list-document/_list-document.scss');
+##include('../components/telecharger/_telecharger.scss');
+##include('../components/news-block/_news-block.scss');
+##include('../components/news-block/_news-spoiler.scss');
+##include('../components/share-block/_share-block.scss');
+##include('../components/albums-block/_albums-block.scss');
+##include('../components/albums-block/_albums-home.scss');
+##include('../components/filters/_filters.scss');
+##include('../components/social-networks/_social-networks.scss');
+##include('../components/tools/_tools.scss');
+##include('../components/breadcrumbs/_breadcrumbs.scss');
+##include('../components/page-image/_page-image.scss');
+##include('../components/events-block/_events-block.scss');
+##include('../components/events-block/_events-home.scss');
+##include('../components/directory-block/_directory-block.scss');
+##include('../components/vote/_vote.scss');
+##include('../components/same-category/_same-category.scss');
+##include('../components/widgets/_widgets.scss');
+##include('../components/stratis-menu/_stratis-menu.scss');
+##include('../components/online-steps/_online-steps.scss');
+##include('../components/online-payment/_online-payment.scss');
+##include('../components/my-account/_my-account.scss');
+##include('../components/quick-links-demarches/_quick-links-demarches.scss');
+##include('../components/report-incident/_report-incident.scss');
+##include('../components/reviews-block/_reviews.scss');
+##include('../components/projects/_projects.scss');
+##include('../components/next-council/_next-council.scss');
+##include('../components/on-the-web/_on-the-web-block.scss');
+##include('../components/quick-links/_quick-links-block.scss');
+##include('../components/menu-floating/_menu-floating.scss');
+##include('../components/job-block/_job-block.scss');
+##include('../components/job-block/_job-single.scss');
+##include('../components/interests-block/_interests.scss');
+//include('../components/interests-block/_interests-results.scss');
+//include('../components/interests-block/_interests-block.scss');
+//include('../components/organigramme/_organigramme.scss');
+##include('../components/my-city/_my-city.scss');
+##include('../components/discover/_discover.scss');
+##include('../components/menu-extranet/_menu-extranet.scss');
+##include('../components/service-public/_service-public.scss');
+//include('../components/error-block/error-block.scss');
+##include('../components/glossary-block/_glossary-block.scss');
+##include('../components/glossary-block/_glossary-item.scss');
+//include('../components/status/status.scss');
+##include('../components/menu-extranet/_menu-extranet.scss');
+##include('../components/content-list/_content-list.scss');
+
+// Import map components
+##include('../core/scss/vendor/_map.scss');
+##include('../components/map/_localiser.scss');
+##include('../components/map/_popup.scss');
+##include('../pages/map/partials/_map-template.scss');

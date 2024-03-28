@@ -1,0 +1,51 @@
+// Color contrast
+// Function that calculates if color needs to be light or dark.
+@function color-contrast($color) {
+    @return if(lightness($color) < 51, #FFF, #000);
+}
+
+// Calcul em size depending of the context
+// Use em(fontSizeDoIWantInEm, fontContextInEM)
+// padding: 0 em(3.5, 2.2) 0 em(5, 2.2);
+@function em($fontSize, $context) {
+    @return #{$fontSize/$context}em;
+}
+
+/// Dependency - str-replace mixin from https://css-tricks.com/snippets/sass/str-replace-function/
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// Assets URL Helper functions
+// @param {String} $type - Asset type, matching by folder-name
+// @param {String} $file - Asset file
+@function asset($type, $file) {
+    @return url($type + '/' + $file);
+}
+
+// Assets Image Helper
+// @param {String} $file - Asset file
+@function image($file) {
+    @return asset($path-root + $image-assets, $file);
+}
+
+@function max($numbers...) {
+    @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+    @return m#{i}n(#{$numbers});
+}
+

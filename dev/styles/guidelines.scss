@@ -1,0 +1,176 @@
+@import 'helpers/config';
+@import url($import-google-font-1);
+@import url($import-google-font-2);
+
+$color-base: #c90c0f;
+$color-white: #fff;
+$color-black: #000;
+$color-example: #f1c8d9;
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $typo-1;
+}
+
+.livingcss {
+    $this: &;
+
+    #{$this} &__nav-link {
+        background-color: $color-base;
+        font-size: 1.5rem;
+        line-height: 1;
+        padding: 1.2rem 2rem;
+
+        #{$this} &--active,
+        &:hover,
+        &:focus {
+            background-color: $color-black;
+        }
+    }
+
+    #{$this} &__header {
+        #{$this}__nav-link {
+            background-color: $color-base;
+            color: $color-white;
+
+            #{$this} &--active,
+            &:hover,
+            &:focus {
+                background-color: $color-black;
+            }
+        }
+    }
+
+    #{$this} &__nav {
+        flex: 0 0 22rem;
+
+        #{$this}__nav-link {
+            color: $color-white;
+            margin-bottom: 0.3rem;
+
+            #{$this} &--active,
+            &:hover,
+            &:focus {
+                background-color: $color-black;
+            }
+        }
+
+        &--fixed {
+            #{$this}__nav-container {
+                width: 22rem;
+            }
+        }
+    }
+
+    #{$this} &__header-title {
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+    #{$this} &__header-title-container {
+        background-color: $color-base;
+    }
+
+    #{$this} &__footer {
+        background-color: darken($color-base, 10%);
+    }
+
+    &__section-description {
+        p {
+            font-size: 1.5rem;
+        }
+
+        code {
+            background-color: $color-example;
+            border-radius: 3px;
+            font-size: 1.5rem;
+            padding: 5px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__wrapper {
+        font-size: 1.5rem;
+    }
+}
+
+.container:not(.heading__wrapper):not(.container) {
+    &.livingcss-example {
+        background-color: $color-example;
+        border-radius: 3px;
+        font-size: 1.5rem;
+        margin: 5px 0;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+.flex-row {
+    &.livingcss-example {
+        margin-bottom: 10px;
+    }
+}
+
+.livingcss-example {
+    $this: &;
+
+    .example-box {
+        background-color: $color-example;
+        border-radius: 3px;
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        text-align: center;
+
+        &--large {
+            height: 120px;
+        }
+    }
+
+    #{$this} .lang {
+        display: inline-block;
+        margin-right: 1rem;
+        margin-top: 0.5rem;
+        min-height: 20rem;
+        position: static;
+        vertical-align: middle;
+
+        &__drop {
+            padding: 0;
+        }
+    }
+
+    #{$this} .profile {
+        display: inline-block;
+        margin-right: 1rem;
+        margin-top: 0.5rem;
+        min-height: 25rem;
+        position: static;
+        vertical-align: middle;
+    }
+
+    .profile {
+        $profile: &;
+
+        &__drop {
+            padding: 0;
+        }
+    }
+}
+
+.livingcss-example .form__field-attached.livingcss-example {
+    flex: 1 0 auto;
+}

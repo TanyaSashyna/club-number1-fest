@@ -1,0 +1,53 @@
+$btn-size: 6rem;
+
+.go-to-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    z-index: 51;
+    width: $btn-size;
+    height: $btn-size;
+
+    @include breakpoint(medium down) {
+        display: none;
+    }
+
+    p {
+        margin: 0;
+        position: absolute;
+        right: 0;
+        text-align: right;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $btn-size;
+        height: $btn-size;
+        @include transition(all, 400ms, ease, 0ms);
+        background-color: $color-3--5;
+        overflow: hidden;
+        border-radius: 50%;
+        opacity: 0.5;
+
+        i {
+            font-size: 1.4rem;
+            color: $color-white;
+            margin-top: -5px;
+        }
+
+        @include on-event() {
+            opacity: 1;
+        }
+    }
+
+    &.-is-hide {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        visibility: hidden;
+    }
+}

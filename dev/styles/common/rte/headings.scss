@@ -1,0 +1,104 @@
+$rte-h2-fz: 3.4 !default;
+$rte-h3-fz: 2.6 !default;
+$rte-h4-fz: 2.2 !default;
+$rte-h5-fz: 1.9 !default;
+$rte-h6-fz: 1.6 !default;
+
+%rte-heading {
+    font-family: $typo-1;
+    line-height: 1.2;
+
+    a {
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            color: $color-1--3;
+        }
+    }
+}
+
+@mixin rte-h2() {
+    @extend %rte-heading;
+    color: $color-1--3;
+    font-size: #{$rte-h2-fz}rem;
+    font-weight: $normal;
+    margin: em(6, $rte-h2-fz) 0 em(1.5, $rte-h2-fz);
+    padding-bottom: 1.5rem;
+    position: relative;
+
+    @include breakpoint(small down) {
+        font-size: 2.4rem;
+        line-height: 1.3;
+        margin-bottom: .4rem;
+        margin: em(9, $rte-h2-fz) 0 em(1.45, $rte-h2-fz);
+    }
+}
+
+@mixin rte-h3() {
+    @extend %rte-heading; 
+    color: $color-1--4;
+    font-size: #{$rte-h3-fz}rem;
+    font-weight: $bold;
+    margin: em(5, $rte-h3-fz) 0 em(2.1, $rte-h3-fz);
+
+    @include breakpoint(small down) {
+        font-size: 2rem;
+        margin: em(4, $rte-h3-fz) 0 em(2.1, $rte-h3-fz);
+    }
+}
+
+// @name Title h4
+@mixin rte-h4() {
+    @extend %rte-heading;
+    color: $color-2--2;
+    font-size: #{$rte-h4-fz}rem;
+    margin: em(4, $rte-h4-fz) 0 em(1.8, $rte-h4-fz);
+
+    @include breakpoint(small down) {
+        font-size: 1.8rem;
+    }
+}
+
+@mixin rte-h5() {
+    @extend %rte-heading;
+    color: $color-3--3;
+    font-size: #{$rte-h5-fz}rem;
+    margin: em(1.8, $rte-h5-fz) 0 em(1.8, $rte-h5-fz);
+
+    @include breakpoint(small down) {
+        font-size: 1.6rem;
+        margin: em(2.4, $rte-h5-fz) 0 em(1.8, $rte-h5-fz);
+    }
+}
+
+@mixin rte-h6() {
+    @extend %rte-heading;
+    color: $color-black;
+    font-size: #{$rte-h6-fz}rem;
+    margin: em(2, $rte-h6-fz) 0 em(1, $rte-h6-fz);
+}
+
+.title-line {
+    font-size: 2.6rem;
+    font-weight: $bold;
+    position: relative;
+    padding: 0 0 1.8rem;
+    margin: 0 0 .9rem;
+    color: $color-1--3;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 6.9rem;
+        height: .3rem;
+        background: $color-1--3;
+    }
+    @include breakpoint(medium down) {
+        font-size: 2.4rem;
+    }
+    @include breakpoint(medium down) {
+        font-size: 2.2rem;
+        margin: 0 0 2.5rem;
+    }
+}

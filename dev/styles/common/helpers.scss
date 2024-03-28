@@ -1,0 +1,52 @@
+%visually-hidden {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px !important;
+    left: -9999px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: auto !important;
+    width: 1px !important;
+}
+
+// Default extender for clear-fix;
+%clear-fix {
+    &::after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+        overflow: hidden;
+        speak: none;
+        visibility: hidden;
+    }
+}
+
+%abs-center {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Invisible content but accessible
+.ghost,
+.invisible {
+    @extend %visually-hidden;
+}
+
+// Add icon to any element through html
+[data-fa-icon] {
+    @include icon-before(attr(data-fa-icon));
+
+    &::before {
+        color: $color-1--2;
+        margin-right: 0.25em;
+        font-family: $font-awesome;
+    }
+}
+
+%bg-pattern-white {
+    @include bg-pattern($color-white, 0.2);
+}

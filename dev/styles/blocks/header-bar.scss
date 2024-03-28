@@ -1,0 +1,433 @@
+$header-bar-bg: $color-white;
+$header-bar-wide-bg: $color-white;
+$header-bar-logo-width: 27%;
+$header-bar-components-width: 100 - $header-bar-logo-width;
+
+.header-bar {
+    $this: &;
+    @include trs(all, 100ms, ease-in-out);
+    margin: 0 auto;
+    max-width: 122rem;
+    width: 100%;
+    z-index: 5;
+    background: $color-1--3;
+
+    @include breakpoint(medium down) {
+        max-width: 100%;
+    }
+
+    &.-absolute {
+        @include absolute(0, null, null, 0);
+    }
+
+    &.-wide {
+        max-width: 100%;
+    }
+
+    &.-map {
+        padding-top: 0;
+        padding-bottom: 0 !important;
+        background: $color-1--3;
+
+        #{$this}__logo {
+            padding: 0.95rem 2.2rem 0.95rem 2rem;
+
+            .logo__image {
+                img {
+                    width: 8.6rem;
+                }
+            }
+
+            @include breakpoint(small down) {
+              img {
+                width: 7rem !important;
+              }
+            }
+            @include breakpoint(xsmall down) {
+              padding: .4rem;
+              img {
+                width: 6.2rem !important;
+              }
+            }
+        }
+
+        #{$this}__inner {
+            max-width: none;
+            padding: 0 0 0 1.3rem;
+            justify-content: space-between;
+        }
+
+        #{$this}__components {
+            justify-content: flex-end;
+            max-width: 100%;
+            padding-right: 0;
+
+            @include breakpoint(small down) {
+                max-width: 18rem;
+            }
+
+            @include breakpoint(xsmall down) {
+                max-width: 14rem;
+            }
+        }
+    }
+
+    &:not(.-absolute).-is-fixed {
+        max-width: 100%;
+        top: 0;
+        transform: translateY(-130%);
+        z-index: 20;
+
+        &.-scroll-up {
+            position: fixed;
+            transform: translateY(0);
+        }
+
+        &.-scroll-down {
+            position: fixed;
+            transform: translateY(-130%);
+        }
+
+        &.-only-fixed {
+            position: fixed;
+            transform: translateY(0);
+        }
+    }
+
+    &.-is-fixed {
+        max-width: 100%;
+        top: 0;
+        transform: translateX(-50%) translateY(-130%);
+        z-index: 20;
+
+        &.-scroll-up {
+            position: fixed;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        &.-scroll-down {
+            position: fixed;
+            transform: translateX(-50%) translateY(-130%);
+        }
+
+        &.-only-fixed {
+            position: fixed;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    &:not(.-absolute) {
+        padding-bottom: 9.2rem;
+
+        @include breakpoint(large) {
+            #{$this}__logo {
+                padding: 0.95rem 2.2rem 0.95rem 2rem;
+            }
+
+            .logo__image {
+                &::before {
+                    content: none;
+                }
+            }
+
+            #{$this}__components {
+                max-width: calc(100% - 35rem);
+                padding-right: 0;
+            }
+
+            #{$this}__menu-btn {
+                @include reset-position;
+            }
+
+            .menu-toggle {
+                background-image: none;
+                display: block;
+                min-height: 0;
+                padding: 0;
+                @include size(8rem);
+
+                &::before {
+                    font-size: 1.6rem;
+                    top: 50%;
+                    transform: translate(50%, -50%);
+                }
+
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &__inner {
+        @include flex(row, nowrap, center);
+        max-width: 132.2rem;
+        padding: 0 1.3rem;
+        margin: 0 auto;
+
+        @include breakpoint(medium down) {
+            padding: 0 2rem;
+        }
+    }
+
+    &__logo {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        background: #fff;
+
+        a {
+            display: block;
+            padding: 2rem;
+        }
+
+        @include breakpoint(small down) {
+            left: 0;
+            a {
+                padding: 1rem;
+            }
+        }
+    }
+
+    &__components {
+        @include flex(row, wrap, flex-end, center);
+        width: 100%;
+        padding: 1rem;
+    }
+
+    &__search {
+        @include breakpoint(large) {
+
+        }
+    }
+
+    &__profile {
+        margin-left: auto;
+
+        @include breakpoint(medium down) {
+            display: none;
+        }
+    }
+
+    &__menu {
+        flex-grow: 1;
+        max-width: calc(100% - 23rem);
+    }
+}
+
+$header-bar-btn-size: 8rem;
+$header-bar-btn-mobile-size: 6rem;
+$header-bar-btn-mobile-xs-size: 4.6rem;
+$header-bar-btn-bg: $color-2--1;
+$header-bar-btn-bg-dark: $color-1--3;
+
+.header-bar-btn {
+    $this: &;
+    @include trs();
+    @include flex(row, wrap, center, center);
+    background-color: $header-bar-btn-bg;
+    color: $color-1--3;
+    font-family: $typo-3;
+    font-size: 1.4rem;
+    font-weight: $light;
+    min-height: $header-bar-btn-size;
+    min-width: $header-bar-btn-size;
+    padding: 3rem;
+    text-transform: uppercase;
+    &::before {
+      font-weight: $bold !important;
+    }
+
+    @include breakpoint(small down) {
+        min-height: $header-bar-btn-mobile-size;
+        min-width: $header-bar-btn-mobile-size;
+        padding: 1.4rem;
+    }
+
+    @include breakpoint(xsmall down) {
+        min-height: $header-bar-btn-mobile-xs-size;
+        min-width: $header-bar-btn-mobile-xs-size;
+    }
+
+    &::before,
+    &[data-fa-icon]::before {
+        color: currentColor;
+    }
+
+    @include on-event {
+        background-color: darken($header-bar-btn-bg, 7.5%);
+    }
+
+    &.-no-text {
+        &::before {
+            margin: 0;
+        }
+
+        #{$this}__text {
+            @extend %visually-hidden;
+        }
+    }
+
+    &.-no-text-mobile {
+        #{$this}__text {
+            @include breakpoint(small down) {
+                border: 0 !important;
+                clip: rect(1px, 1px, 1px, 1px);
+                height: 1px !important;
+                left: -9999px !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                position: absolute !important;
+                top: auto !important;
+                width: 1px !important;
+            }
+        }
+    }
+
+    &.-dark {
+        background-color: $header-bar-btn-bg-dark;
+        color: $color-white;
+
+        @include on-event {
+        }
+    }
+}
+
+$header-bar-dropdown-size: 8rem;
+$header-bar-dropdown-mobile-size: 6rem;
+$header-bar-dropdown-mobile-xs-size: 4.6rem;
+$header-bar-dropdown-bg: $color-3--5;
+$header-bar-dropdown-active-bg: $color-black;
+
+.header-bar-dropdown {
+    $this: &;
+
+    &__toggle {
+        @include trs();
+        @include flex(row, wrap, null, center);
+        background-color: $header-bar-dropdown-bg;
+        border: 0;
+        color: $color-white;
+        font-family: $typo-3;
+        font-size: 1.4rem;
+        font-weight: $light;
+        height: $header-bar-dropdown-size;
+        padding: 2.25rem 3.5rem 2.25rem 5.5rem;
+        color: $color-1--3;
+        text-transform: uppercase;
+
+        @include breakpoint(small down) {
+            height: $header-bar-btn-mobile-size;
+            min-width: $header-bar-btn-mobile-size;
+            padding: 1.4rem;
+        }
+
+        @include breakpoint(xsmall down) {
+            height: $header-bar-dropdown-mobile-xs-size;
+            min-width: $header-bar-dropdown-mobile-xs-size;
+        }
+
+        @include on-event {
+            background-color: darken($header-bar-dropdown-bg, 7.5%);
+        }
+    }
+
+    &__toggle-ico {
+        @include absolute($top: 50%, $left: 3rem);
+        transform: translateY(-50%);
+        color: $color-1--3;
+        i {
+          font-weight: $bold;
+        }
+    }
+
+    &__toggle-text {
+        @include truncate(8rem);
+        align-self: center;
+        margin: auto;
+    }
+
+    &__block {
+        @include trs();
+        @include absolute();
+        background-color: darken($header-bar-dropdown-bg, 7.5%);
+        margin: 0;
+        padding: 1rem 3rem 2rem 4rem;
+    }
+
+    &__item {
+        position: relative;
+        color: $color-1--3;
+
+        &::before {
+            content: '';
+            @include absolute($top: 0, $left: -0.8rem);
+            color: $color-1--3;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__link {
+        color: $color-1--3;
+        font-family: $typo-2;
+        font-size: 1.2rem;
+        font-weight: $light;
+        text-transform: uppercase;
+        white-space: nowrap;
+        &::before {
+          color: $color-1--3;
+        }
+
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+
+    &.-no-text-mobile {
+        @include breakpoint(small down) {
+            #{$this}__toggle-text {
+                border: 0 !important;
+                clip: rect(1px, 1px, 1px, 1px);
+                height: 1px !important;
+                left: -9999px !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                position: absolute !important;
+                top: auto !important;
+                width: 1px !important;
+            }
+
+            #{$this}__toggle-ico {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    &.-no-arrow-mobile {
+        #{$this}__toggle::after {
+            @include breakpoint(small down) {
+                display: none !important;
+            }
+        }
+    }
+
+    &.-has-arrow {
+        #{$this}__toggle::after {
+            margin-top: -0.1rem;
+            right: 2.2rem !important;
+        }
+    }
+
+    &.-drop-left-mobile {
+        #{$this}__block {
+            left: auto;
+            right: 0;
+        }
+    }
+}

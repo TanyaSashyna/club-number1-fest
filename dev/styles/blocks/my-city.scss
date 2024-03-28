@@ -1,0 +1,140 @@
+.my-city {
+    margin: 7rem 0 2rem;
+
+    @include breakpoint(medium down) {
+        margin: 6.5rem 0 6rem;
+    }
+
+    &__wrapper {
+        @include breakpoint(small down) {
+            margin: 0 -1rem;
+        }
+    }
+
+    &__form {
+        display: flex;
+
+        @include breakpoint(medium down) {
+            margin-bottom: 2rem;
+        }
+
+        @include breakpoint(small down) {
+            display: block;
+        }
+
+        .form {
+            margin-bottom: 0;
+            width: 50%;
+
+            @include breakpoint(small down) {
+                width: 100%;
+            }
+
+            label,
+            legend {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        legend {
+            font-family: $typo-1;
+        }
+
+        img {
+            display: block;
+            width: 50%;
+
+            @include breakpoint(small down) {
+                width: 100%;
+            }
+        }
+
+        input,
+        select {
+            background-color: $color-white;
+        }
+    }
+
+    &__info {
+        background-color: $color-white;
+        display: flex;
+
+        @include breakpoint(small down) {
+            display: block;
+        }
+
+        .infos {
+            &__wrap {
+                margin: 0;
+            }
+
+            &__item {
+                a {
+                    text-decoration: none;
+                    @include on-event() {
+                        text-decoration: underline;
+                    }
+                }
+                // Decors
+                &:not(:last-child) {
+                    padding-bottom: 1.2rem;
+
+                    &::after {
+                        background-color: rgba($color-black, 0.1);
+                        bottom: 0;
+                        content: '';
+                        display: block;
+                        height: 1px;
+                        left: 0;
+                        position: absolute;
+                        width: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__picture {
+        display: block;
+        width: 60%;
+
+        @include breakpoint(small down) {
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__content {
+        padding: 2rem;
+        width: 40%;
+        @include breakpoint(small down) {
+            width: 100%;
+        }
+    }
+
+    &__category {
+        color: $color-1--2;
+        display: inline-block;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        font-family: $typo-1;
+        font-size: 1.8rem;
+
+        a {
+            color: inherit;
+
+            @include on-event() {
+                text-decoration: underline;
+            }
+        }
+    }
+}

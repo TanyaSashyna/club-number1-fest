@@ -1,0 +1,66 @@
+/**
+ * @section Steps
+ * @page Steps
+ *
+ * @example
+ * <div class="progress">
+ *      <p>Étape <span class="index">1</span>/<span class="total">4</span></p>
+ *      <span class="progress__description">Descriptif de l’étape 1 lorem ipsum dolor sit amet consectur elis</span>
+ *      <progress min="0" value="1" class="meter" max="4"></progress>
+ * </div>
+ * <div class="progress">
+ *      <p>Étape <span class="index">4</span>/<span class="total">4</span></p>
+ *      <span class="progress__description">Descriptif de l’étape 1 lorem ipsum dolor sit amet consectur elis</span>
+ *      <progress min="0" value="2" class="meter" max="4"></progress>
+ * </div>
+ *
+ */
+
+// @name Progress bar
+.progress {
+    font-family: $typo-1;
+    margin: 1em 0 2em;
+
+    meter {
+        float: left;
+        height: 10px;
+        margin: 4px 10px 0 0;
+        width: 100%;
+    }
+
+    p {
+        color: $color-black;
+        font-size: 1.4rem;
+        font-weight: $bold;
+        margin: 0.5em 0;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        color: $color-3--3;
+        display: block;
+        font-size: 1.2rem;
+        margin: 0.5em 0;
+    }
+}
+
+progress {
+    appearance: none;
+    background: $color-3--1;
+    border: 0; // Needed for Firefox
+    color: $color-white; // For IE10
+    height: 10px;
+    width: 100%;
+
+    &::-moz-progress-bar {
+        background: $color-1--2;
+    }
+
+    &::-webkit-progress-value {
+        background: $color-1--2;
+    }
+
+    &::-webkit-progress-bar {
+        background: transparent;
+    }
+}

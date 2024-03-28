@@ -1,0 +1,131 @@
+$directory-item-bg: #f4f4f4;
+$directory-category-size: 1.4;
+$directory-category-color: $color-2--2;
+$directory-title-size: 2;
+$directory-title-color: $color-1--3;
+
+.directory-block {
+    $this: &;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem -1rem;
+
+    @include breakpoint(small down) {
+        margin: 3rem 0 0;
+    }
+
+    &__item {
+        background-color: $directory-item-bg;
+        flex-basis: calc(20% - 2rem);
+        flex-grow: 0;
+        flex-shrink: 1;
+        margin: 2rem 1rem 0;
+        position: relative;
+
+        @include breakpoint(medium down) {
+            flex-basis: calc(33.33% - 2rem);
+        }
+
+        @include breakpoint(small down) {
+            flex-basis: calc(50% - 2rem);
+        }
+
+        @include breakpoint(xsmall down) {
+            flex-basis: 100%;
+            margin: 3rem 0 0;
+        }
+
+        &::before,
+        &::after {
+            @include size(0);
+            @include absolute(0, 0, null, null);
+
+            border-style: solid;
+            content: '';
+        }
+
+        &::before {
+            border-color: transparent $color-white transparent transparent;
+            border-width: 0 3.8rem 3.8rem 0;
+        }
+
+        &::after {
+            border-color: transparent transparent transparent $color-3--2;
+            border-width: 3.8rem 0 0 3.8rem;
+        }
+
+        .infos {
+            &__wrap {
+                margin: 0;
+            }
+
+            &__items {
+                text-align: center;
+            }
+        }
+    }
+
+    &__wrap {
+        padding: 3rem 2.5rem 2rem;
+
+        @include breakpoint(medium down) {
+            padding: 4rem 2.5rem 2rem;
+        }
+    }
+
+    &__link {
+        display: flex;
+
+        @include breakpoint(medium down) {
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__picture {
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin: 0 auto 1rem;
+        max-width: 12rem;
+
+        @include breakpoint(medium down) {
+            max-width: 24rem;
+        }
+
+        img {
+            display: block;
+            height: auto;
+            max-width: 100%;
+            width: auto;
+        }
+    }
+
+    &__category {
+        color: $color-1--3;
+        display: inline-block;
+        font-family: $typo-2;
+        font-size: #{$directory-category-size}rem;
+        font-weight: $bold;
+        margin: 0 0 0.5rem;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        color: $directory-title-color;
+        font-family: $typo-1;
+        font-size: #{$directory-title-size}rem;
+        font-weight: $bold;
+        line-height: 1;
+        margin: 0 0 0.5rem;
+        text-align: center;
+    }
+
+    &__content {
+        p {
+            color: $color-2--1;
+            display: block;
+        }
+    }
+}

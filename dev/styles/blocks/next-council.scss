@@ -1,0 +1,277 @@
+.next-council {
+    align-items: center;
+    display: flex;
+    margin: 2.5rem 0 5rem;
+
+    &__wrapper {
+        align-items: flex-end;
+        background-color: darken($color-white, 5.88);
+        display: flex;
+        justify-content: space-between;
+
+        @include breakpoint(small down) {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &.-has-shadow {
+            @include section-shadow();
+        }
+    }
+
+    &__title {
+        @include icon-before(\e01f);
+
+        align-items: center;
+        color: $color-black;
+        display: flex;
+        flex-shrink: 0;
+        font-family: $typo-1;
+        font-size: 2.6rem;
+        font-weight: $black;
+        height: auto;
+        margin: 0;
+        overflow: hidden;
+        padding: 3.3rem 2rem 3.3rem 12.5rem;
+        position: relative;
+        width: 39.3rem;
+
+        @include breakpoint(medium down) {
+            font-size: 1.8rem;
+            padding: 1.8rem 2rem 1.8rem 13rem;
+            width: 26rem;
+        }
+
+        @include breakpoint(small down) {
+            padding: 1.7rem 0.5rem 1.7rem 11rem;
+            width: 100%;
+        }
+
+        &::before {
+            @include absolute(1.1rem, null, null, 0);
+            @include size(3.7rem);
+
+            align-items: center;
+            bottom: 50%;
+            color: $color-white;
+            display: flex;
+            font-family: $icon-custom;
+            font-size: 3.7rem;
+            font-weight: $light;
+            height: 12.5rem;
+            justify-content: center;
+            left: 0;
+            margin-right: 1rem;
+            top: 50%;
+            transform: translate(-5%,-50%);
+            width: 10.5rem;
+            z-index: 2;
+
+            @include breakpoint(medium down) {
+                height: 9.7rem;
+                left: 1rem;
+                transform: translate(-15%,-50%);
+                width: 12.5rem;
+            }
+
+            @include breakpoint(small down) {
+                height: 7.5rem;
+                margin-right: 0;
+                transform: translate(-15%,-50%);
+                width: 11rem;
+            }
+        }
+
+        &:after {
+            background: $color-2--1;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            content: '';
+            display: block;
+            height: 15rem;
+            left: -2rem;
+            position: absolute;
+            top: 0;
+            transform: rotate(15deg);
+            width: 10.5rem;
+
+            @include breakpoint(medium down) {
+                height: 16rem;
+                left: -1.3rem;
+                top: -2.5rem;
+                transform: rotate(25deg)skew(10deg);
+                width: 11.5rem;
+            }
+
+            @include breakpoint(small down) {
+                height: 12rem;
+                left: -1rem;
+                top: -2.5rem;
+                width: 10.5rem;
+            }
+        }
+    }
+
+    &__content {
+        align-items: center;
+        background: rgba($color-white, 0.4);
+        display: flex;
+        font-family: $typo-1;
+        min-height: 12.5rem;
+        padding: 1rem 3rem;
+        position: relative;
+        width: calc(100% - 94.7rem);
+
+        @include breakpoint(medium down) {
+            flex-grow: 1;
+            justify-content: space-between;
+            min-height: 9.7rem;
+            padding: 0 1.5rem;
+        }
+
+        @include breakpoint(small down) {
+            min-height: auto;
+            padding: 1.5rem 2.5rem 0;
+            width: 100%;
+        }
+    }
+
+    &__date {
+        font-size: 2rem;
+        font-weight: $light;
+        line-height: 2rem;
+        margin: 0 0 1rem;
+    }
+
+    &__place {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: $light;
+        line-height: 1.6rem;
+        margin: 0;
+    }
+
+    &__focus-share {
+        display: flex;
+
+        .share-block__button {
+            @include size(2rem);
+            margin-right: 1rem;
+        }
+    }
+
+    &__agenda {
+        flex-shrink: 0;
+        font-weight: $light;
+
+        @include breakpoint(medium down) {
+            margin-left: 3rem;
+        }
+
+        @include breakpoint(small down) {
+            margin-left: 0;
+        }
+    }
+
+    &__links-div {
+        align-items: center;
+        background: rgba($color-white, 0.4);
+        display: flex;
+        height: 12.5rem;
+
+        @include breakpoint(medium down) {
+            height: 9.7rem;
+        }
+
+        @include breakpoint(small down) {
+            height: 7.6rem;
+            width: 100%;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-shrink: 0;
+        padding-left: 2rem;
+
+        @include breakpoint(medium down) {
+            padding-left: 1.5rem;
+        }
+
+        @include breakpoint(small down) {
+            justify-content: center;
+            padding-left: 0;
+            width: 100%;
+        }
+    }
+
+    &__discussion {
+        font-weight: $bold;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        position: relative;
+
+        @include breakpoint(medium down) {
+            margin-left: 1.5rem;
+            margin-right: 2rem;
+        }
+
+        @include breakpoint(small down) {
+            margin-right: 0;
+        }
+
+        &[data-fa-icon] {
+            &::before {
+                color: $color-2--1;
+            }
+        }
+
+        &::after {
+            background: $color-3--2;
+            content: '';
+            height: 5rem;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transform: translateX(-3rem);
+            width: 1px;
+        }
+    }
+
+    &__situer {
+        font-weight: $light;
+        margin-left: 1rem;
+        margin-right: 3rem;
+
+        &[data-fa-icon]::before {
+            color: $color-3--5;
+            font-weight: $bold;
+        }
+
+        @include on-event {
+            background-color: $color-3--5;
+        }
+
+        @include breakpoint(medium down) {
+            margin-left: 0;
+            margin-right: 1.5rem;
+        }
+    }
+
+    .btn {
+        font-size: 1.5rem;
+        line-height: 1;
+        padding: 1.7rem 2.4rem;
+
+        @include breakpoint(medium down) {
+            @include size(5rem);
+
+            &.-no-text-mobile {
+                overflow: visible;
+
+                &::after {
+                    left: -1.5rem;
+                }
+            }
+        }
+    }
+}

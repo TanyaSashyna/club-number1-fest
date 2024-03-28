@@ -1,0 +1,116 @@
+$discover-main-title-fz: 8.9;
+$discover-main-title-fz-tablet: 6;
+$discover-main-title-fz-mobile: 4.2;
+$discover-main-title-color: $color-white;
+
+$discover-category-fz: 1.5;
+$discover-category-fz-tablet: 1.4;
+$discover-category-color: $color-1--2;
+
+$discover-title-fz: 2.6;
+$discover-title-fz-tablet: 2;
+$discover-title-fz-mobile: 1.8;
+$discover-title-color: $color-black;
+
+.discover {
+    padding: 5rem 0;
+
+    @include breakpoint(medium down) {
+        padding: 3rem 0;
+    }
+
+    @include breakpoint(small down) {
+        padding: 3.7rem 0;
+    }
+
+    &__container {
+        position: relative;
+        height: 100%;
+    }
+
+    &__wrapper {
+        height: 100%;
+        position: relative;
+    }
+
+    &__title-main {
+        @include absolute(50%, null, null, 50%);
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 2rem;
+
+        img {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        @include breakpoint(small down) {
+            left: 0;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &__picture {
+        img {
+            @include size(100%);
+            display: block;
+            font-family: 'object-fit: cover; object-position: center;';
+            object-fit: cover;
+
+            @include breakpoint(small down) {
+                @include size(100%, auto);
+            }
+        }
+    }
+
+    &__info {
+        @include absolute(null, 0, 19.5rem, null);
+        @include size(33.2rem, auto);
+        background-color: $color-white;
+        padding: 4rem;
+
+        @include breakpoint(medium down) {
+            bottom: 13rem;
+            padding: 2.5rem;
+            width: 24.6rem;
+        }
+
+        @include breakpoint(small down) {
+            @include reset-position();
+            padding: 2.5rem 3rem;
+            width: 100%;
+        }
+    }
+
+    &__category {
+        color: $discover-category-color;
+        font-size: #{$discover-category-fz}rem;
+        font-weight: $bold;
+        margin: 0 0 1.5rem;
+        text-transform: uppercase;
+
+        @include breakpoint(medium down) {
+            font-size: #{$discover-category-fz-tablet}rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__title {
+        color: $discover-title-color;
+        font-family: $typo-1;
+        font-size: #{$discover-title-fz}rem;
+        font-weight: $light;
+        line-height: 3rem;
+        margin: 0;
+
+        @include breakpoint(medium down) {
+            font-size: #{$discover-title-fz-tablet}rem;
+            line-height: 2.2rem;
+        }
+
+        @include breakpoint(small down) {
+            font-size: #{$discover-title-fz-mobile}rem;
+            line-height: 2.1rem;
+        }
+    }
+}

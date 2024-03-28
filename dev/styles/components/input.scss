@@ -1,0 +1,246 @@
+/**
+ * Input fields
+ *
+ * Input text, number, password etc., textarea
+ *
+ * @section
+ * @page Forms
+ *
+ * @example
+ * <fieldset>
+ *     <legend>Form Title</legend>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-placeholder">
+ *             Input <a href="#">label</a> <em class="required">(required)</em>
+ *             <span class="text-help">Aide : Lorem ipsum dolor sit <a href="#">amet consectur</a> elis passam filis </span>
+ *             <strong class="text-help -alert">Information : Amet consectur <a href="#">dolor</a> ipsum dolor sit amet</strong>
+ *         </label>
+ *         <input type="text" name="input-placeholder" id="input-placeholder" value="" placeholder="Input placeholder hint" required="true" data-parsley-errors-container=".field_error_container_input-placeholder" data-parsley-required-message="Ce champ est obligatoire.">
+ *         <div class="field_error_container field_error_container_input-placeholder"></div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-text-inline">
+ *             Help text inline
+ *             <em class="required">(required)</em>
+ *             <span class="text-help -inline">Lorem ipsum dolor sit amet consectur elis passam filis</span>
+ *             <strong class="text-help -inline -alert">Lorem ipsum dolor sit amet consectur elis passam filis</strong>
+ *         </label>
+ *         <input type="text" name="input-text-inline" id="input-text-inline" required="true" data-parsley-errors-container=".field_error_container_input-text-inline" data-parsley-required-message="Ce champ est obligatoire.">
+ *         <div class="field_error_container field_error_container_input-text-inline"></div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-nested">
+ *             <span class="text-label">Field inside label</span>
+ *             <em class="required">(required)</em>
+ *             <input type="text" name="input-nested" id="input-nested" required="true" data-parsley-errors-container=".field_error_container_input-nested" data-parsley-required-message="Ce champ est obligatoire.">
+ *             <span class="text-help">Aide : Lorem ipsum dolor sit amet consectur elis passam filis </span>
+ *         </label>
+ *         <div class="field_error_container field_error_container_input-nested"></div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-follow-checkbox">Checkbox that follow input field</label>
+ *         <input type="text" name="input-follow-checkbox" id="input-follow-checkbox" value="">
+ *         <div class="checkbox form-field-follow-checkbox">
+ *             <input type="checkbox" name="checkbox_11" id="checkbox_11" value="1">
+ *             <label for="checkbox_11">Tous les événements à partir de cette date</label>
+ *         </div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-simple">Input label <em class="required">(required)</em></label>
+ *         <input type="text" name="input-simple" id="input-simple" value="Text" required="true" data-parsley-errors-container=".field_error_container_input-simple" data-parsley-required-message="Ce champ est obligatoire.">
+ *         <div class="field_error_container field_error_container_input-simple"></div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-disabled">Input disabled </label>
+ *         <input type="text" name="input-disabled" id="input-disabled" value="Unavailable" disabled>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-readonly">Input readonly</label>
+ *         <input type="text" name="input-readonly" id="input-readonly" value="read-only" readonly>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-email-address">Input email address <span class="text-help">name@domain.com</span></label>
+ *         <input name="input-email-address" id="input-email-address" type="email" pattern="^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-tel">Input phone number <span class="text-help">0100000000</span></label>
+ *         <input name="input-tel" id="input-tel" type="tel" pattern="">
+ *     </div>
+ *     <div class="flex-row">
+ *         <div class="col-xs-12 col-md-6 form__field-wrapper">
+ *             <label for="input-uri-1" class="">
+ *                 <span class="text-label">Input uri</span>
+ *                 <span class="form__field-group -type-uri">
+ *                     <span class="form__field-attached">http://www.</span>
+ *                     <input name="input-uri-1" id="input-uri-1" type="text">
+ *                     <span class="form__field-attached">.com</span>
+ *                 </span>
+ *             </label>
+ *         </div>
+ *         <div class="col-xs-12 col-md-6 form__field-wrapper">
+ *             <label for="input-uri-2" class="">
+ *                 <span class="text-label">Input prefix/suffix</span>
+ *                 <span class="form__field-group">
+ *                     <span class="form__field-attached">lorem ipsum</span>
+ *                     <input name="input-uri-2" id="input-uri-2" type="text">
+ *                     <span class="form__field-attached">dolor sit amet</span>
+ *                 </span>
+ *             </label>
+ *         </div>
+ *     </div>
+ *     <div class="form__field-wrapper powermail_fieldwrap_file">
+ *         <label for="input-file">Input file <span class="text-help">jpg, gif, png, bmp, rtf, doc, docx, xls, xlsx, pdf, zip (jusqu'à 10 Mo)</span></label>
+ *         <input type="file" name="input-file" id="input-file">
+ *         <ul class="powermail_fieldwrap_file_list">
+ *             <li>1920x972.jpg <input type="hidden" name="tx_powermail_pi1[field][fichierjoint][]" value="1920x972.jpg"></li>
+ *             <li>1920x972.jpg <input type="hidden" name="tx_powermail_pi1[field][fichierjoint][]" value="1920x972.jpg"></li>
+ *             <li class="powermail_fieldwrap_file_list__delete">
+ *                 <button class="btn -light deleteAllFiles" data-fa-icon="&#xf00d;" type="button">Supprimer ce fichier</button>
+ *             </li>
+ *         </ul>
+ *     </div>
+ *     <div class="form__field-wrapper -datewrapper">
+ *         <label for="input-date">Input date</label>
+ *         <input type="date" name="input-date" id="input-date" value="" title="jj/mm/aaaa" class="js-tooltip">
+ *     </div>
+ *     <div class="flex-row">
+ *         <div class="col-xs-12 col-md-6 form__field-wrapper -datewrapper">
+ *             <label for="input-date-2">Input date <span class="text-help">Saisir une date sous la forme jj/mm/aaa</span></label>
+ *             <input type="date" name="input-date-2" id="input-date-2" value="" title="jj/mm/aaaa" class="js-tooltip">
+ *         </div>
+ *         <div class="col-xs-12 col-md-6 form__field-wrapper">
+ *             <label for="input-time">Input time <span class="text-help">Saisir une heure sous la forme hh:mm</span></label>
+ *             <input type="time" pattern="[0-9]{2}:[0-9]{2}" min="9:00" max="18:00" name="input-time" id="input-time" value="">
+ *         </div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="input-password">Input password <em class="required">(required)</em></label>
+ *         <input type="password" name="input-password" id="input-password" value="" required>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <!-- Option : https://github.com/nico3333fr/jquery-accessible-autocomplete-list-aria -->
+ *         <label for="input-autocompletion">Accessible autocompletion with datalist <span class="text-help">Choosing a fruit (Apple for example)</span></label>
+ *         <input type="text" name="input-autocompletion" id="input-autocompletion" value=""
+ *                class="js-combobox js-combobox-1"
+ *                list="fruits"
+ *                data-combobox-prefix-class="combobox"
+ *                data-combobox-case-sensitive="no"
+ *                data-combobox-help-text="Utilisez les touches de tabulation ou la flèche du bas pour naviguer dans la liste du champ autocomplété. Confirmez votre choix avec la touche entrée, ou la touche échap pour fermer la liste de suggestions."
+ *                data-suggestion-single="Il y a "
+ *                data-suggestion-plural="Il y a "
+ *                data-combobox-button-title="Effacer ce champ"
+ *                data-combobox-search-option="containing"
+ *                data-combobox-limit-number-suggestions="999"
+ *                >
+ *         <datalist id="fruits">
+ *             <option value="Apple">
+ *             <option value="Apricot">
+ *             <option value="Banana">
+ *             <option value="Blackberry">
+ *             <option value="Blueberry">
+ *             <option value="Cherry">
+ *             <option value="Coconut">
+ *             <option value="Fig">
+ *             <option value="Kiwi">
+ *             <option value="Kumquat">
+ *             <option value="Lemon">
+ *             <option value="Lychee">
+ *             <option value="Melon">
+ *             <option value="Orange">
+ *             <option value="Peach">
+ *             <option value="Pineapple">
+ *             <option value="Raspberry">
+ *             <option value="Strawberry">
+ *         </datalist>
+ *     </div>
+*
+ *     <div class="form__field-wrapper">
+ *         <!-- Option : https://github.com/nico3333fr/jquery-accessible-autocomplete-list-aria -->
+ *         <label for="input-autocompletion-json-2">Accessible autocompletion with JSON Call with data <span class="text-help">Choosing a vegetable (Potato for example)</span></label>
+ *         <input type="text" name="input-autocompletion-json" id="input-autocompletion-json-2" value="" class="js-combobox js-combobox-2" list="vegetables" data-json-path="http://www.mocky.io/v2/5ab3e1cb2f00006000ca39f1">
+ *     </div>
+*
+ *     <div class="form__field-wrapper">
+ *         <!-- Option : https://github.com/nico3333fr/jquery-accessible-autocomplete-list-aria -->
+ *         <label for="input-autocompletion-json-3">Accessible autocompletion with JSON call in JS <span class="text-help">Choosing a fruit (Apple for example)</span></label>
+ *         <input type="text" name="input-autocompletion-json-3" id="input-autocompletion-json-3" value="" class="js-combobox js-combobox-3" list="fruit-2">
+ *     </div>
+ *     <div class="form__field-wrapper geocode">
+ *         <label for="input-geocode">Geolocation</label>
+ *         <div class="geocode__wrapper">
+ *             <input type="text" name="input-geocode" data-geocode-field value="">
+ *             <button data-geocode type="button" class="geocode__wrapper-btn btn -small -no-text" data-fa-icon="&#xf21d;" title="Déterminer mon adresse actuelle">Déterminer mon adresse actuelle</button></div>
+ *     </div>
+ *     <div class="form__field-wrapper">
+ *         <label for="textarea">Textarea</label>
+ *          <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+ *      </div>
+ *      <div class="form__field-wrapper">
+ *          <label for="textarea-disabled">Textarea disabled</label>
+ *          <textarea name="textarea-disabled" id="textarea-disabled" cols="30" rows="10" disabled aria-disabled="true"></textarea>
+ *      </div>
+ * </fieldset>
+ */
+
+$input-font-size: 1.4;
+$input-bg: lighten($color-black, 94.12);
+$input-bg-disabled: #f7f7f7;
+$input-color: $color-black;
+$input-color-readonly: #494949;
+$input-color-disabled: rgba(#494949, 0.5);
+
+%input-general-styles {
+    background-color: $input-bg;
+    border: 0;
+    border-radius: 0;
+    font-family: $typo-1;
+    font-size: #{$input-font-size}rem;
+    min-height: 5rem;
+    padding: em(1.2, $input-font-size) em(1, $input-font-size);
+    resize: vertical;
+    width: 100%;
+    line-height: 1.5;
+
+    &:disabled {
+        background-color: $input-bg-disabled;
+        font-style: italic;
+        resize: none;
+    }
+
+
+    &:focus {
+        outline: 1px dashed $color-1--2;
+        outline-offset: 0;
+    }
+
+    &::placeholder {
+        color: $input-color-readonly;
+        font-style: italic;
+        opacity: 1;
+    }
+}
+
+input,
+textarea {
+    @extend %input-general-styles;
+    color: $input-color;
+
+    &:disabled {
+        color: $input-color-disabled;
+    }
+
+    &:read-only {
+        background-color: $input-bg-disabled;
+        color: $input-color-readonly;
+        font-style: italic;
+    }
+
+    &[type=date] {
+        padding: em(0.9, $input-font-size) em(1, $input-font-size);
+    }
+}
+
+
+textarea {
+    height: em(10, 1.4);
+}

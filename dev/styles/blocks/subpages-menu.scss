@@ -1,0 +1,92 @@
+$subpages-title-color: $color-black;
+$subpages-title-size: 2;
+$subpages-teaser-color: $color-black;
+$subpages-teaser-size: 1.6;
+$subpages-list-color: $color-black;
+$subpages-list-size: 1.4;
+$subpages-list-icon-color: $color-2--2;
+$subpages-list-hover-color: $color-1--2;
+
+.subpages-menu {
+    &__item {
+        margin-bottom: 2.5rem;
+
+        @include breakpoint(small down) {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__picture {
+        display: block;
+        margin-bottom: 2rem;
+
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        color: $subpages-title-color;
+        font-family: $typo-1;
+        font-size: #{$subpages-title-size}rem;
+        font-weight: $bold;
+        margin: 0 0 2.5rem;
+    }
+
+    &__teaser {
+        color: $subpages-teaser-color;
+        font-family: $typo-1;
+        font-size: #{$subpages-teaser-size}rem;
+        font-weight: $light;
+        margin: 2.5rem 0 2rem;
+    }
+
+    &__list {
+        border-top: 1px solid $color-3--2;
+        list-style: none;
+        margin: 0;
+        padding: 0.5rem 0 0;
+    }
+
+    &__listitem {
+        color: $subpages-list-color;
+        font-family: $typo-2;
+        font-size: #{$subpages-list-size}rem;
+        font-weight: $light;
+        margin: 1.5rem 0;
+        padding-left: 1.4rem;
+        position: relative;
+        text-transform: uppercase;
+
+        &[data-fa-icon] {
+            &::before {
+                color: $subpages-list-icon-color;
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        a {
+            color: $subpages-list-color;
+            display: block;
+        }
+
+        @include  on-event() {
+            color: $subpages-list-hover-color;
+
+            &[data-fa-icon] {
+                &::before {
+                    color: $subpages-list-hover-color;
+                }
+            }
+
+            a {
+                color: $subpages-list-hover-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}

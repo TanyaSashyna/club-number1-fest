@@ -1,0 +1,250 @@
+$contact-bg: $color-2--4;
+$contact-teaser-c: lighten($color-black, 28.63);
+$contact-fz: 1.4;
+$contact-picture-width: 21;
+$contact-picture-height: 19;
+
+// Contact
+.contact { 
+    $this: &;
+    margin: 5rem 0;
+
+    @include breakpoint(medium down) { 
+        margin: 3rem 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -0.3rem;
+    }
+
+    .title {
+        &.-hide {
+            display: none;
+        }
+    }
+
+    &__item {
+        background-color: $contact-bg;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0.3rem 2rem;
+        padding: 1rem 2rem;
+        width: calc(50% - 0.6rem);
+
+        @include breakpoint(medium down) {
+            width: 100%;
+        }
+
+        &.-hide {
+            display: none;
+        }
+    }
+
+    &__picture {
+        display: block;
+        max-width: #{$contact-picture-height}rem;
+        max-height: #{$contact-picture-height}rem;
+        overflow: hidden;
+        margin: 1rem 0;
+
+        @include breakpoint(small down) {
+            max-height: 100%;
+            height: auto;
+        }
+
+        img {
+            display: inline-block;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        width: calc(100% - #{$contact-picture-width}rem);
+        padding: 1rem 0;
+
+        @include breakpoint(small down) {
+            width: auto;
+            min-width: 210px;
+        }
+    }
+
+    &__details,
+    &__infos {
+        display: inline-block;
+        vertical-align: top;
+
+        @include breakpoint(small down) {
+            display: block;
+        }
+    }
+
+    &__details {
+        font-family: $typo-1;
+        width: 42%;
+
+        @include breakpoint(medium down) {
+            width: 46%;
+        }
+
+        @include breakpoint(small down) {
+            width: 100%;
+        }
+    }
+
+    &__infos {
+        padding-left: 3rem;
+        padding-top: 1rem;
+        position: relative;
+        z-index: 41;
+
+        @include breakpoint(small down) {
+            border: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0;
+            padding-left: 0;
+            margin-top: -.8rem;
+        }
+
+        .infos__item {
+            @include breakpoint(small down) {
+                margin: 0.5rem 0;
+            }
+
+            a {
+                color: $color-black;
+                font-size: 1.5rem;
+                font-weight: normal;   
+            }
+            &::before {
+                color: $color-3--5;
+            }
+        }
+
+        .btn {
+            margin-top: 1.5rem;
+            padding: 1.2rem 1.7rem;
+        }
+    }
+
+    &__category,
+    &__title,
+    &__subtitle,
+    &__function {
+        margin: 0;
+    }
+
+    &__category {
+        color: $color-black;
+        font-size: 1.5rem;
+        font-weight: $bold;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        
+        @include breakpoint(small down) {
+            margin: 0 0 .6rem;
+        }
+    }
+
+    &__subtitle,
+    &__title {
+        color: $color-1--3;
+        font-size: 1.8rem;
+        font-weight: $bold;
+        margin: 0 0 1rem;
+    }
+
+    &__title {
+        margin: 0 0 1.5rem;
+        text-transform: uppercase;
+
+        a {
+            color: $color-1--3;
+
+            @include on-event() {
+                text-decoration: underline;
+            }
+        }
+
+        @include breakpoint(small down) {
+            text-transform: none;
+        }
+    }
+
+    &__function {
+        color: $color-3--4;
+        font-size: 1.3rem;
+        font-weight: $light;
+
+        &.-main {
+            color: $color-black;
+            font-size: 1.4rem;
+            font-weight: $bold;
+        }
+
+        &:last-child {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .sidebar & {
+        margin: 0 0 7.5rem;
+
+        &__item {
+            width: 100%;
+        }
+
+        @include breakpoint(large) {
+            &__item {
+                display: block;
+            }
+
+            &__content {
+                padding: 1.3rem 0 0;
+                width: 100%;
+            }
+
+            &__details,
+            &__infos {
+                display: block;
+                margin: 0;
+            }
+
+            &__category {
+                margin: 0 0 .9rem
+            }
+
+            &__details {
+                width: 100%;
+            }
+
+            &__infos {
+                list-style: none;
+                padding-top: 0;
+                padding-left: 0;
+              
+                .infos__item {
+                    margin: 0.5rem 0;
+                }
+            }
+        }
+        @include breakpoint(small down) {
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__infos {
+        padding-left: 0;
+
+    }
+
+    .infos__item {
+        display: inline-block;
+
+        /*&:not(:last-child) {
+            margin-right: 2rem;
+        }*/
+    }
+}

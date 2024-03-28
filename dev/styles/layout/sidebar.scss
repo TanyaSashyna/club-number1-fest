@@ -1,0 +1,21 @@
+.sidebar {
+    @include breakpoint(medium down) {
+        display: none !important;
+    }
+    > * {
+        margin-bottom: 7.5rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        @include breakpoint(small down) {
+            margin-bottom: 2.5rem !important;
+        }
+    }
+
+    .news,
+    .events {
+        padding: 0;
+    }
+}

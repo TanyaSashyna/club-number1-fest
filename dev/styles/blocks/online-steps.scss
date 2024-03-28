@@ -1,0 +1,106 @@
+.online-steps {
+    font-size: 1.7rem;
+    /**
+     * TODO: Responsive style refactoring needed
+     */
+    @include breakpoint(large) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__wrapper {
+        border-top: 1px solid rgba($color-black, 0.1);
+        @include flex(null, null, null, null, null);
+        margin-bottom: auto;
+        padding-top: 1rem;
+
+        @include breakpoint(medium down) {
+            padding-bottom: 1.5rem;
+        }
+        @include breakpoint(small down) {
+            flex-wrap: wrap;
+        }
+
+        .-frame & {
+            padding-left: 3rem;
+            padding-right: 3rem;
+
+            @include breakpoint(small down) {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+    }
+
+    &__image {
+        flex: 1 13 100%;
+        margin: 0;
+        padding-top: 0.5rem;
+
+        @include breakpoint(medium) {
+            padding-right: 3.6rem;
+
+            .-frame & {
+                padding-right: 2rem;
+            }
+        }
+        @include breakpoint(small down) {
+            margin-bottom: 2rem;
+            padding-right: 0;
+        }
+
+        picture,
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+
+        .caption {
+            font-weight: $bold;
+
+            margin-top: 1em;
+        }
+    }
+
+    &__list {
+        flex: 1 14 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            //@include icon-before($fa-var-angle-right);
+            padding: 0.5em 1rem;
+            position: relative;
+
+            &::before {
+                content: '';
+                color: $color-2--2;
+                font-size: 1em;
+                left: 0;
+                position: absolute;
+            }
+
+            + li {
+                &::after {
+                    border-top: 1px solid rgba($color-black, 0.1);
+                    content: '';
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 50px;
+                }
+            }
+        }
+
+        a {
+            color: $color-black;
+            padding: 0.2em 0;
+
+            @include on-event() {
+                text-decoration: underline;
+            }
+        }
+    }
+}

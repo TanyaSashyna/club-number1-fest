@@ -1,0 +1,15 @@
+// @name Paragraph
+p {
+    $fz: 1.8;
+    color: $color-black;
+    font-size: #{$fz}rem;
+    font-weight: $normal;
+    line-height: 1.7;
+    margin: 0 0 .5rem 0;
+
+    @include breakpoint(small down) {
+        font-size: 1.6rem;
+        margin: em(0.5, $fz) 0 em(0.7, $fz) 0;
+        line-height: 1.67;
+    }
+}

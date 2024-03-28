@@ -1,0 +1,70 @@
+.combobox-container {
+    position: relative;
+}
+
+.js-combobox {
+    padding-right: 4rem;
+}
+
+.combobox-clear-button {
+    @include absolute(0.5rem, 0.5rem);
+    @include size(3rem);
+    @include trs();
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4rem;
+
+    @include on-event {
+        background-color: $color-1--2;
+        color: $color-white;
+    }
+}
+
+.combobox-suggestions {
+    @include absolute(100%);
+    background-color: $color-white;
+    margin-top: 1rem;
+    width: 100%;
+
+    > div {
+        @include trs($prop: opacity);
+        opacity: 0;
+        visibility: hidden;
+
+        &::before {
+            @include absolute(-1rem, 1rem);
+            border-color: transparent;
+            border-style: solid;
+            border-width: 0 1rem 1rem;
+            content: '';
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &:not(:empty) {
+            box-shadow: 0 0.5rem 1rem rgba($color-black, 0.4);
+            opacity: 1;
+            padding: 1rem;
+            visibility: visible;
+
+            &::before {
+                border-color: transparent transparent $color-white;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.combobox-suggestion {
+    @include trs();
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+
+    @include on-event {
+        background-color: $color-1--2;
+        color: $color-white;
+    }
+}

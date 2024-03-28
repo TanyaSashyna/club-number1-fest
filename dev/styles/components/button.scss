@@ -1,0 +1,234 @@
+/**
+ * Buttons
+ *
+ * The Button `.btn` class can be applied to `<button>`, `<input>`, or `<a>` elements.
+ *
+ * @section
+ * @page Buttons
+ *
+ * @example
+ * <div class="flex-row">
+ *     <div class="col-xs-12 col-sm-6">
+ *         <div class="form__field-wrapper">
+ *             <button class="btn -light -icon">Retour</button>
+ *             <button class="btn -light -icon -no-text">Retour</button>
+ *         </div>
+ *         <div class="form__field-wrapper">
+ *             <button class="btn -light -icon -large">Retour</button>
+ *         </div>
+ *         <div class="form__field-wrapper">
+ *             <button class="btn -light -icon -small">Retour</button>
+ *         </div>
+ *     </div>
+ *     <div class="col-xs-12 col-sm-6">
+ *         <div class="form__field-wrapper">
+ *             <button class="btn" data-fa-icon="&#xf00c;">Valider</button>
+ *             <button class="btn -no-text" data-fa-icon="&#xf00c;">Valider</button>
+ *         </div>
+ *         <div class="form__field-wrapper">
+ *             <button class="btn -large" data-fa-icon="&#xf00c;">Valider</button>
+ *         </div>
+ *         <div class="form__field-wrapper">
+ *             <button class="btn -small" data-fa-icon="&#xf00c;">Valider</button>
+ *         </div>
+ *     </div>
+ * </div>
+*/
+
+$btn-color: $color-1--3;
+$btn-color-hover: $color-white;
+$btn-bg-color-hover: $color-1--3;
+$btn-icon-color: $color-1--3;
+
+@mixin btn-size($modifier: null, $font-size: 1.4, $height: 4) {
+    @include add-modifier($modifier) {
+        $lh: $font-size * (16/14);
+
+        font-size: #{$font-size}rem;
+        padding: 1.1rem 2.1rem;
+
+        &.-circle,
+        &.-no-text {
+            padding: 1.2rem 1.6rem;
+        }
+    }
+}
+
+@mixin btn-type($modifier: null, $font-weight: $normal) {
+    @include add-modifier($modifier) {
+        font-weight: #{$font-weight};
+    }
+}
+
+@mixin btn-icon($position: 'before', $icon: null, $fw: $bold, $margin: 0, $color: inherit) {
+    @include icon($position, $icon);
+
+    &::#{$position} {
+        color: $color;
+        font-size: 1em;
+        font-weight: $fw;
+        line-height: 1;
+
+        @if ($position == 'before') {
+            margin-right: $margin;
+        } @else {
+            margin-left: $margin;
+        }
+    }
+}
+
+.btn {
+    @include trs();
+    background-color: transparent;
+    border: solid 1px $color-1--3;
+    color: $btn-color;
+    display: inline-flex;
+    justify-content: center;
+    font-family: $typo-1;
+    line-height: (16/14);
+    text-decoration: none;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &[data-fa-icon]::before,
+    &::before,
+    &::after {
+        @include trs();
+        color: $color-1--3;
+    }
+
+    &.-icon {
+        /*@include btn-icon('before', $fa-var-caret-left, $bold, 0.25em, $btn-icon-color);*/
+    }
+
+    &.-icon-r {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        &:before {
+            margin-left: 1rem;
+            font-weight: $light;
+        }
+    }
+
+    &.-no-text,
+    &.-circle {
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+        text-indent: -9999px;
+        white-space: nowrap;
+
+        &::before,
+        &::after {
+            display: block;
+            left: 50%;
+            margin: 0;
+            position: absolute;
+            text-indent: 0;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+    }
+
+    &.-no-text-mobile {
+        @include breakpoint(medium down) {
+            @include size(4rem);
+
+            overflow: hidden;
+            position: relative;
+            text-align: left;
+            text-indent: -9999px;
+            white-space: nowrap;
+
+            &::before,
+            &::after {
+                display: block;
+                left: 50%;
+                margin: 0;
+                position: absolute;
+                text-indent: 0;
+                top: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+    }
+
+    @include btn-size();
+    @include btn-type();
+
+    @include on-event() {
+        background-color: $btn-bg-color-hover;
+        border-color: transparent;
+        color: $btn-color-hover;
+        cursor: pointer;
+        text-decoration: none;
+
+        &[data-fa-icon]::before,
+        &::before,
+        &::after {
+            color: $color-white;
+        }
+    }
+
+    &.-circle {
+        border-radius: 50%;
+    }
+
+    &.-rounded {
+        border-radius: 5px;
+    }
+
+    &.-inverted {
+        color: $color-2--1;
+        border-color: $color-2--1;
+        padding: 1.1rem 1.068rem;
+
+        &[data-fa-icon]::before {
+            color: $color-2--1;
+        }
+
+        @include on-event() {
+            background-color: $color-2--1;
+            color: $btn-color;
+
+            &:before {
+                color: $btn-color;
+            }
+        }
+    }
+
+    &.-light {
+        font-weight: $light;
+    }
+
+    &.-secondary {
+        &[data-fa-icon]::before,
+        &::before,
+        &::after {
+            color: $color-2--1;
+        }
+
+        @include on-event() {
+            background-color: $color-2--1;
+
+            &[data-fa-icon]::before,
+            &::before,
+            &::after {
+                color: $color-white;
+            }
+        }
+    }
+
+    &.-lg {
+        font-size: 1.5rem;
+        padding: 1.55rem 3rem;
+    }
+    &.-sm {
+        font-size: 1.3rem;
+    }
+
+    .sidebar & {
+        font-size: 1.3rem;
+    }
+}

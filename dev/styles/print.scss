@@ -1,0 +1,36 @@
+.print-banner {
+    display: block;
+}
+
+.stratis-menu,
+.menu-extranet,
+.flash-info,
+.cookies-block,
+.header,
+.top-of-content,
+.filters,
+.same-category,
+.menu-floating,
+.sidebar,
+.media-element,
+.localiser,
+.telecharger,
+.organigramme,
+.more-info,
+.vote,
+.pager,
+.site-infos__links,
+.social-networks,
+.menu-cross,
+.newsletter,
+.preloader,
+.footer__stratis,
+.go-to-top {
+    display: none !important;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}

@@ -1,0 +1,290 @@
+// Clear-fix mixin
+@mixin clear {
+    @extend %clear-fix;
+}
+
+@mixin abs-center() {
+    @extend %abs-center;
+}
+
+// Center block horizontally
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Create cover block
+@mixin coverer {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+// Vertically centers an element using `transform`.
+@mixin v-align-middle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// Hide text without icon (old-version)
+@mixin hide-text {
+    overflow: hidden;
+    text-indent: -9999px;
+    white-space: nowrap;
+}
+
+// Hide text with icon
+@mixin hide-text-with-icon {
+    @include hide-text();
+    position: relative;
+
+    &::before,
+    &::after {
+        text-indent: 0;
+    }
+}
+
+// Set width and height for element
+@mixin size($width, $height: $width) {
+    height: $height;
+    width: $width;
+}
+
+// Set absolute position with settings
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+    bottom: $bottom;
+    left: $left;
+    position: absolute;
+    right: $right;
+    top: $top;
+}
+
+// Set fixed position with settings
+@mixin fixed($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    bottom: $bottom;
+    left: $left;
+    position: fixed;
+    right: $right;
+    top: $top;
+}
+
+// Set relative position with settings
+@mixin relative($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    bottom: $bottom;
+    left: $left;
+    position: relative;
+    right: $right;
+    top: $top;
+}
+
+@mixin reset-position {
+    bottom: auto;
+    left: auto;
+    position: static;
+    right: auto;
+    top: auto;
+}
+
+// Set transition for element with settings
+@mixin transition($prop: all, $duration: 400ms, $easing: ease-in-out, $delay: 0ms) {
+    transition: $prop $duration $easing $delay;
+}
+
+// Shortcode for transition mixin
+@mixin trs($prop: all, $duration: 250ms, $easing: ease-in-out, $delay: 0ms) {
+    @include transition($prop, $duration, $easing, $delay);
+}
+
+@mixin multi-inherit($this, $mask) {
+    $selector: ();
+    @each $amp in $this {
+        $selector: append($selector, unquote(str-replace($mask, '&', $amp)), comma);
+    }
+    @at-root {
+        #{$selector} {
+            @content;
+        }
+    }
+}
+
+// Use this for creating scalable elements (usually images / background images) that maintain a ratio.
+@mixin responsive-ratio($x,$y, $pseudo) {
+    $padding: unquote(( $y / $x ) * 100 + '%');
+    @if $pseudo == 'before' {
+        &::before {
+            content: '';
+            display: block;
+            padding-top: $padding;
+            width: 100%;
+        }
+    } @else if $pseudo == 'after' {
+        &::after {
+            content: '';
+            display: block;
+            padding-top: $padding;
+            width: 100%;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+// Mixin for truncating text
+// @param {Integer} - $width - row max-width
+@mixin truncate($width) {
+    max-width: $width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/// Since the current way to qualify a class from within its ruleset is quite
+/// ugly, here is a mixin providing a friendly API to do so.
+/// @author Hugo Giraudel
+/// @param {String} $element-selector - Element selector
+@mixin qualify($element-selector) {
+    @at-root #{$element-selector + &} {
+        @content;
+    }
+}
+
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+@mixin title($color: $color-black, $font: $typo-2, $weight: $bold) {
+    align-items: center;
+    color: $color;
+    display: inline-flex;
+    font-family: $font;
+    font-weight: $weight;
+}
+
+%icons-font-aliasing {
+    display: inline-block;
+    font-family: $font-awesome;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+}
+
+// Add inline icon before
+@mixin icon( $position, $icon, $ff: null, $va: null, $fw: null) {
+    &::#{$position} {
+        @extend %icons-font-aliasing;
+        content: if(str-index($icon, 'attr'), $icon, unquote('\"#{ $icon }\"'));
+        font-family: $ff;
+        font-weight: $fw;
+        vertical-align: $va;
+    }
+}
+
+@mixin icon-before($icon, $ff: null, $va: null, $fw: null) {
+    @include icon('before', $icon, $ff, $va, $fw);
+}
+
+@mixin icon-after($icon, $ff: null, $va: null, $fw: null) {
+    @include icon('after', $icon, $ff, $va, $fw);
+}
+
+// If modifier is passed it wraps the code in it.
+@mixin add-modifier($modifier: null) {
+    @if ($modifier) {
+        &.-#{$modifier} {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin bg-pattern($color, $opacity: 1, $property: 'background-image') {
+    #{$property}: inline-svg('<svg fill="#{$color}" fill-opacity="#{$opacity}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10"><polygon points="7,5 7,3 2,3 0,3 0,5 0,8 0,10 2,10 7,10 7,8 2,8 2,5 "/></svg>');
+    background-size: 10px;
+}
+
+@mixin bg-pattern-lg($color, $opacity: 1, $property: 'background-image') {
+    #{$property}: inline-svg('<svg fill="#{$color}" fill-opacity="#{$opacity}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width="14" height="14"><polygon points="10,7 10,4 3,4 0,4 0,7 0,11 0,14 3,14 10,14 10,11 3,11 3,7 "/></svg>');
+    background-size: 14px;
+}
+
+//Shadow for section
+@mixin section-shadow() {
+    position: relative;
+
+    &::before,
+    &::after {
+        background-color: transparent;
+        bottom: 2rem;
+        box-shadow: 0 2rem 1.5rem 0 rgba($color-black, 0.5);
+        content: '';
+        display: block;
+        height: 1.5rem;
+        position: absolute;
+        width: calc(40% - 3rem);
+        z-index: -1;
+    }
+
+    &::before {
+        left: 6rem;
+        transform: rotate(-3deg) skewX(-60deg);
+
+        @include breakpoint(medium down) {
+            left: 7rem;
+        }
+    }
+
+    &::after {
+        right: 6rem;
+        transform: rotate(3deg) skewX(60deg);
+
+        @include breakpoint(medium down) {
+            right: 7rem;
+        }
+    }
+}
+
+// Fancy and smooth linear gradient
+// @url https://css-tricks.com/easing-linear-gradients/
+@mixin scrim-gradient($color: $color-white, $direction: 'to top') {
+    $scrim-coordinates: (
+        0: 1,
+        19: 0.738,
+        34: 0.541,
+        47: 0.382,
+        56.5: 0.278,
+        65: 0.194,
+        73: 0.126,
+        80.2: 0.075,
+        86.1: 0.042,
+        91: 0.021,
+        95.2: 0.008,
+        98.2: 0.002,
+        100: 0
+    );
+
+    $stops: ();
+
+    @each $stop, $alpha in $scrim-coordinates {
+        $stops: append($stops, rgba($color, $alpha) $stop*1%, comma);
+    }
+
+    background: linear-gradient(unquote($direction), $stops);
+}

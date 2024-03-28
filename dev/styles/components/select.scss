@@ -1,0 +1,60 @@
+/**
+ * Select
+ *
+ * A select field
+ *
+ * @section
+ * @page Forms
+ *
+ * @example
+ * <fieldset>
+ *     <div class="flex-row">
+ *         <div class="col-xs-12 col-md-6 form--field-wrapper">
+ *             <label for="select">Select</label>
+ *             <select name="select" id="select">
+ *                 <option value="0">- Sélectionner -</option>
+ *                 <option value="1">Option 1</option>
+ *                 <option value="2">Option 2</option>
+ *             </select>
+ *         </div>
+ *         <div class="col-xs-12 col-md-6 form--field-wrapper">
+ *             <label for="select-disabled">Select disabled</label>
+ *             <select name="select-disabled" id="select-disabled" disabled>
+ *                 <option value="0">- Sélectionner -</option>
+ *                 <option value="1">Option 1</option>
+ *                 <option value="2">Option 2</option>
+ *             </select>
+ *         </div>
+ *     </section>
+ * </fieldset>
+ */
+
+$select-drop-color: $color-2--2;
+$select-disabled-drop-color: #b1b1b1;
+$select-color: #494949;
+$select-color-disabled: rgba(#494949, 0.5);
+
+select {
+    @extend %input-general-styles;
+    appearance: none !important;
+    color: $select-color;
+    cursor: pointer;
+    font-style: italic;
+    padding-right: em(3.2, 1.4);
+    background: {
+        image: inline-svg('<svg fill="#{$select-drop-color}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="12" height="12"><path d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z"></path></svg>');
+        position: calc(100% - 0.75em) 50%;
+        repeat: no-repeat;
+        size: 10px;
+    }
+
+    &:disabled {
+        background-image: inline-svg('<svg fill="#{$select-disabled-drop-color}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="12" height="12"><path d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z"></path></svg>');
+        color: $select-color-disabled;
+        cursor: inherit;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+}

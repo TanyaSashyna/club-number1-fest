@@ -1,0 +1,162 @@
+/**
+ * @section Infos
+ * @page Infos
+ *
+ * @example
+ * <div class="infos">
+ *      <div class="infos__wrap">
+ *          <div class="infos__items">
+ *              <p class="infos__item -address">
+ *                  <span class="ghost">Adresse : </span>
+ *                  13 Lorem ipsum dolor sit<br>amert 25697 loreum ipsuli
+ *              </p>
+ *              <p class="infos__item -website -underline">
+ *                  <a href="#">Site internet</a>
+ *              </p>
+ *          </div>
+ *          <div class="infos__items -has-border">
+ *              <p class="infos__item -phone">
+ *                  <span class="ghost">Tél : </span>
+ *                  <a href="tel:0494000000">04 94 00 00 00</a>
+ *              </p>
+ *              <p class="infos__item -fax">
+ *                  <span class="ghost">Fax : </span>
+ *                  <a href="tel:0494000000">04 94 00 00 00</a>
+ *              </p>
+ *              <p class="infos__item -email -underline">
+ *                  <a href="mailto:name@domain.com">Courriel</a>
+ *              </p>
+ *          </div>
+ *      </div>
+ *      <p class="infos__item -info">
+ *          <span class="ghost">Informations : </span>
+ *          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error minus numquam officia saepe vitae.
+ *      </p>
+ *      <p class="infos__item -hours">
+ *          <span class="ghost">Horaires : </span>
+ *          Lundi : 15h-18h / Mardi : 9h30-12h30 / Jeudi : 9h30-12h30 / 14h30-18h30
+ *      </p>
+ * </div>
+ *
+ */
+
+/**
+ * @section Infos without columns
+ * @page Infos
+ *
+ * @example
+ * <div class="infos">
+ *      <p class="infos__item -address">
+ *          <span class="ghost">Adresse : </span>
+ *          13 Lorem ipsum dolor sit<br>amert 25697 loreum ipsuli
+ *      </p>
+ *      <p class="infos__item -website -underline"><a href="#">Site internet</p>
+ *      <p class="infos__item -phone">
+ *          <span class="ghost">Tél : </span>
+ *          <a href="tel:0494000000">04 94 00 00 00</a>
+ *      </p>
+ *      <p class="infos__item -fax">
+ *          <span class="ghost">Fax : </span>
+ *          <a href="tel:0494000000">04 94 00 00 00</a>
+ *      </p>
+ *      <p class="infos__item -email -underline"><a href="mailto:name@domain.com">Courriel</a></p>
+ *      <p class="infos__item -info">
+ *          <span class="ghost">Informations : </span>
+ *          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error minus numquam officia saepe vitae.
+ *      </p>
+ *      <p class="infos__item -hours">
+ *          <span class="ghost">Horaires : </span>
+ *          Lundi : 15h-18h / Mardi : 9h30-12h30 / Jeudi : 9h30-12h30 / 14h30-18h30
+ *      </p>
+ * </div>
+ */
+
+.infos {
+    $this: &;
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3rem 0 2rem;
+
+        @include breakpoint(medium down) {
+            flex-direction: column;
+            margin: 2rem 0 3rem;
+        }
+    }
+
+    &__items {
+        flex-basis: 100%;
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding-right: 0;
+    }
+
+    &__item {
+        color: $color-black;
+        font-family: $typo-1;
+        font-size: 1.5rem;
+        font-weight: $light;
+        padding: 0.7rem 0;
+        margin: 0;
+        position: relative;
+
+        a {
+            color: $directory-title-color;
+            text-decoration: none;
+
+            &:before {
+                font-family: $font-awesome;
+                color: $color-3--4;
+                margin-right: 1rem;
+                -webkit-transition: background-color .2s, color .2s;
+                transition: background-color .2s, color .2s;
+            }
+
+            @include on-event() {
+                color: $color-2--1;
+
+                &:before {
+                    color: $color-2--1;
+                }
+            }
+        }
+
+        &.-email {
+            a:before {
+                content: '\f0e0';
+                font-size: 1.2rem;
+            }
+        }
+
+        &.-phone {
+            a:before {
+                content: '\f098';
+            }
+        }
+
+        &.-address {
+            a:before {
+                content: '\f015';
+                font-size: 1.5rem;
+            }
+        }
+
+        &.-renseignement {
+            margin-top: 3rem;
+        }
+
+        &.-public,
+        &.-name {
+            padding-left: 0;
+        }
+    }
+
+    &.-single {
+        #{$this}__wrap {
+            @include breakpoint(medium down) {
+                margin: 0.5rem 0 0;
+            }
+        }
+    }
+}

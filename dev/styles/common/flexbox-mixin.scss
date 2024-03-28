@@ -1,0 +1,58 @@
+/* Flex mixin */
+// Map of all flexbox container properties
+$flex-config: (
+    flex-direction: (row, row-reverse, column, column-reverse),
+    flex-wrap: (nowrap, wrap, wrap-reverse),
+    justify-content: (flex-start, flex-end, center, space-between, space-around),
+    align-items: (stretch, flex-start, flex-end, center, baseline),
+    align-content: (stretch, flex-start, flex-end, center, space-between, space-around)
+);
+
+// Default flex extender, apply everywhere
+%flex {
+    display: flex;
+}
+
+// Generate flex extenders for each property
+@each $prop, $values in $flex-config {
+    @each $value in $values {
+        %#{$prop}-#{$value} {
+            #{$prop}: #{$value};
+        }
+    }
+}
+
+;
+
+// Create a flex mixin
+// max 5 property values
+// in such direction: flex-direction, flex-wrap, justify-content, align-items, align-content
+// ... or null
+// example: @include flex(column, null, space-around, flex-end);
+@mixin flex($props...) {
+
+    @if (5 < length($props)) {
+        @error 'Max 5 values!';
+    }
+
+    @extend %flex;
+
+    @if length($props) > 0 {
+        @for $i from 1 through length($props) {
+            $val: nth($props, $i); // Get current value
+
+            @if (null != $val) {
+
+                $prop: nth(map-keys($flex-config), $i); // Get current property name
+
+                @if (null != index(map-get($flex-config, $prop), $val)) { // Search for value in property list
+                    @extend %#{$prop}-#{$val}; // Extend this value
+                } @else {
+                    @error 'No such property #{$prop}: #{$val}; in \'flex\' mixin, property ##{$i}'; // Doesn't find such value. Drop an error
+                }
+
+            }
+        }
+    }
+
+}

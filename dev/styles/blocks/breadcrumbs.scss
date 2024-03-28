@@ -1,0 +1,64 @@
+$breadcrumb-fz: 1.4;
+$breadcrumb-icon: '';
+
+// @name Breadcrumb
+.breadcrumb {
+    $this: &;
+
+    display: inline-block;
+    font-family: $typo-1;
+    vertical-align: middle; 
+    width: 70%;
+
+    ol {
+        color: $color-3--3;
+        font-size: #{$breadcrumb-fz}rem;
+        font-weight: $bold;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        color: $color-white;
+        display: inline-block;
+        font-weight: $normal;
+
+        &:last-child {
+            color: $color-2--1;
+            font-weight: $bold;
+        }
+    }
+
+    li + li {
+        @include icon-before($breadcrumb-icon);
+
+        &::before {
+            color: inherit;
+            font-size: 1.2rem;
+            margin: 0 0.6rem;
+        }
+    }
+
+    li#{$this}__here {
+        font-weight: $bold;
+
+        + li {
+            &::before {
+                content: none;
+            }
+        }
+    }
+
+    a {
+        color: inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    p {
+        display: inline-block;
+    }
+}

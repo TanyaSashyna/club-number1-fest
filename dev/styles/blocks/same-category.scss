@@ -1,0 +1,209 @@
+$same-category-bg: $color-3--1;
+$same-category-c: $color-3--4;
+$same-category-fz: 1.5;
+$same-category-icon: '';
+$same-category-icon-open: '';
+
+.same-category {
+    $this: &;
+    @include bg-pattern-lg(lighten($color-black, 61.96), 0.05);
+    background-color: $same-category-bg;
+
+    @include breakpoint(medium down) {
+        padding: 3.5rem 2rem 0;
+    }
+
+    @include breakpoint(small down) {
+        padding: 0.5rem 1rem 0;
+    }
+
+    &__wrapper {
+        align-items: center;
+        background-color: $color-white;
+        display: flex;
+        font-family: $typo-1;
+        font-size: #{$same-category-fz}rem;
+        padding: 0.85rem 3rem;
+        width: 100%;
+
+        @include breakpoint(large) {
+            &.container {
+                max-width: 122rem;
+            }
+        }
+
+        @include breakpoint(medium down) {
+            background-color: transparent;
+            flex-wrap: wrap;
+            padding: 1.25rem 0;
+            position: relative;
+        }
+
+        @include breakpoint(small down) {
+            align-items: flex-start;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding: 2.5rem 1rem;
+        }
+    }
+
+    &__toggle {
+        @include icon-after($same-category-icon);
+        background-color: $color-white;
+        border: 0;
+        color: $color-3--3;
+        cursor: pointer;
+        display: none;
+        flex-grow: 1;
+        font-size: 1.4rem;
+        font-weight: $light;
+        line-height: 1;
+        padding: 1.3rem 3rem;
+        position: relative;
+
+        &::after {
+            @include absolute(50%, 1.5rem);
+            color: $color-2--1;
+            font-size: 1.2rem;
+            font-weight: $bold;
+            margin-left: 0.5rem;
+            transform: translateY(-50%);
+        }
+
+        &[aria-expanded='true'] {
+            &::after {
+                content: fa-content($same-category-icon-open);
+            }
+        }
+
+        @include on-event() {
+            outline-offset: -0.1rem;
+        }
+
+        @include breakpoint(medium down) {
+            display: block;
+            text-align: left;
+        }
+
+        @include breakpoint(small down) {
+            padding-left: 1rem;
+            width: 100%;
+
+            &::after {
+                right: 1rem;
+            }
+        }
+    }
+
+    &__title {
+        color: $color-3--4;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        font-weight: $bold;
+        margin-right: 2rem;
+        text-transform: uppercase;
+
+        @include breakpoint(medium down) {
+            margin-right: 0;
+            padding-right: 1rem;
+            text-align: left;
+            width: 22.5rem;
+        }
+
+        @include breakpoint(small down) {
+            margin-top: 0;
+            width: auto;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include breakpoint(medium down) {
+            @include absolute(6.5rem, 0);
+            background-color: $color-white;
+            flex-grow: 1;
+            max-height: 0;
+            opacity: 0;
+            text-align: left;
+            visibility: hidden;
+            width: calc(100% - 22.5rem);
+        }
+
+        @include breakpoint(small down) {
+            right: 1rem;
+            top: 9.8rem;
+            width: calc(100% - 2rem);
+        }
+
+        .-is-open & {
+            max-height: 35rem;
+            opacity: 1;
+            visibility: visible;
+
+            @include breakpoint(medium down) {
+                padding-bottom: 1rem;
+            }
+        }
+    }
+
+    &__item {
+        float: left;
+        margin: 0.5rem 0.3rem;
+        vertical-align: middle;
+
+        @include breakpoint(medium down) {
+            display: block;
+            float: none;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(100%);
+
+            .-is-open & {
+                opacity: 1;
+                transform: translateY(0);
+
+                @for $index from 1 through 10 {
+                    &:nth-child(#{$index}) {
+                        transition: all 0.2s ease (100ms * $index - 100);
+                    }
+                }
+            }
+        }
+
+        a {
+            @include trs();
+            border: 1px solid transparent;
+            color: $same-category-c;
+            font-weight: $light;
+            display: inline-block;
+            font-size: 1.5rem;
+            padding: 1rem 1.4rem;
+
+            @include breakpoint(medium down) {
+                border: 0;
+                display: block;
+                padding: 0.6rem 3rem;
+
+                @include on-event() {
+                    text-decoration: underline;
+                }
+            }
+
+            @include breakpoint(small down) {
+                padding: 0.6rem 3rem 0.6rem 1rem;
+            }
+
+            @include on-event() {
+                border-color: rgba($color-black, 0.2);
+                outline-offset: 0;
+            }
+
+            &[aria-current='page'] {
+                border-color: rgba($color-black, 0.2);
+            }
+        }
+    }
+}

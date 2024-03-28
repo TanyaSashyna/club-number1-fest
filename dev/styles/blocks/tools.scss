@@ -1,0 +1,76 @@
+// @name Tools
+// @description Tools on page and sharing on social media network
+.tools {
+    $this: &;
+
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    width: 29.5%;
+
+    &__list {
+        font-size: 0;
+        margin: 0;
+    }
+
+    &__item {
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+
+        & + & {
+            border-left: 1px solid $color-3--2;
+        }
+    }
+
+    &__btn {
+        border: 0;
+        color: $color-white;
+        cursor: pointer;
+        display: block;
+        margin: 0;
+        padding: 0;
+        @include trs($duration: 300ms);
+
+        .share-block & {
+            color: $color-2--5;
+        }
+
+        &[data-fa-icon] {
+            background: none;
+            font-size: 1.6rem;
+            height: 3rem;
+            position: relative;
+            text-align: left;
+            width: 4rem;
+            @include hide-text-with-icon();
+
+            &::before {
+                color: inherit !important;
+                display: block;
+                left: 50%;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+
+        @include on-event() {
+            color: $color-2--1;
+        }
+
+        &:focus {
+            outline-offset: 0;
+        }
+    }
+
+    .share-block {
+        text-align: left;
+
+        &__button {
+            border-radius: 0;
+            color: $color-1--2;
+        }
+    }
+}
